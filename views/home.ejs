@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Golden Towers | NS Brothers SLV Developers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">    
+</head>
+<body>
+    
+   <header>
+    <div class="container header-container">
+        <div class="logo">
+            <img src="images/Logo.jpg" alt="Golden Towers Logo">
+        </div>
+        <nav>
+            <div class="mobile-menu" id="menu-toggle" onclick=openSidebar()>
+                <i class="fas fa-bars" ></i>
+            </div>
+            <ul>
+                <li><span id="menu-close">&times;</span></li>
+                <li><a href="#home"  onclick="handleAnchorClick(event, this)">HOME</a></li>
+                <li><a href="#about"  onclick="handleAnchorClick(event, this)">ABOUT</a></li>
+                <li><a href="#amenities"  onclick="handleAnchorClick(event, this)">AMENITIES</a></li>
+                <li><a href="#nearby"  onclick="handleAnchorClick(event, this)">NEARBY</a></li>
+                <li><a href="#nearby"  onclick="handleAnchorClick(event, this)">CONNECTIVITY</a></li>
+                <li><a href="#gallery"  onclick="handleAnchorClick(event, this)">GALLERY</a></li>
+                <li><a href="#floor-plans"  onclick="handleAnchorClick(event, this)">FLOOR PLANS</a></li>
+                <li><a href="#contact"  onclick="handleAnchorClick(event, this)">CONTACT</a>li>
+            </ul>
+        </nav>
+    </div>
+    
+</header>
+<div class="mob-sidebar" id="mob-sidebar">
+      <h1 class="menu-heading">Menu</h1>
+      <span id="menu-close" onclick=closeSidebar()>&times;</span>
+       <ul>
+                <li><a href="#home" >HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#amenities">AMENITIES</a></li>
+                <li><a href="#nearby">NEARBY</a></li>
+                <li><a href="#nearby">CONNECTIVITY</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#floor-plans">FLOOR PLANS</a></li>
+                <li><a href="#contact1-mob">CONTACT</a></li>
+            </ul>
+  </div>
+  
+<div class="headerTwo">
+    <div class="container">
+      <label class="label" onclick=downloadForm()>
+        <input type="checkbox" class="input" id="downloadTrigger" />
+        <span class="circle">
+          <svg class="icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 19V5m0 14-4-4m4 4 4-4"></path>
+          </svg>
+          <div class="square"></div>
+        </span>
+        <a class="brochureBtn" id="brochureBtn">Brochure</a>
+      </label>
+    </div>
+  </div>
+
+<div class="download-form-overlay" onclick=hidedownloadForm()></div>
+<div class="download-form-container" id="download-form-container">
+  <div class="heading">Download Now</div>
+  <span class="closedownloadForm" onclick=closedownloadForm()>&times;</span>
+  <form action="/view"  method="post" class="form">
+    <input  class="input" type="name" name="name" id="name" placeholder="Enter your Name" required>
+    <input  class="input" type="phoneNumber" name="phoneNumber" id="phoneNumber" maxlength="10" placeholder="Enter your phone Number" required>
+   
+    <button class="download-form-button">Submit</a>
+
+    
+  </form>
+ 
+    
+</div>
+
+    <section class="home" id="home">
+        <div class="home-slideshow" id ="home-slideshow">   
+            <img src="images/Starts from.png" class="slide active" alt="House Image 1">
+            <img src="images/image2.png" class="slide" alt="House Image 2">
+            <img src="images/7.png" class="slide" alt="House Image 3">
+            <img src="images/3.png" class="slide " alt="House Image 4">
+            <img src="images/STREET VIEW 13jpg (1).jpg" class="slide" alt="House Image 5">  
+        </div>
+        <div class="arrow-controls">
+        <button class="arrow" id="prevBtn"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="arrow" id="nextBtn"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <div class="contact" id="contact">
+            <h3>Luxury Apartments in Kogilu Cross</h3>
+            <p>Yelahanka, Bangalore, 560064</p>
+          
+            <button class="btn call-btn">
+                <i class="fa fa-phone"></i>  +91 8099932555
+            </button>
+          
+            <form  method="POST" action="/form">
+                <h4>REQUEST A CALLBACK</h4>
+              
+                <div class="form-group">
+                    <label for="name">Your Name*</label>
+                    <input type="text" id="name" name="form[name]" placeholder="Enter your Name" required>
+                </div>
+              
+                <div class="form-group phone-field">
+                    <label for="mobile">Mobile*</label>
+                    <div class="mobile-input">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="mobile" name="form[mobile]" maxlength="10" placeholder="Enter your Phone Number" required>
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <label for="project">Projects*</label>
+                    <select id="project" name="form[project]" required>
+                        <option value="">Select Project</option>
+                        <option value="2BHK">2BHK</option>
+                        <option value="3BHK">3BHK</option>
+                        <option value="4BHK">4BHK</option>
+                    </select>
+                </div>
+              
+                <button class="submit-btn" type="submit">
+                    Submit
+                </button>
+            </form>
+            
+          </div>
+         
+<button class="enquiryBtn" id="enquiryBtn" onclick="openPopup()">
+   Enquiry Now
+    <div class="star-1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div class="star-2">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div class="star-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div class="star-4">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div class="star-5">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <div class="star-6">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xml:space="preserve"
+        version="1.1"
+        style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+        viewBox="0 0 784.11 815.53"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+      >
+        <defs></defs>
+        <g id="Layer_x0020_1">
+          <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+          <path
+            class="fil0"
+            d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+          ></path>
+        </g>
+      </svg>
+    </div>
+  </button>
+  
+
+        <form class="popup-form" id="enquiryPopup" action="/form" method = "POST" >
+            <div class="form-content">
+              <span class="close-btn" id="closePopup" onclick=closePopup()>&times;</span>
+          
+              <div class="form-group">
+                <label for="popup-name">Your Name*</label>
+                <input type="text" name="form[name]" id="popup-name" placeholder="Enter your Name" required/>
+              </div>
+          
+              <div class="form-group phone-field">
+                <label for="mobile">Mobile*</label>
+                <div class="mobile-input">
+                  <span class="country-code">+91</span>
+                  <input type="tel" name="form[mobile]" id="mobile" maxlength="10" placeholder="Enter your Phone Number" required/>
+                </div>
+              </div>
+              
+          
+              <div class="form-group">
+                <label for="popup-project">Projects*</label>
+                <select id="popup-project" name="form[project]" required>
+                  <option>Select Project</option>
+                  <option>2BHK</option>
+                  <option>3BHK</option>
+                  <option>4BHK</option>
+                </select>
+              </div>
+          
+              <button class="submit-btn">Submit</button>
+            </div>
+          </form>
+   
+    </section>
+    <section class="contact-mob">
+      <div class="contact1-mob" id="contact1-mob">
+            <h3>Luxury Apartments in Kogilu Cross</h3>
+            <p>Yelahanka, Bangalore, 560064</p>
+          
+            <button class="btn call-btn">
+                <i class="fa fa-phone"></i>  +91 8099932555
+            </button>
+          
+            <form  method="POST" action="/form">
+                <h4>REQUEST A CALLBACK</h4>
+              
+                <div class="form-group">
+                    <label for="name">Your Name*</label>
+                    <input type="text" id="name" name="form[name]" placeholder="Enter your Name" required>
+                </div>
+              
+                <div class="form-group phone-field">
+                    <label for="mobile">Mobile*</label>
+                    <div class="mobile-input">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="mobile" name="form[mobile]" maxlength="10" placeholder="Enter your Phone Number" required>
+                    </div>
+                </div>
+              
+                <div class="form-group">
+                    <label for="project">Projects*</label>
+                    <select id="project" name="form[project]" required>
+                        <option value="">Select Project</option>
+                        <option value="2BHK">2BHK</option>
+                        <option value="3BHK">3BHK</option>
+                        <option value="4BHK">4BHK</option>
+                    </select>
+                </div>
+              
+                <button class="submit-btn" type="submit">
+                    Submit
+                </button>
+            </form>
+            
+          </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>ABOUT GOLDEN TOWERS</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The New Standard in Spacious Living</h3>
+                    <p>Welcome to The Golden Towers, where thoughtful design meets modern luxury. Our project is designed to help you realize your dreams of a perfect home that stands the test of time.</p>
+                    <p>NS Brothers SLV Developers is committed to delivering high-quality, customer-centric residential solutions. With dedicated professionals, we create world-class living spaces that exceed expectations.</p>
+                    <p>As a leading local developer, we pride ourselves on integrity, professionalism, and commitment to quality. Our team works tirelessly to deliver exceptional results year after year.</p>
+                </div>
+                <div class="about-image">
+                    <div class="card" id="card">
+                        <img src="images/image1.jpg" alt="Golden Towers Building">
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+   
+    <section class="amenities" id="amenities">
+        <div class="container">
+            <div class="section-title">
+                <h2>GRAND AMENITIES</h2>
+            </div>
+            <div class="grid-container">
+            <div class="grid">
+        
+                <div class="amenity"><img src="icons\shopping-cart.png" alt="Multi Purpose Hall"/><p>Convenience Store</p></div>
+                <div class="amenity"><img src="icons\hall.png" alt="Multi Purpose Hall"/><p>Multi Purpose Hall</p></div>
+                <div class="amenity"><img src="icons\sport.png" alt="Badminton Court"/><p>Badminton Court</p></div>
+                <div class="amenity"><img src="icons\coworking-space.png" alt="Co-working Space"/><p>Co-working Space</p></div>
+                <div class="amenity"><img src="icons\movie.png" alt="Home Theatre"/><p>Home Theatre</p></div>
+          
+                <div class="amenity"><img src="icons\hair-salon.png" alt="Unisex Salon"/><p>Unisex Salon</p></div>
+                <div class="amenity"><img src="icons\bowling.png" alt="Indoor Games"/><p>Indoor Games</p></div>
+                <div class="amenity"><img src="icons\home (1).png" alt="Hobby Room"/><p>Hobby Room</p></div>
+                <div class="amenity"><img src="icons\yoga-pose.png" alt="Yoga Hall"/><p>Yoga Hall</p></div>
+                <div class="amenity"><img src="icons\spa.png" alt="Spa"/><p>Spa - Gents & Ladies</p></div>
+          
+                <div class="amenity"><img src="icons\alphabet.png" alt="Crèche"/><p>Crèche</p></div>
+                <div class="amenity"><img src="icons\weightlifting.png" alt="Gym"/><p>Gym</p></div>
+                <div class="amenity"><img src="icons\swimming-pool (1).png" alt="Swimming Pool"/><p>Swimming Pool</p></div>
+                <div class="amenity"><img src="icons\swimming-pool.png" alt="Kids Pool"/><p>Kids Pool</p></div>
+                <div class="amenity"><img src="icons\marathon.png" alt="Jogging Track"/><p>Jogging Track</p></div>
+          
+                <div class="amenity"><img src="icons\dog.png" alt="Pet Park"/><p>Pet Park</p></div>
+                <div class="amenity"><img src="icons\slider.png" alt="Kids Play Area"/><p>Kids Play Area</p></div>
+                <div class="amenity"><img src="icons\tennis-court.png" alt="Multipurpose Court"/><p>Multipurpose Court</p></div>
+                <div class="amenity"><img src="icons\pitch.png" alt="Cricket Pitch"/><p>Cricket Pitch</p></div>
+                <div class="amenity"><img src="icons\roller-skater.png" alt="Skating Rink"/><p>Skating Rink</p></div>
+          
+                <div class="amenity"><img src="icons\hall.png" alt="Party Lawn"/><p>Party Lawn</p></div>
+                <div class="amenity"><img src="icons\amphitheatre.png" alt="Amphitheatre"/><p>Amphitheatre</p></div>
+                <div class="amenity"><img src="icons\lotus.png" alt="Yoga Deck"/><p>Yoga Deck</p></div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="nearby auto-scroll" id="nearby">
+        <div class="container">
+            <div class="section-title">
+                <h2>NEARBY CONNECTIVITY & CONVENIENCE</h2>
+            </div>
+            
+            <div class="nearby-tabs">
+                <button class="nearby-tab active" data-tab="schools">Schools & Colleges</button>
+                <button class="nearby-tab" data-tab="hospitals">Hospitals</button>
+                <button class="nearby-tab" data-tab="it-parks">IT Parks</button>
+                <button class="nearby-tab" data-tab="other">Other Facilities</button>
+            </div>
+            
+            <div id="schools" class="nearby-content active">
+                <div class="nearby-grid">
+      
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-school"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>International School</h4>
+                            <p>1.5 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Montgomery Public School</h4>
+                            <p>2 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>City College</h4>
+                            <p>3 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Little Angels Preschool</h4>
+                            <p>0.8 km from Golden Towers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="hospitals" class="nearby-content">
+                <div class="nearby-grid">
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-hospital"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Royalty Hospital</h4>
+                            <p>2 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Kingsland Medical Center</h4>
+                            <p>3 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-briefcase-medical"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>City Emergency Clinic</h4>
+                            <p>1.2 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Cardiac Care Center</h4>
+                            <p>4 km from Golden Towers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="it-parks" class="nearby-content">
+                <div class="nearby-grid">
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Tech Valley IT Park</h4>
+                            <p>5 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Innovation Hub</h4>
+                            <p>7 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Digital City</h4>
+                            <p>6 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Software Park</h4>
+                            <p>8 km from Golden Towers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="other" class="nearby-content">
+                <div class="nearby-grid">
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>County Town Mall</h4>
+                            <p>1 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Fine Dining Restaurants</h4>
+                            <p>0.5 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-film"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Multiplex Cinema</h4>
+                            <p>2.5 km from Golden Towers</p>
+                        </div>
+                    </div>
+                    <div class="nearby-item">
+                        <div class="nearby-icon">
+                            <i class="fas fa-parking"></i>
+                        </div>
+                        <div class="nearby-text">
+                            <h4>Public Parking</h4>
+                            <p>0.3 km from Golden Towers</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="location-img">
+            <img src="images\location.png" alt="Location Map">
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="container">
+          <div class="section-title gallery-section-title" >
+            <h2>GALLERY</h2>
+          </div>
+    
+     <div class="card-3d">
+    <div><img src="images/1.png" alt="Random 1"></div>
+    <div><img src="images/2.png" alt="Random 2"></div>
+    <div><img src="images/3.png" alt="Random 3"></div>
+    <div><img src="images/4.png" alt="Random 4"></div>
+    <div><img src="images/5.png" alt="Random 5"></div>
+    <div><img src="images/6.png" alt="Random 6"></div>
+    <div><img src="images/7.png" alt="Random 7"></div>
+    <div><img src="images/8.png" alt="Random 8"></div>
+    <div><img src="images/9.png" alt="Random 9"></div>
+    <div><img src="images/10.png" alt="Random 10"></div>
+  </div>
+         
+        </div>
+      </section>
+      
+    
+  
+    <section class="video-tour" id="video-tour">
+        <div class="container">
+          <div class="section-title">
+            <h2>WALKTHROUGH VIDEO</h2>
+          </div>
+          <div class="video-container">
+            <video autoplay muted loop playsinline>
+              <source src="images\Video GT.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+        
+          </div>
+          <div class="video-title">
+          <a href="https://youtu.be/EhUefdh1UXA?si=wejBYORob0XXZvb-" class="video-caption" target="_blank">Watch full video on YouTube     <div class="nearby-icon youtube-icon">
+            <i class="fab fa-youtube"></i>
+        </div></a>
+    </div>
+        </div>
+      </section>
+      <!-- <section class="view" id="view">
+        <div class="view-container">
+        <span class="view-content"><img src="images\padlock.png"\ alt="Padlock-Icon"> <h1 class="view-heading">UNLOCK MASTER,FLOOR PLANS AND MORE FEATURES+</h1></span>
+        <p class="view-caption">Your future home is just a click away—take a look inside.</p>
+        <button class="view-button" onclick=viewForm() >View Now</button>
+        </div>
+      </section> -->
+      
+<div class="view-form-overlay" onclick=hideviewForm()></div>
+<div class="view-form-container" id="view-form-container">
+  <div class="heading">Download Now</div>
+  <span class="closeviewForm" onclick=closeviewForm()>&times;</span>
+  <form action="/viewsecond" method="POST" class="form">
+    <input  class="input" type="name" name="name" id="name" placeholder="Enter your Name" required>
+    <input  class="input" type="tel" name="phoneNumber" id="phoneNumber" placeholder="Enter your number" required>
+  
+    <button class="view-form-button" type="submit" id="viewsubmitBtn">Submit</a>
+
+    
+  </form>
+ 
+</div>
+
+      <section class="masterplan" id="masterplan">
+        <div class="container">
+            <div class="section-title">
+                <h2>MASTER PLAN</h2>
+            </div>
+                    <img src="images\master-plan.png" alt="Master Plan Image">
+            <div class="masterplan-caption">
+                  <a href="images/master-plan.png" download="master-plan.png"  style="display: inline-block; padding: 0;  text-decoration: none;">
+                   Download Master Plan <i class="fa fa-download"></i> 
+                  </a>
+                </div>
+            </div>
+    </section>
+
+    <section class="floor-plans" id="floor-plans">
+        <div class="container">
+            <div class="section-title">
+                <h2>FLOOR PLANS</h2>
+            </div>
+            <div class="floor-plan-block">
+                <div class="floor-plan-img">
+                    <img src="images/tOWER A.png" alt="4 BHK Floor Plan">
+                </div>
+                <div id="block-a" class="tab-content active">
+                    <h3>Block A Floor Plans</h3>
+                    <div class="floor-plan-table-wrapper">
+                        <table class="floor-plan-table">
+                            <thead>
+                                <tr>
+                                    <th>Unit No.</th>
+                                    <th>Type</th>
+                                    <th>Facing</th>
+                                    <th>Area (sq.ft)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>12</td><td>3 BHK</td><td>West</td><td>1500</td></tr>
+                                <tr><td>13</td><td>2 BHK</td><td>West</td><td>1170</td></tr>
+                                <tr><td>14</td><td>3 BHK</td><td>West</td><td>1500</td></tr>
+                                <tr><td>15</td><td>4 BHK</td><td>West</td><td>2000</td></tr>
+                                <tr><td>16</td><td>4 BHK</td><td>West</td><td>2000</td></tr>
+                                <tr><td>17</td><td>4 BHK</td><td>East</td><td>2000</td></tr>
+                                <tr><td>18</td><td>3 BHK</td><td>East</td><td>1350</td></tr>
+                                <tr><td>19</td><td>3 BHK</td><td>East</td><td>1600</td></tr>
+                                <tr><td>20</td><td>3 BHK</td><td>East</td><td>1500</td></tr>
+                                <tr><td>21</td><td>3 BHK</td><td>East</td><td>1500</td></tr>
+                                <tr><td>22</td><td>3 BHK</td><td>East</td><td>1500</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="floor-plan-block reverse">
+                
+                <div id="block-b" class="tab-content tableTwo active">
+                    <h3 class="floor-plans-headTwo">Block B Floor Plans</h3>
+                    <div class="floor-plan-table-wrapper">
+                        <table class="floor-plan-table">
+                            <thead>
+                                <tr>
+                                    <th>Unit No.</th>
+                                    <th>Type</th>
+                                    <th>Facing</th>
+                                    <th>Area (sq.ft)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td>3 BHK</td><td>West</td><td>1500</td></tr>
+                                <tr><td>2</td><td>2 BHK</td><td>West</td><td>1200</td></tr>
+                                <tr><td>3</td><td>2 BHK</td><td>West</td><td>1400</td></tr>
+                                <tr><td>4</td><td>3 BHK</td><td>West</td><td>1600</td></tr>
+                                <tr><td>5</td><td>3 BHK</td><td>West</td><td>1800</td></tr>
+                                <tr><td>6</td><td>3 BHK</td><td>East</td><td>1600</td></tr>
+                                <tr><td>7</td><td>2 BHK</td><td>East</td><td>1040</td></tr>
+                                <tr><td>8</td><td>3 BHK</td><td>East</td><td>1450</td></tr>
+                                <tr><td>9</td><td>2 BHK</td><td>East</td><td>1040</td></tr>
+                                <tr><td>10</td><td>2 BHK</td><td>East</td><td>1040</td></tr>
+                                <tr><td>11</td><td>3 BHK</td><td>East</td><td>1450</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+          </div>
+          <div class="floor-plan-img">
+            <img src="images/floor b.png" alt="3 BHK Floor Plan">
+        </div>
+        
+        </div>
+    </section>
+    <section class="gallery-interior" id="gallery-interior">
+      <div class="container">
+        <div class="section-title"><h2>LUXURY INTERIORS</h2></div>
+        <div class="luxury-interior-grid" style=" display: flex; flex-direction: row; ">
+        <div class="gallery-grid interior-grid" style="display:flex; flex-wrap: wrap;  width: 400px; height: 300px;">
+          <div class="gallery-item" data-category="exterior">
+            <img src="images/night2bhk.jpg" alt="Exterior" class="gallery_image_2_night" id="gallery_image_2_night">
+            <img src="images/day2bhk.jpg" alt="Exterior" class="gallery_image_2_day" id="gallery_image_2_day">
+          </div>
+      </div>
+      <div class="gallery-grid interior-grid" style="display:flex; flex-wrap:wrap; width: 400px; height: 360px;">
+        <div class="gallery-item" data-category="exterior">
+          <img src="images/night3bhk.jpg" alt="Exterior" class="gallery_image_3_night" id="gallery_image_3_night">
+          <img src="images/day3bhk.jpg" alt="Exterior" class="gallery_image_3_day" id="gallery_image_3_day">
+        </div>
+    <div class="switch-container" style="margin: 0 auto;"> 
+<label class="switch"  id="switch" >
+<input id="input" type="checkbox" checked="darkTheme" />
+<div class="slider round" onclick="handleThemeToggle()">
+  <div class="sun-moon">
+    <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+
+    <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+  </div>
+  <div class="stars">
+    <svg id="star-1" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-2" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-3" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-4" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+</label>
+</div> 
+        
+      
+     
+    </div>
+     
+    <div class="gallery-grid interior-grid" style="display:flex; flex-wrap:wrap; width: 400px; height: 300px;">
+      <div class="gallery-item" data-category="exterior">
+        <img src="images/night3bhk.jpg" alt="Exterior" class="gallery_image_4_night" id="gallery_image_4_night">
+        <img src="images/day4bhk.jpg" alt="Exterior" class="gallery_image_4_day" id="gallery_image_4_day">
+      </div>
+         </div>
+         
+          </div>
+          <div class="switch-container-mob" style="margin: 0 auto;"> 
+<label class="switch"  id="switch" >
+<input id="input" type="checkbox" checked="darkTheme" />
+<div class="slider round" onclick="handleThemeToggle()">
+  <div class="sun-moon">
+    <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="moon-dot-2" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="moon-dot-3" class="moon-dot" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-1" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-2" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="light-ray-3" class="light-ray" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+
+    <svg id="cloud-1" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-2" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-3" class="cloud-dark" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-4" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-5" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+    <svg id="cloud-6" class="cloud-light" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+  </div>
+  <div class="stars">
+    <svg id="star-1" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-2" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-3" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+    <svg id="star-4" class="star" viewBox="0 0 20 20">
+      <path
+        d="M 0 10 C 10 10,10 10 ,0 10 C 10 10 , 10 10 , 10 20 C 10 10 , 10 10 , 20 10 C 10 10 , 10 10 , 10 0 C 10 10,10 10 ,0 10 Z"
+      ></path>
+    </svg>
+  </div>
+</div>
+</label>
+</div> 
+    </section>
+  <!-- </section> -->
+
+<section class="metro" id="metro">
+        <div class="container">
+            <div class="section-title">
+                <h2>2 MIN FROM METRO</h2>
+            </div>
+            <div class="metro-content">
+                <div class="metro-map">
+                    <img src="images\metro.png" alt="Metro Map">
+                </div>
+            </div>
+            </div>
+</section>
+
+<section class="overview" id="overview">
+    <div class="container">
+        <div class="section-title">
+            <h2>ABOUT NS BROTHERS SLV DEVELOPERS</h2>
+        </div>
+        <div class="about-content">
+            <div class="overview-image">
+                <img src="images\slv logo.png" alt="SLV Developers Logo">
+            </div>
+            <div class="about-text">
+                <h3>The New Standard in Spacious Living</h3>
+                <p>"NS Brothers' SLV Developers" began its journey as a partnership firm in 2003 and was incorporated as SLV Developers Pvt. Ltd. in 2013. Today, it stands as a trusted name in residential and commercial development across Bangalore. From humble beginnings, the company has evolved into one of the city's fastest-growing real estate firms. With deep-rooted expertise in real estate, construction, and market trends, SLV Developers is known for delivering high-quality projects characterized by innovation, design excellence, and a strong commitment to customer satisfaction.
+                    </p>
+            </div>
+           
+        </div>
+    </div>
+</section>
+    
+    <section class="location" id="location">
+        <div class="container">
+            <div class="section-title">
+                <h2>PRIME LOCATION</h2>
+            </div>
+            <div class="location-content">
+                <div class="location-map">
+                  <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0150377665196!2d77.5970653!3d13.1039368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae19bd0a262743%3A0x5526717bd7cc6d61!2sSLV%20Golden%20Towers!5e0!3m2!1sen!2sin!4v1717678234565!5m2!1sen!2sin&maptype=satellite"
+                  width="600"
+                  height="450"
+                  style="border:0;"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </div>
+                <div class="location-info">
+                    <h3>Where Convenience Meets Luxury</h3>
+                    <ul>
+                        <li>
+                            <i class="fas fa-subway"></i>
+                            <div>
+                                <strong>Metro Connectivity</strong>
+                                <p>Silva Terrinata Metro Station (0.5km), Airport City Metro (1.2km)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-hospital"></i>
+                            <div>
+                                <strong>Hospitals</strong>
+                                <p>Royalty Hospital (2km), Kingsland Medical Center (3km)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-school"></i>
+                            <div>
+                                <strong>Schools</strong>
+                                <p>International School (1.5km), Montgomery Public School (2km)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-shopping-bag"></i>
+                            <div>
+                                <strong>Shopping</strong>
+                                <p>County Town Mall (1km), Westerntown Market (1.8km)</p>
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <strong>Dining</strong>
+                                <p>Multiple fine dining restaurants within 0.5km radius</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+   
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col footer-about">
+                    <h3>Golden Towers</h3>
+                    <p>A premium residential project by NS Brothers SLV Developers offering luxurious living spaces with world-class amenities in a prime location.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Project</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#floor-plans">Floor Plans</a></li>
+                        <li><a href="#location">Location</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col footer-get-in-touch">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> 3rd Floor, Above The Woods
+                              1st Block, HRBR Layout, Bangalore - 43
+                               </p>
+                            <p><i class="fas fa-phone"></i> <strong>Phone:</strong>  +91 8099932555</p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> sales.slvgoldentowers@gmail.com</p>
+                            <p><i class="fas fa-clock"></i> <strong>Office Hours:</strong> Mon-Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="copyright">
+                
+                <p>DISCLAIMER: This brochure is conceptual & not by any means a legal offering. All images used are purely for illustrative purposes. 
+
+                  The developer reserves the right to change, delete or add any specifications or plans mentioned herein.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Bottom Fixed Buttons -->
+<div class="bottom-buttons">
+  <a class="bottom-buttons-btn" onclick = downloadForm()>
+    <i class="fa fa-download"></i> Brochure
+  </a>
+  <div class="divider"></div>
+  <a href="tel:9606179178" class="bottom-buttons-btn">
+    <i class="fa fa-phone"></i> Call us
+  </a>
+</div>
+  <script src="script.js"></script>
+</body>
+</html>

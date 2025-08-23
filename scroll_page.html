@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sree Vaari Homes - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* General resets and basics */
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      box-sizing: border-box;
+      background: #f3f4f5;
+      color: #273043;
+      scroll-behavior: smooth;
+    }
+    * { box-sizing: inherit; }
+    .site-container {
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    a, button { font-family: inherit; }
+    .section {
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0 auto 0 auto;
+      padding: 0;
+    }
+    /*---------------------------
+      SECTION 1: Logo Header
+    ----------------------------*/
+    .logo-header {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 26px 0 9px 0;
+      background: #fff;
+      border-bottom: 1px solid #e8edf3;
+      position: sticky;
+      top: 0; left: 0; z-index: 10;
+    }
+    .logo-header img {
+      max-height: 66px; 
+      max-width: 95vw;
+      height: auto;
+    }
+    /*---------------------------
+      SECTION 2: Hero Carousel
+    ----------------------------*/
+    .carousel-container {
+      position: relative;
+      width: 100vw;
+      max-width: 100vw;
+      height: 100vh;
+      min-height: 400px;
+      overflow: hidden;
+      outline: none;
+      background: #e1e3e7;
+      display: block;
+    }
+    .carousel {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(.83,.06,.33,1.01);
+      height: 100vh;
+    }
+    .carousel-image {
+      width: 100vw;
+      min-width: 100vw;
+      object-fit: cover;
+      height: 100vh;
+    }
+    .carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 7;
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.14);
+      transition: border-color 0.14s, background 0.14s;
+      cursor: pointer;
+      opacity: 0.97;
+      outline: none;
+    }
+    .carousel-control.left { left: 36px; }
+    .carousel-control.right { right: 36px; }
+    .carousel-control svg { display: block; }
+    .carousel-control:hover, .carousel-control:focus {
+      border-color: #298cff;
+      background: rgba(255,255,255,0.14);
+    }
+    .dots {
+      position: absolute;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 4;
+    }
+    .dot {
+      height: 11px;
+      width: 11px;
+      margin: 0 6px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      outline: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .dot.active, .dot:focus {
+      background-color: #298cff;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px #4285f4;
+    }
+    .search-overlay {
+      position: absolute;
+      left: 50%;
+      bottom: 33px;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 22px;
+      padding: 28px 36px 14px 36px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.17);
+      min-width: 320px;
+      max-width: 1020px;
+      width: 92vw;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tabs {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .tab {
+      background: none;
+      border: none;
+      font-weight: bold;
+      font-size: 1.10em;
+      cursor: pointer;
+      padding: 8px 20px 6px 20px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .tab.active, .tab:focus {
+      border-color: #298cff;
+      color: #298cff;
+      outline: none;
+    }
+    .search-form {
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      border-radius: 0 0 14px 14px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+      overflow: visible;
+      margin-top: 5px;
+      border: 1px solid #eee;
+      position: relative;
+    }
+    .search-form select, .search-form input {
+      border: none;
+      outline: none;
+      font-size: 1em;
+      padding: 15px 15px;
+      border-radius: 0;
+      background: #fff;
+    }
+    .search-form select {
+      border-top-left-radius: 14px;
+      border-bottom-left-radius: 14px;
+      border-right: 1px solid #ebebeb;
+      min-width: 130px;
+    }
+    .search-form input {
+      flex: 1;
+      border-right: 1px solid #ebebeb;
+      font-size: 1em;
+      border-radius: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .search-form button {
+      background: #298cff;
+      color: #fff;
+      border: none;
+      padding: 0 28px;
+      height: 48px;
+      font-weight: 600;
+      font-size: 1.0em;
+      border-top-right-radius: 14px;
+      border-bottom-right-radius: 14px;
+      border-radius: 0 14px 14px 0;
+      box-shadow: 0 1px 3px rgba(41,140,255,0.04);
+      transition: background 0.2s;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+    }
+    .search-form button:hover,
+    .search-form button:focus {
+      background: #155ab6;
+    }
+    .autocomplete-suggestions {
+      position: absolute;
+      left: 130px;
+      right: 0;
+      top: 100%;
+      z-index: 40;
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-top: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.09);
+      max-height: 183px;
+      overflow-y: auto;
+      min-width: 140px;
+      border-bottom-right-radius: 14px;
+      border-bottom-left-radius: 0;
+    }
+    .autocomplete-suggestion {
+      padding: 11px 18px;
+      cursor: pointer;
+      font-size: 1em;
+      color: #222;
+      border-bottom: 1px solid #f1f1f1;
+      background: #fff;
+      user-select: none;
+    }
+    .autocomplete-suggestion:last-child {
+      border-bottom: none;
+    }
+    .autocomplete-suggestion:hover, .autocomplete-suggestion.active {
+      background: #f2f7ff;
+      color: #298cff;
+    }
+    .no-suggestion {
+      color: #888;
+      padding: 12px 18px;
+      font-style: italic;
+      background: #fff;
+      cursor: default;
+    }
+    /*------------------------
+      SECTION 3: Property Types Carousel
+    ------------------------*/
+    .carousel-main-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 56px 0 7px 36px;
+      color: #232323;
+      letter-spacing: 0.01em;
+    }
+    .carousel-subtitle {
+      font-size: 1rem;
+      color: #545d6d;
+      margin: 0 0 22px 36px;
+      font-weight: 500;
+    }
+    .carousel-strip-wrapper {
+      position: relative;
+      width: 100vw;
+      overflow: visible;
+      margin: 0;
+      padding: 0 0 4vh 0;
+    }
+    .image-carousel {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      width: 100vw;
+      padding: 0 42px 0 42px;
+      scrollbar-width: none;
+      margin: 0;
+    }
+    .image-carousel::-webkit-scrollbar { display: none; }
+    .card {
+      flex: 0 0 240px;
+      min-width: 240px;
+      height: 320px;
+      position: relative;
+      background: #c6d2db;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: flex-end;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 0 0 transparent;
+      transition: transform 0.13s, box-shadow 0.18s;
+    }
+    .card:hover {
+      transform: scale(1.035);
+      box-shadow: 0 8px 37px 0 rgba(44,66,120,0.22);
+    }
+    .card-overlay {
+      width: 100%;
+      padding: 0 17px 19px 17px;
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(34,39,49,0.63) 75%, rgba(0,0,0,0) 100%);
+      color: #fff;
+      z-index: 2;
+    }
+    .card-title {
+      font-size: 1.13em;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .card-details {
+      font-size: 1em;
+      font-weight: 400;
+      opacity: 0.92;
+    }
+    /* ARROW CONTROLS */
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.93);
+      border: 2px solid #d4dae2;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(19,24,42,0.10);
+      z-index: 2;
+      transition: border-color 0.16s, background 0.16s;
+      outline: none;
+      color: #23303d;
+    }
+    .carousel-arrow svg { display: block; }
+    .carousel-arrow.left { left: 7px;}
+    .carousel-arrow.right { right: 7px;}
+    .carousel-arrow:hover, .carousel-arrow:focus {
+      border-color: #3583e1;
+      background: #e9f2fe;
+    }
+    /*------------------
+      SECTION 4: City Select
+    ------------------*/
+    .city-section {
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 42px 0 32px 0;
+      background: #fff;
+      margin: 0;
+    }
+    .city-title {
+      font-size: 1.35rem;
+      text-align: center;
+      color: #e44b4d;
+      font-weight: 500;
+      margin-bottom: 4vh;
+    }
+    .city-list {
+      display: flex;
+      gap: 44px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 700px;
+      margin-bottom: 26px;
+    }
+    .city-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+    }
+    .city-img {
+      background: #e0e6ea;
+      border-radius: 50%;
+      width: 86px; height: 86px;
+      margin-bottom: 9px;
+      object-fit: cover;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 12px rgba(75,82,116,0.11);
+    }
+    .city-name {
+      font-size: 1.07em;
+      color: #2c3344;
+      font-weight: 500;
+      text-align: center;
+    }
+    .city-more-btn {
+      margin: 0 auto;
+      display: inline-block;
+      padding: 10px 28px;
+      background: #fff;
+      color: #156fff;
+      border: 2px solid #298cff;
+      border-radius: 23px;
+      font-size: 1em;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.17s, color 0.17s, border-color 0.17s;
+      box-shadow: 0 4px 13px rgba(41,140,255,0.05);
+    }
+    .city-more-btn:hover, .city-more-btn:focus {
+      background: #2186f0;
+      color: #fff;
+      border-color: #1874cf;
+    }
+    /*-------------------
+      SECTION 5: Latest Properties for Sale
+    --------------------*/
+    .latest-props-section {
+      width: 100vw;
+      background: #f8f9fa;
+      padding: 48px 0 42px 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .latest-title {
+      font-size: 1.31em;
+      font-weight: 600;
+      color: #a90316;
+      margin-bottom: 2.2vh;
+      text-align: center;
+    }
+    .prop-card-list {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 1140px;
+    }
+    .prop-card {
+      background: #fff;
+      border: 1px solid #e9e9e9;
+      box-shadow: 0 2px 13px rgba(106,130,171,0.11);
+      min-width: 220px; max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      min-height: 220px;
+      padding: 0 0 14px 0;
+      border-radius: 0;
+    }
+    .prop-card-img {
+      width: 100%;
+      height: 100px;
+      object-fit: cover;
+      background: #dde2ea;
+      margin-bottom: 0;
+    }
+    .prop-card-content {
+      padding: 12px 14px 0 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .prop-title {
+      font-weight: 700;
+      font-size: 1em;
+      margin-bottom: 2px;
+      color: #294473;
+    }
+    .prop-desc {
+      font-size: 0.97em;
+      color: #474b57;
+      margin-bottom: 0;
+      opacity: 0.94;
+      font-weight: 400;
+    }
+    .prop-card .prop-btn {
+      margin: 13px 15px 0 15px;
+      padding: 8px 17px;
+      border: 0;
+      background: #247aea;
+      color: #fff;
+      border-radius: 21px;
+      font-weight: 600;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.19s;
+    }
+    .prop-card .prop-btn:hover, .prop-card .prop-btn:focus {
+      background: #1959a6;
+    }
+    /*-------------------
+      SECTION 6: Actions Block
+    --------------------*/
+    .actions-section {
+      width: 100vw;
+      background: #f4f9f9;
+      padding: 43px 0 30px 0;
+      display: flex;
+      justify-content: center;
+    }
+    .actions-box-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .action-box {
+      flex: 1 1 210px;
+      background: #2082de;
+      color: #fff;
+      min-width: 210px;
+      max-width: 260px;
+      padding: 29px 19px 27px 19px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      box-shadow: 0 2px 15px rgba(45,101,161,0.10);
+      border-radius: 0;
+      position: relative;
+      font-size: 1.01em;
+      font-weight: 400;
+    }
+    /* Color different boxes */
+    .actions-box-list .action-box:nth-child(2) { background: #e13a61; }
+    .actions-box-list .action-box:nth-child(3) { background: #fad341; color: #222; }
+    .actions-box-list .action-box:nth-child(4) { background: #17915c; }
+    .action-box-title {
+      font-size: 1.05em;
+      font-weight: 700;
+      margin-bottom: 9px;
+      margin-top: 0;
+    }
+    .action-box-desc { margin-bottom: 15px; }
+    .action-btn {
+      padding: 8px 19px;
+      border: none;
+      border-radius: 22px;
+      font-weight: 600;
+      font-size: 1em;
+      color: #fff;
+      cursor: pointer;
+      background: #074793;
+      transition: background 0.19s;
+      outline: none;
+      text-align: center;
+      margin-top: auto;
+    }
+    .actions-box-list .action-box:nth-child(3) .action-btn { background: #e1bb26; color: #172233;}
+    .action-btn.contact {
+      background: #0759ad;
+      color: #fff;
+    }
+    .action-btn:hover, .action-btn:focus {
+      background: #2b1c5b;
+      color: #fff;
+    }
+    /*-------------------
+      SECTION 7: Real Estate Services (final block)
+    --------------------*/
+    .services-section {
+      width: 100vw;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 0 70px 0;
+    }
+    .services-title {
+      color: #ad1124;
+      font-size: 1.39em;
+      text-align: center;
+      font-weight: 600;
+      margin-bottom: 44px;
+    }
+    .service-list {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1160px;
+      width: 100%;
+    }
+    .service-card {
+      background: #f4f8fb;
+      border: 1.7px solid #e1e7f0;
+      min-width: 210px;
+      max-width: 290px;
+      padding: 34px 22px 24px 22px;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 12px;
+      text-align: center;
+      /* min-height: 186px; */
+      color: #2a3949;
+      font-weight: 400;
+      box-shadow: 0 2px 13px rgba(60,130,171,0.09);
+    }
+    .service-title {
+      font-size: 1.09em;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #153354;
+    }
+    .service-desc {
+      font-size: 1em;
+      font-weight: 400;
+      margin-bottom: 13px;
+      color: #3d5474;
+    }
+    .service-btn {
+      padding: 8px 16px;
+      background: #298cff;
+      color: #fff;
+      border: none;
+      border-radius: 21px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      margin: 0 auto;
+      margin-top: 4px;
+      transition: background 0.15s;
+    }
+    .service-btn:hover, .service-btn:focus { background: #123972; }
+    /*-------------------------
+      RESPONSIVE STYLING
+    --------------------------*/
+    @media (max-width: 1200px) {
+      .carousel-strip-wrapper, .image-carousel { padding-left:3vw; padding-right:3vw; }
+      .service-list { gap: 15px; }
+    }
+    @media (max-width: 950px) {
+      .image-carousel { gap: 9px; }
+      .card { min-width: 181px; height: 215px;}
+      .carousel-main-title { font-size: 1.15rem; }
+    }
+    @media (max-width: 800px) {
+      .service-card { min-width: 170px; max-width: 95vw; }
+      .card { min-width: 159px; }
+      .prop-card { min-width: 160px; max-width: 95vw;}
+    }
+    @media (max-width:675px){
+      .actions-box-list, .prop-card-list, .service-list, .city-list { flex-direction: column; gap: 14px; align-items: center;}
+      .card, .prop-card, .service-card { max-width: 95vw; min-width: 90vw;}
+      .image-carousel { padding: 0 8px;}
+      .city-list{ gap: 21px;}
+      .carousel-main-title, .carousel-subtitle, .city-title, .latest-title, .services-title { margin-left: 2vw;}
+      .city-title, .latest-title, .services-title { font-size:1.03em;}
+      .search-overlay { min-width: 95vw; width: 97vw;}
+      .carousel-control.left,.carousel-control.right {left: 6px; right: 6px;}
+    }
+    @media (max-width:500px) {
+      .carousel-main-title, .carousel-subtitle,.logo-header {margin-left: 0 !important;}
+      .search-overlay {min-width:98vw;padding:9px 3vw 13px 3vw;}
+      .logo-header img {max-height: 46px;}
+      .carousel-control{width:35px;height:35px;}
+      .carousel-main-title{font-size:1em;}
+    }
+  </style>
+</head>
+<body>
+<div class="site-container">
+
+  <!-- SECTION 1: HEADER LOGO -->
+  <div class="logo-header section">
+    <img src="https://via.placeholder.com/200x60?text=Sree+Vaari+Logo" alt="Sree Vaari Homes Logo" />
+  </div>
+
+  <!-- SECTION 2: HERO CAROUSEL -->
+  <div class="carousel-container section" id="hero-carousel">
+    <div class="carousel">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1600&q=80" alt="Banner 1" class="carousel-image">
+      <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=1600&q=80" alt="Banner 2" class="carousel-image">
+      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1600&q=80" alt="Banner 3" class="carousel-image">
+      <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1600&q=80" alt="Banner 4" class="carousel-image">
+    </div>
+    <!-- LEFT ARROW -->
+    <button class="carousel-control left" aria-label="Previous">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M15.5 19L8.5 12L15.5 5" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <!-- RIGHT ARROW -->
+    <button class="carousel-control right" aria-label="Next">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M8.5 5L15.5 12L8.5 19" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+    <div class="search-overlay" id="searchBarSection">
+      <div class="tabs">
+        <button class="tab active" data-tab="apartments" tabindex="0">Apartment’s</button>
+        <button class="tab" data-tab="plots" tabindex="0">Plots</button>
+        <button class="tab" data-tab="home" tabindex="0">Home construction</button>
+        <button class="tab" data-tab="upvc" tabindex="0">UPVC</button>
+        <button class="tab" data-tab="solar" tabindex="0">Solar</button>
+        <button class="tab" data-tab="interior" tabindex="0">Interior</button>
+      </div>
+      <!-- SEARCH FORM -->
+      <form class="search-form" onsubmit="return false;">
+        <select tabindex="0">
+          <option>Select Location</option>
+          <option>North Bangalore</option>
+          <option>East Bangalore</option>
+        </select>
+        <div style="flex:1;position:relative;z-index:2;">
+          <input type="text" id="searchInput" placeholder='Search "North Bangalore plots"' tabindex="0" autocomplete="off"/>
+          <div class="autocomplete-suggestions" id="autocompleteBox" style="display:none"></div>
+        </div>
+        <button type="submit" tabindex="0">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PROPERTY TYPE CAROUSEL -->
+  <div class="section">
+    <div class="carousel-main-title">Apartments, Plots and more</div>
+    <div class="carousel-subtitle">At Sree Vaari Homes</div>
+    <div class="carousel-strip-wrapper">
+      <button class="carousel-arrow left" aria-label="Scroll Left">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M15.5 19L8.5 12L15.5 5" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="image-carousel" id="imageCarousel">
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">Residential Apartment</div>
+            <div class="card-details">4,800+ Properties</div>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">Residential Land</div>
+            <div class="card-details">2,900+ Properties</div>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">Independent House/ Villa</div>
+            <div class="card-details">1,300+ Properties</div>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">Independent/ Builder Floor</div>
+            <div class="card-details">240+ Properties</div>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1449844908441-8829872d2607?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">1 RK/ Studio Apartment</div>
+            <div class="card-details">20+ Properties</div>
+          </div>
+        </div>
+        <div class="card" style="background-image: url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=850&q=80');">
+          <div class="card-overlay">
+            <div class="card-title">Farm House</div>
+            <div class="card-details">5 Properties</div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-arrow right" aria-label="Scroll Right">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <path d="M8.5 5L15.5 12L8.5 19" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- SECTION 4: CITY SELECTOR -->
+  <div class="city-section section">
+    <div class="city-title">Find Your Property in Your Preferred City</div>
+    <div class="city-list">
+      <div class="city-item">
+        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=200" alt="North Bengaluru" class="city-img">
+        <span class="city-name">NORTH BENGALURU</span>
+      </div>
+      <div class="city-item">
+        <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=200" alt="South Bengaluru" class="city-img">
+        <span class="city-name">SOUTH BENGALURU</span>
+      </div>
+      <div class="city-item">
+        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a5b15?w=200" alt="Kolar" class="city-img">
+        <span class="city-name">KOLAR</span>
+      </div>
+      <div class="city-item">
+        <img src="https://images.unsplash.com/photo-1468581264429-2548ef9eb732?w=200" alt="Chikkaballapur" class="city-img">
+        <span class="city-name">CHIKKABALLAPUR</span>
+      </div>
+    </div>
+    <button class="city-more-btn">View More Cities</button>
+  </div>
+
+  <!-- SECTION 5: LATEST PROPERTIES FOR SALE -->
+  <div class="latest-props-section section">
+    <div class="latest-title">Latest Properties for Sale</div>
+    <div class="prop-card-list">
+      <div class="prop-card">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=400&q=80" class="prop-card-img" alt="VR Innovative Global City">
+        <div class="prop-card-content">
+          <div class="prop-title">Plotted development</div>
+          <div class="prop-desc">VR Innovative Global City<br>300+ sites<br>Yaluvagol, Kolar Dist</div>
+        </div>
+        <button class="prop-btn">View Details</button>
+      </div>
+      <div class="prop-card">
+        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=400&q=80" class="prop-card-img" alt="VR Emerald">
+        <div class="prop-card-content">
+          <div class="prop-title">Plotted development</div>
+          <div class="prop-desc">VR Emerald<br>100+ sites<br>Tamaka, Kolar Dist</div>
+        </div>
+        <button class="prop-btn">View Details</button>
+      </div>
+      <div class="prop-card">
+        <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=400&q=80" class="prop-card-img" alt="Nanthi Gardens">
+        <div class="prop-card-content">
+          <div class="prop-title">Plotted development</div>
+          <div class="prop-desc">Nanthi Gardens<br>200+ sites<br>Ittukulsi cross, Jigini</div>
+        </div>
+        <button class="prop-btn">View Details</button>
+      </div>
+      <div class="prop-card">
+        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=400&q=80" class="prop-card-img" alt="SLV Nanthi View">
+        <div class="prop-card-content">
+          <div class="prop-title">Plotted development</div>
+          <div class="prop-desc">SLV Nanthi View<br>100+ sites<br>Kanekalhalli, Chikkaballapura</div>
+        </div>
+        <button class="prop-btn">View Details</button>
+      </div>
+      <div class="prop-card">
+        <img src="https://images.unsplash.com/photo-1449844908441-8829872d2607?w=400&q=80" class="prop-card-img" alt="SLV Golden Towers">
+        <div class="prop-card-content">
+          <div class="prop-title">Apartments</div>
+          <div class="prop-desc">SLV Golden Towers<br>200+ Flats<br>Kogilu cross, Yelahanka</div>
+        </div>
+        <button class="prop-btn">View Details</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: ACTIONS BOXES (Contact/Explore) -->
+  <div class="actions-section section">
+    <div class="actions-box-list">
+      <div class="action-box">
+        <div class="action-box-title">Market your property for free !!</div>
+        <div class="action-box-desc"></div>
+        <button class="action-btn contact">Contact Us</button>
+      </div>
+      <div class="action-box">
+        <div class="action-box-title">Luxurious flats in bangalore</div>
+        <div class="action-box-desc"></div>
+        <button class="action-btn">Explore Now</button>
+      </div>
+      <div class="action-box">
+        <div class="action-box-title">Collabrate as a channel partner</div>
+        <div class="action-box-desc"></div>
+        <button class="action-btn">Explore Now</button>
+      </div>
+      <div class="action-box">
+        <div class="action-box-title">Helping you to find your dream property</div>
+        <div class="action-box-desc"></div>
+        <button class="action-btn contact">Contact Us</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: REAL ESTATE SERVICES -->
+  <div class="services-section section">
+    <div class="services-title">Explore our Real Estate Services</div>
+    <div class="service-list">
+      <div class="service-card">
+        <div class="service-title">Real-estate</div>
+        <div class="service-desc">Find the space that fits your life – and your future.</div>
+        <button class="service-btn">Read More</button>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Solar energy</div>
+        <div class="service-desc">Power your world with the sun – clean, smart, and sustainable solar solutions.</div>
+        <button class="service-btn">Read More</button>
+      </div>
+      <div class="service-card">
+        <div class="service-title">UPVC</div>
+        <div class="service-desc">Strength meets style – durable, weatherproof UPVC solutions for modern living.</div>
+        <button class="service-btn">Read More</button>
+      </div>
+      <div class="service-card">
+        <div class="service-title">Real-estate marketing</div>
+        <div class="service-desc">List smart. Sell fast. Market like never before.</div>
+        <button class="service-btn">Read More</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script>
+/* ----------- SECTION 2: HERO CAROUSEL JS ----------- */
+const carousel = document.querySelector('.carousel');
+const images = document.querySelectorAll('.carousel-image');
+const dots = document.querySelectorAll('.dot');
+const leftBtn = document.querySelector('.carousel-control.left');
+const rightBtn = document.querySelector('.carousel-control.right');
+const tabs = document.querySelectorAll('.tab');
+const searchInputs = document.querySelectorAll('.search-form select, .search-form input, .search-form button');
+const carouselContainer = document.querySelector('.carousel-container');
+let currentIndex = 0;
+let timer = null;
+const INTERVAL = 4200;
+function showSlide(index) {
+  if (index >= images.length) index = 0;
+  if (index < 0) index = images.length - 1;
+  carousel.style.transform = `translateX(-${100 * index}vw)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+  currentIndex = index;
+}
+function nextSlide() { showSlide((currentIndex + 1) % images.length); }
+function prevSlide() { showSlide((currentIndex - 1 + images.length) % images.length); }
+function resetTimer() {
+  if (timer) clearInterval(timer);
+  timer = setInterval(nextSlide, INTERVAL);
+}
+rightBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+leftBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => { showSlide(i); resetTimer(); });
+  dot.setAttribute('tabindex', '0');
+  dot.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      showSlide(i); resetTimer();
+    }
+  });
+});
+function pauseAutoScroll() { if (timer) clearInterval(timer); }
+function resumeAutoScroll() { resetTimer(); }
+carouselContainer.addEventListener('mouseenter', pauseAutoScroll);
+carouselContainer.addEventListener('mouseleave', resumeAutoScroll);
+[...searchInputs, ...tabs].forEach(el => {
+  el.addEventListener('focus', pauseAutoScroll);
+  el.addEventListener('input', pauseAutoScroll);
+  el.addEventListener('blur', resumeAutoScroll);
+});
+carouselContainer.addEventListener('focusin', pauseAutoScroll);
+carouselContainer.addEventListener('focusout', resumeAutoScroll);
+carouselContainer.addEventListener('keydown', (e) => {
+  if (e.key === "ArrowRight") { nextSlide(); resetTimer(); e.preventDefault(); }
+  if (e.key === "ArrowLeft") { prevSlide(); resetTimer(); e.preventDefault(); }
+  if (e.key === "Escape") { pauseAutoScroll(); }
+});
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    showSlide(0); resetTimer();
+  });
+  tab.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === " ") { tab.click(); }
+  });
+});
+document.querySelector('.search-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  pauseAutoScroll();
+});
+showSlide(0);
+resetTimer();
+
+/* --- Autocomplete in Search Bar --- */
+const locations = [
+  "North Bangalore",
+  "East Bangalore",
+  "South Bangalore",
+  "West Bangalore",
+  "Central Bangalore",
+  "Electronic City",
+  "Whitefield",
+  "Bannerghatta Road"
+];
+const searchInput = document.getElementById('searchInput');
+const autocompleteBox = document.getElementById('autocompleteBox');
+let currentSugIndex = -1;
+
+searchInput.addEventListener('input', function() {
+  const value = this.value.trim().toLowerCase();
+  autocompleteBox.innerHTML = '';
+  currentSugIndex = -1;
+  if (value.length === 0) {
+    autocompleteBox.style.display = 'none';
+    return;
+  }
+  const matches = locations.filter(loc => loc.toLowerCase().includes(value));
+  autocompleteBox.style.display = 'block';
+  if (matches.length === 0) {
+    autocompleteBox.innerHTML = `<div class="autocomplete-suggestion no-suggestion">No location found</div>`;
+    return;
+  }
+  matches.forEach((loc, idx) => {
+    const div = document.createElement('div');
+    div.textContent = loc;
+    div.className = 'autocomplete-suggestion';
+    div.tabIndex = 0;
+    div.addEventListener('mousedown', function() {
+      searchInput.value = loc;
+      autocompleteBox.innerHTML = '';
+      autocompleteBox.style.display = 'none';
+    });
+    div.addEventListener('mouseenter', function() {
+      setActive(idx);
+    });
+    autocompleteBox.appendChild(div);
+  });
+});
+function setActive(i) {
+  let items = autocompleteBox.querySelectorAll('.autocomplete-suggestion');
+  items.forEach((el, idx) => {
+    el.classList.toggle('active', idx === i);
+  });
+  currentSugIndex = i;
+}
+searchInput.addEventListener('keydown', function(e) {
+  let items = autocompleteBox.querySelectorAll('.autocomplete-suggestion:not(.no-suggestion)');
+  if (!items.length) return;
+  if (e.key === "ArrowDown") {
+    e.preventDefault();
+    currentSugIndex = (currentSugIndex+1)%items.length;
+    setActive(currentSugIndex);
+    items[currentSugIndex].scrollIntoView({block:'nearest'});
+  } else if (e.key === "ArrowUp") {
+    e.preventDefault();
+    currentSugIndex = (currentSugIndex-1+items.length)%items.length;
+    setActive(currentSugIndex);
+    items[currentSugIndex].scrollIntoView({block:'nearest'});
+  } else if (e.key === "Enter") {
+    if (currentSugIndex > -1) {
+      let pick = items[currentSugIndex];
+      if (pick) {
+        searchInput.value = pick.textContent;
+        autocompleteBox.innerHTML = '';
+        autocompleteBox.style.display = 'none';
+        e.preventDefault();
+      }
+    }
+  }
+});
+searchInput.addEventListener('blur', function() {
+  setTimeout(() => {
+    autocompleteBox.style.display = 'none';
+    autocompleteBox.innerHTML = '';
+  }, 120);
+});
+searchInput.addEventListener('focus', function() {
+  if (this.value.trim() !== '') {
+    searchInput.dispatchEvent(new Event('input'));
+  }
+});
+
+/* -------- SECTION 3: PROPERTY TYPES CAROUSEL -------- */
+const propCarousel = document.getElementById('imageCarousel');
+const propLeftArrow = document.querySelector('.carousel-arrow.left');
+const propRightArrow = document.querySelector('.carousel-arrow.right');
+function scrollCarousel(direction) {
+  const card = propCarousel.querySelector('.card');
+  const scrollAmount = card.offsetWidth + 18;
+  propCarousel.scrollBy({left: direction * scrollAmount * 1.8, behavior: 'smooth'});
+}
+propLeftArrow.addEventListener('click', () => scrollCarousel(-1));
+propRightArrow.addEventListener('click', () => scrollCarousel(1));
+function updateArrows() {
+  propLeftArrow.style.visibility = propCarousel.scrollLeft > 8 ? 'visible' : 'hidden';
+  propRightArrow.style.visibility =
+    propCarousel.scrollLeft + propCarousel.offsetWidth < propCarousel.scrollWidth - 8 ? 'visible' : 'hidden';
+}
+propCarousel.addEventListener('scroll', updateArrows);
+window.addEventListener('resize', updateArrows);
+window.setTimeout(updateArrows, 420);
+propCarousel.tabIndex = 0;
+propCarousel.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowLeft') scrollCarousel(-1);
+  if (e.key === 'ArrowRight') scrollCarousel(1);
+});
+
+</script>
+</body>
+</html>

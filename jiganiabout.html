@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Prestige Group</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Section title with gradient */
+ .section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* center the text */
+
+  background: linear-gradient(
+    to right,
+    #bf3939 0%,      
+    #ce3030 20%,     
+    #ad0808 40%,     
+    #410f0f 60%,     
+    #330909 80%,     
+    #000000 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* ensures gradient applies correctly */
+}
+    /* Small image under title */
+    .title-image {
+      display: block;
+
+      width: 350px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease;
+    }
+
+    .title-image:hover {
+      transform: scale(1.1);
+    }
+
+    /* Content paragraphs */
+    .about-content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* Slide-up animation */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CRISIL logo */
+    .logo {
+      display: block;
+      margin: 20px auto;
+      width: 120px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container slide-up">
+    <h2 class="section-title">Jigani: Bangalore’s Next Big Land Investment Destination Near Electronic City</h2>
+
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" 
+         alt="Prestige Group" class="title-image">
+
+    <div class="about-content">
+      <p>Meta Title: Jigani Real Estate – Why Now Is the Best Time to Buy Land Near Electronic City
+Meta Description: Discover why Jigani is becoming Bangalore’s next real estate hotspot. Affordable plots, strong connectivity, industrial growth, and premium developments make it a smart investment.
+</p>
+
+      <p>Introduction: The Hidden Gem South of Bangalore.</p>
+
+      <p>Just beyond the bustle of Electronic City lies Jigani—a location quietly moving from “industrial back lane” to investment goldmine. With land prices still affordable, robust infrastructure projects underway, and a steady influx of tech professionals and businesses, Jigani is emerging as a strategic hub for residential and commercial growth.</p>
+
+      <p>If you’ve been searching for plots for sale in Jigani, now is the moment to act. Here’s why.</p>
+      <p>
+1. Affordable Prices, Big Future Upside
+
+Jigani’s current property rates—often 20–40% lower than nearby Electronic City—make it one of the last pockets near Bangalore where you can still buy land at a reasonable price. With infrastructure catching up fast, the scope for capital appreciation is huge.
+<br><br>
+2. Seamless Connectivity to Bangalore’s Tech Belt
+
+Living or investing in Jigani means being minutes from Electronic City, Bannerghatta Road, and NICE Road. The upcoming Satellite Town Ring Road (STRR) and potential metro expansion will slash travel times and put Jigani even more firmly on the map.
+<br><br>
+3. Thriving Industrial & IT Ecosystem
+
+Home to industry leaders like Biocon, HCL, Cipla, and just a short drive from Wipro and Infosys campuses, Jigani benefits from steady housing demand from professionals. This ensures rental yields and long-term value stability.
+<br><br>
+4. A Landmark in the Making – IIM Bangalore’s New Campus
+
+A game-changer for Jigani, IIM Bangalore’s 110-acre campus is set to open in the coming years. The presence of such a prestigious institution will elevate both the profile and property value of the region.
+<br><br>
+5. Lifestyle Amenities Are Catching Up
+
+From international schools like Treamis World School to hospitals such as Narayana Health City and malls on Bannerghatta Road, Jigani is rapidly building a strong social infrastructure for modern living.
+<br><br>
+
+6. Nature Meets Urban Living
+
+Unlike overly congested urban hubs, Jigani still retains a green, open landscape. Lakes, tree-lined roads, and quieter neighbourhoods make it an appealing choice for those seeking balance between city convenience and natural calm.
+<br><br>
+
+7. Premium Gated Communities on the Rise
+
+Renowned developers are introducing well-planned gated layouts with security, parks, clubhouses, and paved roads—ideal for families looking for quality living and investors wanting ready-to-build plots.
+
+<br><br>
+8. Caution with Opportunity
+
+While growth potential is strong, investors should focus on A Khata properties and layouts with clear titles to avoid legal or resale issues. Like any emerging market, strategic buying is key.
+<br><br>
+
+9. The Perfect Time to Enter
+
+Infrastructure is expanding, industries are growing, and Jigani’s prices are still in the “early adopter” zone. Once metro links and STRR open, this affordability window will start closing fast.
+
+<br><br>
+Final Word: Why Jigani Deserves Your Attention
+<br><br>
+Jigani is no longer just an industrial suburb—it’s a strategically located growth hub with all the right ingredients: affordability, location advantage, upcoming infrastructure, and lifestyle upgrades.
+
+If you want to buy land near Electronic City and see strong returns in the coming decade, Jigani is where the smart money is going.
+</p>
+    </div>
+  </div>
+
+  <script>
+    // Slide-up animation
+    const slideSection = document.querySelector('.slide-up');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(slideSection);
+  </script>
+
+</body>
+</html>

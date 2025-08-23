@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Prestige Group</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .about-section {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .about-title {
+      font-size: 26px;
+      font-weight: 500;
+      color: #7c653d;
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .about-subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      color: #7c653d;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .about-container {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .about-left {
+      flex: 2;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.6s;
+    }
+
+    .about-left img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .about-left h2 {
+      font-size: 24px;
+      font-weight: 500;
+      margin: 10px 0 20px;
+    }
+
+    .about-left p {
+      font-size: 15px;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .about-right {
+      flex: 1;
+      border-left: 1px solid #ddd;
+      padding-left: 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+      animation-delay: 0.9s;
+    }
+
+    .stat-box {
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .stat-box:nth-child(1) { animation-delay: 1.2s; }
+    .stat-box:nth-child(2) { animation-delay: 1.4s; }
+    .stat-box:nth-child(3) { animation-delay: 1.6s; }
+    .stat-box:nth-child(4) { animation-delay: 1.8s; }
+
+    .stat-box h3 {
+      font-size: 32px;
+      font-weight: 400;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .stat-box span {
+      color: #7c653d;
+    }
+
+    .stat-box p {
+      font-size: 14px;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Fade + Slide animation */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+      .ourProjects {
+            color: white;
+            background-color: black;
+            
+            width: 100%;
+            height: auto;
+            padding: 50px;
+            text-align: center;
+        }
+        .ourProjects h2 {
+            font-size: 42px;
+            font-weight: lighter;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .ourProjects p {
+            font-size: 16px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+        .carousel-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 80%;
+            margin: auto;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;  
+            max-width: 1000px; 
+            position: relative;
+            justify-content: center;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+             width: 310px;
+            height: 350px;
+            background: white;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 10px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        
+        .carousel-item img {
+            box-sizing: border-box;
+            width: 100%;
+            height: 250px;
+            margin-bottom: -30px;
+              border-radius: 10px;
+        }
+        
+        .carousel-item h3 {
+            margin-bottom: 10px;
+        }
+        
+        .carousel-line {
+            border-bottom: 2px solid black;
+        }
+        
+        .carousel-item p {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .carousel-btn.left-btn{
+            left: 0;
+        }
+
+        .carousel-btn.right-btn {
+            right: 0;
+        }
+         .counter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+    
+        }
+        .counter {
+            text-align: center;
+            position: relative;
+            padding: 10px 80px;
+            width: 200px; 
+            max-width: 250px;
+        }
+        .counter h1 {
+            font-size: 30px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .counter h1 span {
+            display: inline-block;
+            width: auto; 
+            text-align: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .counter h1::after {
+            content: "+"; 
+            font-size: inherit;
+            display: inline;
+        }
+        
+        .counter h2 {
+            font-size: 15px;
+            margin-top: 5px;
+            font-weight: bold;
+            color: rgb(125, 125, 125);
+            white-space: nowrap; 
+            text-align: center;
+        }
+      
+        .contact-section {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+        
+     
+/* nav bar styles */
+
+.hero-tabs-nav {
+  width: 100vw;
+  background: #f7f9fb;
+  padding: 0;
+  margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  position: fixed;
+  max-height: 60px;
+  box-shadow: 0 10px 8px rgba(96,92,112,0.17);
+}
+
+.hero-tabs-list {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+}
+
+.hero-tab-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  text-align: right;     
+       
+}
+
+.hero-tab {
+  background: none;
+  border: none;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.08em;
+ font-weight: 500;
+  color: #232323;
+  margin: 0 10px;
+  padding: 19px 2px 11px 2px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 0.18s;
+  outline: none;
+  min-width: 90px;
+}
+.hero-tab.active, .hero-tab:focus {
+  color: #21104b;
+}
+.hero-tab:hover {
+  color: #f1734b;
+  font-weight: 600;
+    transform: scale(1.05);
+}
+.hero-tab.active::after, .hero-tab:focus::after {
+  content: '';
+  display: block;
+  width: 52%;
+  height: 3.5px;
+  background: #f1734b;
+  border-radius: 3px;
+  position: absolute;
+  left: 24%;
+  bottom: 2px;
+  z-index: 2;
+  animation: heroTabUnderline .18s cubic-bezier(.18,0,.9,1);
+}
+@keyframes heroTabUnderline {
+  from { width:0; opacity:0; }
+  to { width:52%; opacity:1; }
+}
+
+/* Dropdown */
+.hero-tab-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(80% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(66,104,130,0.13), 0 3px 14px rgba(0,0,0,0.07);
+  /* border-radius: 10px; */
+  padding: 18px 22px 14px 22px;
+  min-width: 210px;
+  max-width: 360px;
+  z-index: 999;
+  text-align: left;
+  transition: opacity 0.17s, transform 0.15s;
+  border-radius: 5px;
+}
+.hero-tab-dropdown.opened {
+  display: block;
+}
+.hero-dropdown-img {
+  width: 122px;
+  display: block;
+  margin: 0 auto 14px auto;
+  /* border-radius: 10px; */
+}
+.hero-tab-dropdown ol {
+  margin: 0;
+  margin-top: 6px;
+  padding-left: 50px;
+}
+.hero-tab-dropdown li {
+  color: #0a1435;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.13s;
+}
+.hero-tab-dropdown li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.12s;
+}
+.hero-tab-dropdown li a:hover { color: #349cff; }
+.hero-tab-dropdown li:hover { color: #349cff; }
+
+@media (max-width: 800px) {
+  .hero-tabs-list { gap: 10px; }
+  .hero-tabs-nav { padding: 0; }
+  .hero-tab { font-size:1em;padding:10px 1px 7px 1px;}
+  .hero-tab-dropdown{min-width: 92vw; max-width:99vw;padding:13px 2vw;}
+}
+  </style>
+</head>
+<body onload="moveCarousel()">
+  <!-- HERO NAVBAR: Only Above Carousel Section -->
+<nav class="hero-tabs-nav" id="heroTabsNav">
+    <img style="width: 130px; height: 120px; overflow: visible;"src="images/SREE VAARI LOGO.png" alt="Sree Vaari Homes Logo" />
+  <div class="hero-tabs-list">
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/PROJECT IMAGES/3.png" alt="Golden Towers" class="hero-dropdown-img" />
+      <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+          <li><a href="property-details.html?propertyId=slv_golden_towers"><b>Golden Towers</b></a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="plots">Plots</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/PROJECT IMAGES/2.png" alt="Plots" class="hero-dropdown-img" />
+        <ol>
+          <li><a href="property-details.html?propertyId=slv_nandhi_view"><b>SLV Nandhi View</b></a></li>
+          <li><a href="property-details.html?propertyId=nandhi_gardenia">Nandhi Gardenia</a></li>
+          <li><a href="property-details.html?propertyId=vr_emerald">VR Emerald</a></li>
+          <li><a href="property-details.html?propertyId=vr_innovative_global_city">VR Innovative Global City</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+  <button class="hero-tab" type="button" data-tab="construction">Home construction</button>
+  <div class="hero-tab-dropdown">
+    <img src="images/PROJECT IMAGES/3.png" alt="Home Construction" class="hero-dropdown-img" />
+    <div class="hero-dropdown-title" style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
+      Sree Vaari Home Construction
+    </div>
+    <!-- No list below, just empty as per your request -->
+  </div>
+</div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="upvc">UPVC</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/img icons/compressed/15.png" alt="UPVC" class="hero-dropdown-img" />
+     <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+  <li><a href="service-details.html?serviceId=upvc"><b>View UPVC</b></a></li>
+</ol>
+
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="solar">Solar</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/img cards/9.png" alt="Solar" class="hero-dropdown-img" />
+        <!-- <ol>
+          <li><a href="service-details.html?serviceId=solar"><b>Solar Panel Details</b></a></li>
+        </ol> -->
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="interior">Interior</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/img icons/compressed/12.png" alt="Interior" class="hero-dropdown-img" />
+       <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+          <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
+  <section class="about-section" onload="moveCarousel()">
+    <h1 class="about-title">About us</h1>
+    <p class="about-subtitle">SREEVARI HOMES</p>
+    <div class="about-container">
+      
+      <!-- Left side -->
+      <div class="about-left">
+        <img style="height: 100px; "src="data:image/jpeg;base64,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" alt="CRISIL Logo">
+        <h2> Real Estate Developers in India</h2>
+        <p>
+
+Integrity in Vision. Excellence in Execution.
+At Shree Vaaree Homes, we are committed to redefining the standards of real estate and construction through quality, precision, and trust. With decades of collective experience across multiple verticals—construction, real estate (land and apartment development), UPVC systems, solar energy, interior design, architectural planning, and end-to-end development—we deliver value-driven solutions tailored to modern living.
+Founded on a philosophy of transparency, sustainability, and engineering excellence, Shree Vaaree Homes has become a name synonymous with reliability, innovation, and customer-centricity. Our projects reflect meticulous planning, premium quality materials, and flawless execution—backed by a strong governance framework that ensures compliance, safety, and long-term client satisfaction.
+
+Comprehensive Solutions Under One Roof
+We take pride in being a multi-disciplinary real estate partner, offering integrated services that address every aspect of the built environment:
+Construction & Real Estate Development:
+ Residential plots, villas, and apartment complexes built to industry-leading standards with an emphasis on long-term durability and investment value.
+Architectural & Structural Design:
+ Intelligent, efficient layouts designed by seasoned professionals to align with lifestyle needs and regulatory norms.
+Interior Design & Turnkey Execution:
+ Sophisticated interiors that combine visual elegance with ergonomic functionality, customized for residential and commercial spaces.
+UPVC Doors & Windows:
+ High-performance, low-maintenance UPVC installations that enhance energy efficiency, insulation, and aesthetics.
+Solar Energy Solutions:
+ Grid-connected and off-grid solar systems engineered for homes, institutions, and commercial facilities seeking energy independence.
+Builders & Developers:
+ End-to-end project development—from concept to completion—ensuring streamlined delivery and uncompromised quality at every stage.
+
+Our Mission
+
+To create enduring value for clients by delivering sustainable, intelligently designed spaces that reflect quality, transparency, and trust.
+         </p>
+      </div>
+
+      <!-- Right side -->
+      <div class="about-right">
+         <div class="counter-container">
+            <div class="counter">
+                <h1><span data-count="16">0</span></h1>
+                <h2>YEARS OF EXPERIENCE</h2>
+            </div>
+            <div class="counter">
+                <h1><span data-count="9">0</span></h1>
+                <h2>PROJECTS</h2>
+            </div>
+            <div class="counter">
+                <h1><span data-count="103">0</span></h1>
+                <h2>TEAM MEMBERS</h2>
+            </div>
+            <div class="counter">
+                <h1><span data-count="96">0</span></h1>
+                <h2>SATISFIED CLIENTS</h2>
+            </div>
+        </div>
+    </div>
+  </section>
+  <section class="ourProjects" id = "ourProjects" onload="moveCarousel()">
+        <h2>Our Projects</h2>
+        <p>"Our projects are always draw-dropping—because we never sketch on quality!"</p>
+        <div class="carousel-container">
+          
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <img src="https://www.houseofhiranandani.com/vlogs/storage/2019/01/35.png" alt="Expert">
+                        <h3>Villas</h3>
+                        <span class="carousel-line"></span>
+                        <p>Luxurious villas with breathtaking scenic views...</p>
+                       
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://onekindesign.com/wp-content/uploads/2018/07/Modern-Farm-House-John-Lively-Associates-01-1-Kindesign.jpg" alt="Expert">
+                        <h3>Farm House</h3>
+                        <span class="carousel-line"></span>
+                        <p>Farmhouses offering peaceful countryside living experiences...</p>
+                     
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.adsttc.com/media/images/6075/db86/f91c/81e8/9b00/01eb/newsletter/HOUSSAIS_Maison-PleumeurBodou_sur_Pilotis-4889.jpg?1618336634" alt="Expert">
+                        <h3>Stilt House</h3>
+                        <span class="carousel-line"></span>
+                        <p>Stilt houses built for flood-prone areas...</p>
+                       
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcTC03MSLWhctdf9clwrwcWaMhd7SwBjcsRA&s" alt="Expert">
+                        <h3>Modern House</h3>
+                        <span class="carousel-line"></span>
+                        <p>Modern houses designed for comfort and style...</p>
+                      
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.adsttc.com/media/images/6075/db86/f91c/81e8/9b00/01eb/newsletter/HOUSSAIS_Maison-PleumeurBodou_sur_Pilotis-4889.jpg?1618336634" alt="Expert">
+                        <h3>Latest Modern House</h3>
+                        <span class="carousel-line"></span>
+                        <p>atest modern houses with smart home features...</p>
+                      
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+<script>
+            let isTransitioning = false;
+
+            function nextSlide() {
+                if (isTransitioning) return; // Prevent multiple clicks during transition
+            
+                isTransitioning = true;
+                const track = document.querySelector('.carousel-track');
+                const firstItem = track.querySelector('.carousel-item');
+            
+                // Move the carousel smoothly to the left
+                track.style.transition = 'transform 0.5s ease-in-out';
+                track.style.transform = `translateX(-${firstItem.offsetWidth}px)`;
+            
+                setTimeout(() => {
+                    track.style.transition = 'none';  // Disable transition for instant reset
+                    track.appendChild(firstItem); // Move first item to the end
+                    track.style.transform = 'translateX(0)'; // Reset position
+                    isTransitioning = false;
+                }, 500); // Match the duration of the transition
+            }
+            
+            function prevSlide() {
+                if (isTransitioning) return; // Prevent multiple clicks during transition
+            
+                isTransitioning = true;
+                const track = document.querySelector('.carousel-track');
+                const items = document.querySelectorAll('.carousel-item');
+                const lastItem = items[items.length - 1];
+            
+                
+                track.insertBefore(lastItem, track.firstChild);
+                track.style.transition = 'none';
+                track.style.transform = `translateX(-${lastItem.offsetWidth}px)`;
+            
+                setTimeout(() => {
+                
+                    track.style.transition = 'transform 0.5s ease-in-out';
+                    track.style.transform = 'translateX(0)';
+                    isTransitioning = false;
+                }, 50);
+            }
+            
+        
+            setInterval(nextSlide, 2000);
+              document.addEventListener("DOMContentLoaded", function () {
+                function startCounter(counter) {
+                    let target = +counter.getAttribute('data-count');
+                    let count = 0;
+                    let increment = Math.ceil(target / 100);
+                    let duration = 3000; 
+                    let stepTime = Math.max(duration / target, 1); 
+        
+                    if (counter.getAttribute('data-started') === "true") return; 
+                    counter.setAttribute('data-started', "true");
+        
+                    let interval = setInterval(() => {
+                        count += increment;
+                        if (count >= target) {
+                            counter.innerText = target;
+                            clearInterval(interval);
+                        } else {
+                            counter.innerText = count;
+                        }
+                    }, stepTime);
+                }
+        
+                function isElementInViewport(el) {
+                    let rect = el.getBoundingClientRect();
+                    return (
+                        rect.top < window.innerHeight && rect.bottom > 0
+                    );
+                }
+        
+                function startCountersIfNeeded() {
+                    let counters = document.querySelectorAll('.counter span');
+                    counters.forEach(counter => {
+                        if (isElementInViewport(counter) && counter.getAttribute('data-started') !== "true") {
+                            startCounter(counter);
+                        }
+                    });
+                }
+        
+                // Ensure counters start when scrolled into view
+                document.addEventListener("scroll", startCountersIfNeeded);
+                window.addEventListener("resize", startCountersIfNeeded);
+                window.addEventListener("load", startCountersIfNeeded);
+            });
+        
+            
+</script>
+
+</body>
+</html>

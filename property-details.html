@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Property Detail Page</title>
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+  
+<style>
+    body {
+      font-family: "Roboto", Arial, sans-serif;
+      background: #faf9f9;
+      margin: 0;
+      color: #222;
+    }
+    /* Hero Section */
+    .hero {
+      width: 100%;
+      position: relative;
+      min-height: 350px;
+    }
+    .hero-img-bg {
+      width: 100%;
+      height: 350px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .hero-logos {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      z-index: 2;
+      display: flex;
+      gap: 10px;
+    }
+    .hero-logo {
+      width: 70px;
+      height: 40px;
+      background: #fff;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: #40a047;
+      font-weight: bold;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 4px 6px;
+    }
+    .hero-profile-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      z-index: 2;
+      background: #fff;
+      padding: 8px 18px;
+      border-radius: 24px;
+      box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+      font-size: 15px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .hero-profile-btn:hover {
+      background: #f7f7f7;
+    }
+    /* Main Content Container */
+    .container {
+      width: 95%;
+      max-width: 1150px;
+      margin: -30px auto 0 auto;
+      background: transparent;
+      position: relative;
+      z-index: 2;
+      margin-top: 12px;
+      
+    }
+    /* Section 1: Banner lower area */
+    .banner-lower {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+      margin-bottom: 30px;
+      display: flex;
+      padding: 24px 28px;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .banner-lower-left {
+      flex: 1 1 400px;
+      min-width: 320px;
+    }
+    .project-title {
+      font-weight: 700;
+      font-size: 1.38rem;
+      margin-bottom: 3px;
+      margin-top: 12px;
+    }
+    .project-location {
+      color: #666;
+      font-size: 1.04rem;
+      margin-bottom: 16px;
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .location-icon {
+      color: #a1a1a1;
+      font-size: 1.13em;
+      margin-right: 4px;
+    }
+    .project-actions {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .main-btn-red {
+       background: #e53935;
+      color: #fff;
+      padding: 11px 34px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.11rem;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 0;
+    }
+    .main-btn-red:hover {
+      background: #c62828;
+    }
+    .main-btn-light {
+      background: #fff;
+      color: #e53935;
+      padding: 7px 22px;
+      border: 1px solid #e53935;
+      border-radius: 4px;
+      font-weight: 500;
+      letter-spacing: 0.25px;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: background 0.15s;
+    }
+    .main-btn-light:hover {
+      background: #f7eaea;
+    }
+    .banner-lower-right {
+      flex: 0 1 300px;
+      min-width: 230px;
+      min-height: 50px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #eee;
+    }
+    /* Section 2: Gallery */
+    .section-block {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+      padding: 23px 24px 18px 24px;
+    }
+    .gallery-row {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 12px;
+    }
+    .gallery-img {
+      min-width: 200px;
+      width: 250px;
+      height: 180px;
+      border-radius: 7px;
+      object-fit: cover;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+      border: 1px solid #eee;
+      margin-bottom: 15px;
+    }
+    .gallery-next-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      background: #fff;
+      border-radius: 50%;
+      border: 1px solid #ddd;
+      margin-left: 8px;
+      font-size: 1.18em;
+      cursor: pointer;
+      transition: background 0.17s;
+    }
+    .gallery-next-btn:hover {
+      background: #f5f5f5;
+    }
+    /* Section 3: Amenities */
+    .amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 17px 23px;
+      margin-top: 16px;
+      margin-bottom: 7px;
+    }
+    .amenity-card {
+      background: #faf9f9;
+     
+      padding: 13px 8px 10px 12px;
+      text-align: left;
+      font-size: 0.97rem;
+      color: #453e3e;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
+      position: relative;
+      min-height: 54px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      justify-content: center;
+      text-align: center;
+       border: 1px solid red;
+      border-radius: 6px;
+    }
+    
+    .amenity-card .fa {
+      font-size: 1.36em;
+      color: #176a56;
+      margin-bottom: 2px;
+      margin-right: 7px;
+      vertical-align: -2px;
+    }
+    .amenity-card.top {
+      /* first 2 cards */
+    }
+    .card-ribbon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 14px;
+      height: 18px;
+      background: #e9b81a;
+      border-radius: 4px 0 9px 0;
+      z-index: 2;
+      display: inline-block;
+    }
+    .amenities-actions {
+      margin-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .amenities-actions-col {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* aligns to left */
+    gap: 12px;
+  }
+    .view-all-link {
+      color: #d72121;
+      font-size: 15px;
+      cursor: pointer;
+      transition: color 0.15s;
+      text-decoration: none;
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+    .view-all-link:hover {
+      color: #aa1717;
+      text-decoration: underline;
+    }
+    /* Section 4: About/Loans */
+    .about-block .about-title {
+      font-weight: 500;
+      font-size: 1.3em;
+      margin-bottom: 14px;
+      
+    }
+    .about-block .about-desc {
+      font-size: 0.9em;
+      color: #444;
+      margin-bottom: 24px;
+      max-width: 800px;
+    }
+    .about-block .read-more {
+      color: #e53935;
+      cursor: pointer;
+      font-size: 0.97em;
+      text-decoration: none;
+      margin-left: 8px;
+      font-weight: 500;
+    }
+    .about-block .read-more:hover {
+      text-decoration: underline;
+    }
+    .loan-offer-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+      margin-top: 23px;
+      font-weight: 400;
+    }
+    .loan-offer-title .fa-bank, .loan-offer-title .fa-university {
+      color: #333;
+      margin-right: 10px;
+      font-size: 1.17em;
+    }
+    .loan-offer-desc {
+      font-size: 0.8em;
+      color: #c41919;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+    /* Section 5: Floor Plans Main */
+    .floor-section .section-heading {
+      font-weight: 500;
+      font-size: 1.3em;
+      margin-bottom: 13px;
+      margin-top: 10px;
+    }
+    .floor-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+    .floor-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      min-width: 240px;
+      max-width: 335px;
+      padding: 17px 18px 17px 16px;
+      gap: 18px;
+      flex: 1 1 280px;
+      transition: box-shadow 0.13s;
+      border: 1px solid #f1efef;
+      position: relative;
+    }
+    .floor-card:hover {
+      box-shadow: 0 3px 24px rgba(41,147,209,0.13);
+      outline: 1.5px solid #2474b9;
+      z-index: 2;
+    }
+    .floor-info {
+      flex: 1;
+      min-width: 90px;
+      font-size: 1.01rem;
+    }
+    .floor-title {
+      color: #e53935;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .floor-desc {
+      color: #363636;
+      font-size: 0.98em;
+      margin-bottom: 6px;
+    }
+    .floor-rate {
+      font-size: 1em;
+      font-weight: 500;
+      color: #1d6d23;
+    }
+    .floor-img-block {
+      width: 77px;
+      height: 67px;
+      border-radius: 4px;
+      background: #f9f7f4;
+      box-shadow: 0 1px 7px rgba(0,0,0,0.03);
+      overflow: hidden;
+      position: relative;
+    }
+    .floor-img-block img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .floor-zoom-icon {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: #fff;
+      width: 23px;
+      height: 23px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #33748a;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.09);
+      cursor: pointer;
+      border: 1.5px solid #f6f6f6;
+      transition: background 0.15s;
+    }
+    .floor-zoom-icon:hover {
+      background: #e1f2ff;
+    }
+
+    /* Section 7: Other floor plans in card row with big arrow */
+    .alt-floor-list-row {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-top: 18px;
+      margin-bottom: 30px;
+    }
+    .alt-floor-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+      width: 239px;
+      padding: 11px 10px 9px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #f1efef;
+    }
+    .alt-floor-card img {
+      width: 185px;
+      height: 85px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 7px;
+    }
+    .alt-floor-label {
+      font-weight: 600;
+      font-size: 1.04em;
+      margin-bottom: 0.5px;
+      text-align: center;
+    }
+    .alt-floor-area {
+      color: #555;
+      font-size: 0.97em;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .request-price {
+      color: #10a34a;
+      font-weight: 500;
+      font-size: 1.06em;
+      text-decoration: none;
+      transition: color 0.15s;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .request-price:hover {
+      color: #0e8045;
+    }
+    .row-arrow {
+      margin-left: 16px;
+      font-size: 2em;
+      align-self: center;
+      color: #cf4732;
+      transform: rotate(-14deg) translateY(5px);
+      background: none;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 1100px) {
+      .container { max-width: 95vw; }
+      .amenities-grid, .gallery-row, .floor-list { flex-wrap: wrap; grid-template-columns: repeat(3,1fr); }
+    }
+    @media (max-width: 900px) {
+      .banner-lower { flex-direction: column; gap: 19px; padding:18px 16px;}
+      .amenities-grid { grid-template-columns: repeat(2,1fr);}
+    }
+    @media (max-width: 540px) {
+      .container { width: 100vw; padding: 0 3vw}
+      .banner-lower { flex-direction: column; }
+      .banner-lower-right { min-width: 0; width: 100%; }
+      .gallery-row { gap: 7px; }
+      .gallery-img { width: 90px; height: 72px;}
+      .section-block { padding: 8px 3vw 6px 3vw; }
+      .alt-floor-list-row { flex-direction: column; gap: 12px; }
+      .alt-floor-card { width: 94vw; }
+      .floor-list { gap: 7px; }
+    }
+
+    /* ==== FLATTEN LAYOUT: REMOVE CARD LOOK (ADD THIS SECTION) ==== */
+    .banner-lower,
+    .section-block,
+    .banner-lower-right,
+    .floor-card,
+    .alt-floor-card {
+      background: transparent !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+      border: none !important;
+      margin-bottom: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    .amenity-card,
+    .gallery-img,
+    .floor-img-block,
+    .hero-logo {
+      border-radius: 5px !important;
+      box-shadow: none !important;
+    }
+
+    .container {
+      background: transparent !important;
+      margin: 0 auto !important;
+      padding: 0 !important;
+    }
+
+    .banner-lower,
+    .section-block {
+      margin-bottom: 0 !important;
+      padding-top: 20px !important;
+      padding-bottom: 0 !important;
+    }
+
+    .banner-lower-right {
+      background: transparent !important;
+      border: none !important;
+      min-width: 0 !important;
+      min-height: 0 !important;
+    }
+
+    .amenities-grid,
+    .gallery-row,
+    .floor-list,
+    .alt-floor-list-row {
+      gap: 20px 15px !important;
+    }
+
+    .amenity-card {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+
+    .alt-floor-list-row {
+      margin-bottom: 0 !important;
+    }
+
+    .hero-logo {
+      border-radius: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+/* ==== END FLATTEN LAYOUT ==== */
+
+
+.unit-selector-card {
+  background: #fff;
+  border-radius: 9px;
+  box-shadow: 0 2px 6px #ececec;
+  padding: 16px 18px 14px 15px;
+  min-width: 280px;
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  font-size: 1.08em;
+  position: relative;
+  max-width: 400px;
+}
+
+.unit-selector-card .fa {
+  font-size: 1.1em;
+  color: #e53935;
+  margin-left: 8px;
+}
+
+.unit-main-title {
+  font-weight: 700;
+  color: #c12329;
+  font-size: 1.05em;
+}
+.unit-sub {
+  color: #888;
+  font-size: 0.95em;
+  margin-left: 2px;
+}
+.unit-price {
+  color: #1d6d23;
+  font-size: 1.01em;
+  margin-top: 3px;
+}
+
+/* The big "card" */
+.floor-gallery-card {
+  background: #fff;
+  border-radius: 13px;
+  box-shadow: 0 4px 14px #ececec;
+  padding: 25px 36px 19px 27px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  min-width: 350px;
+  max-width: 700px;
+}
+
+.floor-plan-gallery {
+  display: flex;
+  gap: 23px;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.floor-gallery-arrow {
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 11px #e0e0e0;
+  border: none;
+  width: 37px;
+  height: 37px;
+  font-size: 1.5em;
+  color: #c33e2b;
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-14deg);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.floor-plan-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fcfcfd;
+  border-radius: 8px;
+  padding: 15px 14px 11px 14px;
+  min-width: 200px;
+  max-width: 270px;
+  box-shadow: 0 1px 5px #f2f2f2;
+}
+
+.floor-plan-card img {
+  width: 180px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 7px;
+  margin-bottom: 9px;
+  background: #eaeaee;
+}
+
+.floor-plan-title {
+  font-weight: 600;
+  font-size: 1em;
+  margin-bottom: 2px;
+  text-align: left;
+  color: #222;
+  width: 100%;
+}
+
+.floor-plan-area {
+  color: #757c7e;
+  font-size: 0.97em;
+  margin-bottom: 4px;
+  width: 100%;
+  text-align: left;
+}
+
+.floor-plan-card .request-price {
+  color: #13a543;
+  font-weight: 600;
+  font-size: 1.06em;
+  text-decoration: none;
+  transition: color 0.15s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 7px;
+}
+.floor-plan-card .request-price:hover {
+  color: #0e8045;
+}
+
+@media (max-width:600px) {
+  .amenities-actions-col {
+    align-items: stretch;
+  }
+  .main-btn-red {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.hero-tabs-nav {
+  width: 100vw;
+  background: #f7f9fb;
+  padding: 0;
+  margin: 0 auto 0 auto;
+  display: flex;
+  justify-content: center;
+  z-index: 50;
+  position: fixed;
+  max-height: 60px;
+  box-shadow: 0 10px 8px rgba(96,92,112,0.17);
+}
+
+.hero-tabs-list {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+}
+
+.hero-tab-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; 
+  text-align: right;     
+       
+}
+
+.hero-tab {
+  background: none;
+  border: none;
+  font-family: 'Poppins', Arial, sans-serif;
+  font-size: 1.08em;
+ font-weight: 500;
+  color: #232323;
+  margin: 0 10px;
+  padding: 19px 2px 11px 2px;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  position: relative;
+  transition: color 0.18s;
+  outline: none;
+  min-width: 90px;
+}
+.hero-tab.active, .hero-tab:focus {
+  color: #21104b;
+}
+.hero-tab:hover {
+  color: #f1734b;
+  font-weight: 600;
+    transform: scale(1.05);
+}
+.hero-tab.active::after, .hero-tab:focus::after {
+  content: '';
+  display: block;
+  width: 52%;
+  height: 3.5px;
+  background: #f1734b;
+  border-radius: 3px;
+  position: absolute;
+  left: 24%;
+  bottom: 2px;
+  z-index: 2;
+  animation: heroTabUnderline .18s cubic-bezier(.18,0,.9,1);
+}
+@keyframes heroTabUnderline {
+  from { width:0; opacity:0; }
+  to { width:52%; opacity:1; }
+}
+
+/* Dropdown */
+.hero-tab-dropdown {
+  display: none;
+  position: absolute;
+  top: calc(80% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 8px 32px rgba(66,104,130,0.13), 0 3px 14px rgba(0,0,0,0.07);
+  /* border-radius: 10px; */
+  padding: 18px 22px 14px 22px;
+  min-width: 210px;
+  max-width: 360px;
+  z-index: 999;
+  text-align: left;
+  transition: opacity 0.17s, transform 0.15s;
+  border-radius: 5px;
+}
+.hero-tab-dropdown.opened {
+  display: block;
+}
+.hero-dropdown-img {
+  width: 130px;
+  display: block;
+  margin: 0 auto 14px auto;
+  /* border-radius: 10px; */
+}
+.hero-tab-dropdown ol {
+  margin: 0;
+  margin-top: 6px;
+  padding-left: 50px;
+}
+.hero-tab-dropdown li {
+  color: #0a1435;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: color 0.13s;
+}
+.hero-tab-dropdown li a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.12s;
+}
+.hero-tab-dropdown li a:hover { color: #349cff; }
+.hero-tab-dropdown li:hover { color: #349cff; }
+
+@media (max-width: 800px) {
+  .hero-tabs-list { gap: 10px; }
+  .hero-tabs-nav { padding: 0; }
+  .hero-tab { font-size:1em;padding:10px 1px 7px 1px;}
+  .hero-tab-dropdown{min-width: 92vw; max-width:99vw;padding:13px 2vw;}
+}
+</style>
+
+</head>
+<body>
+     <!-- HERO NAVBAR: Only Above Carousel Section -->
+<nav class="hero-tabs-nav" id="heroTabsNav">
+    <img style="width: 130px; height: 120px; overflow: visible;"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+  <div class="hero-tabs-list">
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/PROJECT IMAGES/goldentowers.png" alt="Golden Towers" class="hero-dropdown-img" />
+      <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+          <li><a href="property-details.html?propertyId=slv_golden_towers"><b>Golden Towers</b></a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="plots">Plots</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/PROJECT IMAGES/6.png" alt="Plots" class="hero-dropdown-img" />
+        <ol>
+          <li><a href="property-details.html?propertyId=slv_nandhi_view"><b>SLV Nandhi View</b></a></li>
+          <li><a href="property-details.html?propertyId=nandhi_gardenia"><b>Nandhi Gardenia</b></a></li>
+          <li><a href="property-details.html?propertyId=vr_emerald"><b>VR Emerald</b></a></li>
+          <li><a href="property-details.html?propertyId=vr_innovative_global_city"><b>VR Innovative Global City</b></a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+  <button class="hero-tab" type="button" data-tab="construction">Home construction</button>
+  <div class="hero-tab-dropdown">
+    <img src="images/PROJECT IMAGES/construction.png" alt="Home Construction" class="hero-dropdown-img" />
+    <div class="hero-dropdown-title" style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
+      Sree Vaari Home Construction
+    </div>
+    <!-- No list below, just empty as per your request -->
+  </div>
+</div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="upvc">UPVC</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/img icons/compressed/15.png" alt="UPVC" class="hero-dropdown-img" />
+     <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+  <li><a href="service-details.html?serviceId=upvc"><b>View UPVC</b></a></li>
+</ol>
+
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="solar">Solar</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/PROJECT IMAGES/yrsolar.png" alt="Solar" class="hero-dropdown-img" />
+      <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+  <li><a href="service-details.html?serviceId=upvc"><b>YR Solar</b></a></li>
+</ol>
+      </div>
+    </div>
+    <div class="hero-tab-wrapper">
+      <button class="hero-tab" type="button" data-tab="interior">Interior</button>
+      <div class="hero-tab-dropdown">
+        <img src="images/img icons/compressed/12.png" alt="Interior" class="hero-dropdown-img" />
+       <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+          <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
+  <!-- HERO Section -->
+  <div class="hero" id="hero">
+    <div class="hero-img-bg" id="hero-img-bg">
+    </div>
+  </div>
+  <div class="container">
+    <!-- Section 1: Banner Lower Area -->
+    <div class="banner-lower" id="banner-lower">
+
+<div class="banner-lower-left" id="banner-lower-left">
+          <div class="project-title" id="project-title">Assetz Trees and Tandem</div>
+          <div class="project-location" id="project-location">
+              <i class="fa fa-map-marker-alt location-icon"></i>
+              <span id="project-location-text">Sarjapur Road, Bangalore</span>
+          </div>
+          <div class="project-actions">
+            <button class="main-btn-red" id="contactNowBtn">
+              Contact Now
+            </button>
+            <button class="main-btn-light" id="downloadBrochureBtn">
+              <i class="fa fa-download"></i>
+              Download Brochure
+            </button>
+          </div>
+        </div>
+        <div class="banner-lower-right" id="banner-lower-right">
+          <!-- Placeholder for optional right content (empty as per design) -->
+        </div>
+      </div>
+
+      <!-- Section 2: Gallery -->
+      <div class="section-block" id="gallery-section">
+        <div style="font-weight: 500; font-size: 1.1rem; margin-bottom:3px;" id="gallery-title"></div>
+        <div class="gallery-row" id="gallery-row">
+          <!-- Images and arrow will be injected here -->
+        </div>
+      </div>
+
+      <!-- Section 3: Amenities -->
+      <div class="section-block" id="amenities-section">
+        <div style="font-weight: 500; font-size: 1.3rem;" id="amenities-title"></div>
+        <div class="amenities-grid" id="amenities-grid"></div>
+        <div class="amenities-actions-col">
+          <span class="view-all-link" id="view-all-amenities" tabindex="0">Show all amenities</span>
+          <button class="main-btn-red" id="contactBuilderBtn">
+            Contact Builder
+          </button>
+      </div>
+      </div>
+
+      <!-- Section 4: About/Loans -->
+      <div class="section-block about-block" id="about-section">
+        <div class="about-title" id="about-title"></div>
+        <div class="about-desc">
+          <span id="about-desc"></span>
+          <span class="read-more" id="read-more" tabindex="0">Read More</span>
+        </div>
+        <div class="loan-offer-title" id="loan-offer-title" style="margin-top:18px;">
+          <i class="fa fa-bank"></i> Loan Offers for <span id="loan-offer-project"></span>
+        </div>
+        <div class="loan-offer-desc" id="loan-offer-desc"></div>
+        <button class="main-btn-red" id="contactNow2Btn">
+          Contact Now
+        </button>
+      </div>
+
+      <!-- Section 5: Floor Plan & Units (CLIENT DESIGN) -->
+      <div class="section-block floor-section" id="floor-section">
+        <div class="section-heading" id="floor-title">Floor Plan & Units</div>
+        
+        <!-- Single summary card for selected unit/flat -->
+        <div class="unit-selector-card" id="unit-selector-card"></div>
+        
+        <!-- Gallery card for multiple floor plans (with arrow) -->
+        <div class="floor-gallery-card">
+          <div class="floor-plan-gallery" id="floor-plan-gallery"></div>
+          <button class="floor-gallery-arrow"><i class="fa fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+    <script>
+
+const data = {
+  slv_golden_towers: {
+    title: "SLV Golden Towers",
+    location: "Kogilu Cross, Yelahanka.",
+    bannerImg: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=900&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1506784365847-bbad939e9335?fit=crop&w=400&q=80",
+    ],
+    amenities: [
+      "Gated Community with compound wall",
+      "24/7 Security & Surveillance",
+      "Tarred/Concrete Roads (main and internal)"
+    ],
+    about: "Rera approved, CC , OC project.",
+    brochure: "Rera approved, CC , OC project",
+    bankoffer: "<strong>BANK</strong> Loan Offers for SLV Golden Towers.<br>Apply for affordable home loans!",
+    proximity: "<b>Prime location</b> near Yelahanka main road, schools and colleges nearby.",
+    floors: [
+      {label:"2 BHK Plan", img:"https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?fit=crop&w=400&q=80", link:"#"},
+      {label:"3 BHK Plan", img:"https://images.unsplash.com/photo-1465101178521-c1a9136a1805?fit=crop&w=400&q=80", link:"#"}
+    ]
+  },
+  nandhi_gardenia:{
+    title: "Nandhi Gardenia",
+    location: "Indluvadi Cross, Jagani",
+    bannerImg: "https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=900&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=400&q=80"
+    ],
+    amenities: [
+      "Gated Community with compound wall",
+      "24/7 Security & Surveillance",
+      "Tarred/Concrete Roads (main and internal)",
+      "Street Lighting",
+      "Overhead Water Tanks / Borewell Water Supply",
+      "Underground Drainage & Stormwater Drains",
+      "Rainwater Harvesting",
+      "Parks & Children's Play Area",
+      "Avenue Plantation (trees along roads)",
+      "Civic Amenities Site (reserved for future development like shops, temples, etc.)",
+      "Sewage Treatment Plant (STP)",
+      "Electricity with Transformer"
+    ],
+    about: "BMRDA Approved with A Khata.",
+    brochure: "BMRDA approved with A khata",
+    bankoffer: "<strong>BANK</strong> Loan Offers for Nandhi Gardenia.<br>Apply for affordable home loans!",
+    proximity: `<b>Nearby Schools:</b> New Baldwin International, Aadya Academy, Brundavana, Royal English school.<br>
+      <b>Companies:</b> Strides Pharma, Hikal, Hanvika Industry`,
+    floors: [{label:"Sample Plot Plan", img:"https://images.unsplash.com/photo-1503676382389-4809596d5290?fit=crop&w=400&q=80"}]
+  },
+  slv_nandhi_view: {
+    title: "SLV Nandhi View",
+    location: "Kanajenakhalli, Chikkaballapura",
+    bannerImg: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?fit=crop&w=900&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1522204523234-872d98f35661?fit=crop&w=400&q=80"
+    ],
+    amenities: [
+      "Gated Community with compound wall",
+      "24/7 Security & Surveillance",
+      "Tarred/Concrete Roads (main and internal)",
+      "Street Lighting",
+      "Overhead Water Tanks / Borewell Water Supply",
+      "Underground Drainage & Stormwater Drains",
+      "Rainwater Harvesting",
+      "Parks & Children's Play Area",
+      "Avenue Plantation (trees along roads)",
+      "Civic Amenities Site (reserved for future development like shops, temples, etc.)",
+      "Sewage Treatment Plant (STP)",
+      "Electricity with Transformer"
+    ],
+    about: "CUDA approved with A Khata.",
+    brochure: "CUDA approved with A khata",
+    bankoffer: "",
+    proximity: "",
+    floors: [{label:"Plot Layout Sample", img:"https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=400&q=80"}]
+  },
+  vr_emerald: {
+    title: "VR Emerald",
+    location: "Tamaka, Kolar Dist",
+    bannerImg: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?fit=crop&w=900&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1465101162946-4377e57745c3?fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1449247613801-ab06418e2861?fit=crop&w=400&q=80"
+    ],
+    amenities: [
+      "Gated Community with compound wall",
+      "24/7 Security & Surveillance",
+      "Tarred/Concrete Roads (main and internal)",
+      "Street Lighting",
+      "Overhead Water Tanks / Borewell Water Supply",
+      "Underground Drainage & Stormwater Drains",
+      "Rainwater Harvesting",
+      "Parks & Children's Play Area",
+      "Avenue Plantation (trees along roads)",
+      "Civic Amenities Site (reserved for future development like shops, temples, etc.)",
+      "Sewage Treatment Plant (STP)",
+      "Electricity with Transformer"
+    ],
+    about: "Rera approved with A Khata.",
+    brochure: "Rera approved with A khata",
+    bankoffer: "<strong>BANK</strong> Loan Offers for VR Emerald.<br>Apply for affordable home loans!",
+    proximity: `<b>Schools:</b> R.K. International, St. Anne's, Jain, R.M. International, Amara Jyothi PU.<br>
+      <b>Temples:</b> Virupaksha, Ganesha, Garuda, Sri Sri Padharaju Mutt, Hanuman Temple.<br>
+      <b>Other:</b> KIADB Area, Anand Bhavan Hotel, Rock Valley Resort, Kurl-On/Parle G Factory`,
+    floors: [{label:"Master Layout", img:"https://images.unsplash.com/photo-1454023492550-5696f8ff10e1?fit=crop&w=400&q=80"}]
+  },
+  vr_innovative_global_city: {
+    title: "VR Innovative Global City",
+    location: "Mulbagal, Kolar Dist",
+    bannerImg: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=900&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1503676382389-4809596d5290?fit=crop&w=400&q=80"
+    ],
+    amenities: [
+      "Gated Community with compound wall",
+      "24/7 Security & Surveillance",
+      "Tarred/Concrete Roads (main and internal)",
+      "Street Lighting",
+      "Overhead Water Tanks / Borewell Water Supply",
+      "Underground Drainage & Stormwater Drains",
+      "Rainwater Harvesting",
+      "Parks & Children's Play Area",
+      "Avenue Plantation (trees along roads)",
+      "Civic Amenities Site (reserved for future development like shops, temples, etc.)",
+      "Sewage Treatment Plant (STP)",
+      "Electricity with Transformer"
+    ],
+    about: "Rera approved with A Khata.",
+    brochure: "Rera approved with A khata",
+    bankoffer: `<strong>BANK</strong> Loan Offers for VR Innovative Global City.<br>Apply for affordable home loans!`,
+    proximity: `<b>Schools:</b> RV Intl, Golden City PU, SDC College, Mahila Samaja, Vidya Jyothi.<br>
+      <b>Hospitals:</b> RL Jalappa, ETCM Hospital, SNR, Hope, Manjunath.<br>
+      <b>Entertainment:</b> Pallavi Talkies, Prabhat Theatre, SN Resort.<br>
+      <b>Industrial:</b> Narsapura (15 km), Tamaka (3 km), Vemagal (15 km)`,
+    floors: [{label:"Master Layout", img:"https://images.unsplash.com/photo-1506784365847-bbad939e9335?fit=crop&w=400&q=80"}]
+  }
+};
+
+const icons = {
+  "Gated Community with compound wall": "<i class='fa-solid fa-city'></i>",
+  "24/7 Security & Surveillance": "<i class='fa-solid fa-video'></i>",
+  "Tarred/Concrete Roads (main and internal)": "<i class='fa-solid fa-road'></i>",
+  "Street Lighting": "<i class='fa-regular fa-lightbulb'></i>",
+  "Overhead Water Tanks / Borewell Water Supply": "<i class='fa-solid fa-droplet'></i>",
+  "Underground Drainage & Stormwater Drains": "<i class='fa-solid fa-water'></i>",
+  "Rainwater Harvesting": "<i class='fa-solid fa-cloud-rain'></i>",
+  "Parks & Children's Play Area": "<i class='fa-solid fa-tree'></i>",
+  "Avenue Plantation (trees along roads)": "<i class='fa-solid fa-seedling'></i>",
+  "Civic Amenities Site (reserved for future development like shops, temples, etc.)": "<i class='fa-solid fa-store'></i>",
+  "Sewage Treatment Plant (STP)": "<i class='fa-solid fa-recycle'></i>",
+  "Electricity with Transformer": "<i class='fa-solid fa-bolt'></i>"
+};
+function renderProject(project) {
+  // 1. HERO SECTION
+  document.getElementById('hero-img-bg').style.backgroundImage = "url(" + project.bannerImg + ")";
+  // document.getElementById('hero-logos').innerHTML = `
+  //   <div class="hero-logo">${project.title.split(" ")[0]}</div>
+  //   <div class="hero-logo">${project.title.split(" ")[1] || ""}</div>
+  // `;
+
+  // 2. BANNER LOWER
+  document.getElementById('project-title').innerText = project.title;
+  // document.getElementById('project-location').innerText = project.location;
+  document.getElementById('project-location-text').innerText = project.location;
+  document.getElementById('contactNowBtn').onclick = () => alert('Contact Now (action not implemented)');
+  document.getElementById('downloadBrochureBtn').onclick = () => alert('Download Brochure (action not implemented)');
+
+  // 3. GALLERY
+  document.getElementById('gallery-title').innerText = `Photos of ${project.title}`;
+  const galleryRow = document.getElementById('gallery-row');
+  galleryRow.innerHTML = '';
+  project.gallery.forEach(gurl => {
+    const img = document.createElement('img');
+    img.className = 'gallery-img';
+    img.src = gurl;
+    galleryRow.appendChild(img);
+  });
+  const arrBtn = document.createElement('button');
+  arrBtn.className = 'gallery-next-btn';
+  arrBtn.innerHTML = '<i class="fa fa-arrow-right"></i>';
+  arrBtn.onclick = () => alert('Gallery scroll (not implemented)');
+  galleryRow.appendChild(arrBtn);
+
+  // 4. AMENITIES
+  document.getElementById('amenities-title').innerText = `Amenities ${project.title}`;
+  const amenitiesGrid = document.getElementById('amenities-grid');
+  amenitiesGrid.innerHTML = '';
+  for (let i = 0; i < Math.min(10, project.amenities.length); i++) {
+    const amenity = project.amenities[i];
+    const card = document.createElement('div');
+    card.className = "amenity-card" + ((i == 0 || i == 1) ? " top" : "");
+    if (i == 0 || i == 1) card.innerHTML += '<span class="card-ribbon"></span>';
+    card.innerHTML += (icons[amenity] || "") + `<span>${amenity || 'Need to add icon for this service'}</span>`;
+    amenitiesGrid.appendChild(card);
+  }
+  document.getElementById('view-all-amenities').onclick = () => alert('View all amenities (not implemented)');
+  document.getElementById('contactBuilderBtn').onclick = () => alert('Contact Builder (not implemented)');
+
+  // 5. ABOUT AND LOAN OFFERS
+  document.getElementById('about-title').innerText = `About ${project.title}`;
+  const desc = project.about || '';
+  let descShort = desc;
+  if (desc.length > 62) descShort = desc.slice(0, 61) + "...";
+  let readMoreOpen = false;
+  document.getElementById('about-desc').innerText = descShort;
+  document.getElementById('read-more').onclick = function () {
+    readMoreOpen = !readMoreOpen;
+    this.innerText = readMoreOpen ? "Show Less" : "Read More";
+    document.getElementById('about-desc').innerText = readMoreOpen ? desc : descShort;
+  };
+  document.getElementById('loan-offer-title').innerHTML = `<i class="fa fa-bank"></i> Loan Offers for <span id="loan-offer-project">${project.title}</span>`;
+  document.getElementById('loan-offer-desc').innerHTML = project.bankoffer || `<span style="color:#919191">Need to add bank offer info for this project.</span>`;
+  document.getElementById('contactNow2Btn').onclick = () => alert('Contact Now (action not implemented)');
+
+  // 6. FLOOR PLAN & UNITS (CLIENT CARD STYLE) -- THIS IS THE NEW PART!
+  document.getElementById('floor-title').innerText = "Floor Plan & Units";
+
+  // Top summary/unit-selector card
+  let firstFloor = project.floors?.[0];
+  let cardHtml = "";
+  if (firstFloor) {
+    cardHtml = `
+      <div>
+        <div class="unit-main-title">${firstFloor.label || "BHK Flat"}</div>
+        <div class="unit-sub">1885 Sq.ft - 2546 Sq.ft</div>
+        <div class="unit-price">Sale: ₹2.02 Cr - ₹2.52 Cr</div>
+      </div>
+      <div><i class="fa fa-object-group"></i></div>
+    `;
+  }
+  document.getElementById('unit-selector-card').innerHTML = cardHtml;
+
+  // Floor plan gallery (carded design)
+  const gallery = document.getElementById('floor-plan-gallery');
+  gallery.innerHTML = "";
+  (project.floors || []).forEach(floor => {
+    gallery.innerHTML += `
+      <div class="floor-plan-card">
+        <img src="${floor.img || 'https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=400&q=80'}" alt="${floor.label || 'Floor Plan'}">
+        <div class="floor-plan-title">${floor.label || "3.5 BHK Floor Plan"}</div>
+        <div class="floor-plan-area">Carpet Area: 1260 sqft.</div>
+        <a class="request-price" href="#">Request Price <i class="fa fa-arrow-right"></i></a>
+      </div>
+    `;
+  });
+  [...gallery.querySelectorAll('.request-price')].forEach(btn =>
+    btn.onclick = (e) => { e.preventDefault(); alert("Request Price (not implemented)") }
+  );
+  document.querySelector('.floor-gallery-arrow').onclick = () => alert('Scroll for more plans (not implemented)');
+
+}
+// INITIAL: Render first project
+// Get propertyId from URL
+function getPropertyIdFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('propertyId') || "slv_golden_towers";
+}
+
+const propertyId = getPropertyIdFromURL();
+if (propertyId in data) {
+  renderProject(data[propertyId]);
+} else {
+  // Fallback: Show not found or default
+  document.body.innerHTML = "<h2>Property not found!</h2>";
+}
+
+    </script>
+  </body>
+</html>

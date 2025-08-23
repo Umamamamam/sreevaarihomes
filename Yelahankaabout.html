@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Prestige Group</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Section title with gradient */
+    .section-title {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* center the text */
+
+  background: linear-gradient(
+    to right,
+    #bf3939 0%,      
+    #ce3030 20%,     
+    #ad0808 40%,     
+    #410f0f 60%,     
+    #330909 80%,     
+    #000000 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block; /* ensures gradient applies correctly */
+}
+
+    /* Small image under title */
+    .title-image {
+      display: block;
+
+      width: 350px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease;
+    }
+
+    .title-image:hover {
+      transform: scale(1.1);
+    }
+
+    /* Content paragraphs */
+    .about-content p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    /* Slide-up animation */
+    .slide-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* CRISIL logo */
+    .logo {
+      display: block;
+      margin: 20px auto;
+      width: 120px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container slide-up">
+    <h2 class="section-title">Yelahanka: Where Bangalore’s Future Has Already Checked In</h2>
+
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=150&q=80" 
+         alt="Prestige Group" class="title-image">
+
+    <div class="about-content">
+      <p>It starts subtly.
+The roads get wider. The air feels lighter. The skyline shifts from modest homes to sleek new developments. At the corner café, professionals are on laptops while families stroll by the lake.
+</p>
+
+      <p>This is Yelahanka — once a quiet suburb, now one of the most sought-after spots in North Bangalore real estate. And for those asking “Where’s the best place to buy land in Bangalore?” — the answer is fast becoming the same: right here.</p>
+      <p>Here are 9 compelling reasons to invest in Yelahanka plots for sale today.
+
+<br><br>
+1. The Price Gap That Works for You
+
+Compared to the inflated rates in Whitefield or Indiranagar, land prices in Yelahanka are still reasonable. But with metro connectivity, tech parks, and luxury housing projects coming up, appreciation is inevitable. The window for affordable entry is closing.
+
+<br><br>
+2. Connectivity to Everywhere That Matters
+
+Yelahanka’s location is unbeatable:
+
+20 minutes to Kempegowda International Airport
+
+Close to Manyata Tech Park, Hebbal, and Kirloskar Business Park
+
+Upcoming Namma Metro line that will link directly to the city
+Add the Peripheral Ring Road and multiple flyovers, and you’ve got fast access in every direction.
+
+<br><br>
+3. Safe, Family-Friendly Neighborhoods
+
+From gated villa communities to secure plotted layouts, safety in Yelahanka is a major draw. Streets are well-lit, security is 24/7, and active resident communities make it a place where neighbors know and look out for each other.
+<br><br>
+
+4. Lifestyle Without the Wait
+
+Investors often have to “wait” for surrounding development to catch up — but not here. Living in Yelahanka means:
+
+Shopping & Entertainment: RMZ Galleria Mall, boutique stores, multiplexes
+
+Cafés & Dining: Truffles, Barbeque Nation, Third Wave Coffee
+
+Healthcare: Aster CMI, Manipal Hospital
+
+Education: Canadian International School, Ryan International
+
+
+Everything you need is already in place.
+
+<br><br>
+5. Water Supply & Clean Surroundings
+
+Bangalore’s water shortage problem is real — but Cauvery water supply in Yelahanka gives you a big advantage. Add cleaner groundwater, organized waste management, and greener streets, and you’ve got a higher standard of everyday living.
+<br><br>
+6. Less Traffic, More Movement
+
+Yes, Bangalore traffic exists here too — but Yelahanka offers alternatives. Airport proximity, arterial roads, and soon the metro mean you’re moving while others are still stuck in bottlenecks.
+<br><br>
+7. Open Spaces and Greenery
+
+Buying plots in Yelahanka means you don’t have to give up nature for convenience. Lakes like Puttenahalli and tree-lined avenues keep the air fresher and the views open — something rare in urban Bangalore.
+<br><br>
+8. A Hotspot for NRIs and Professionals
+
+With its blend of lifestyle, safety, and global connectivity, Yelahanka has become a preferred choice for NRIs and professionals who travel frequently. International schools, premium clubs, and proximity to the airport make it ideal for cosmopolitan living.
+
+<br><br>
+9. The Investor’s Timing Advantage
+
+Real estate growth always follows infrastructure — and North Bangalore is the next growth corridor. Investing in Yelahanka now means you’re buying ahead of the big price surge, not after it.
+<br><br>
+
+
+
+In a few years, Yelahanka will be fully recognized as Bangalore’s luxury residential hub. By then, the land prices you see today will be long gone.
+
+If you’ve been thinking about where to buy land in North Bangalore, this is your moment to act — and Yelahanka is where your future address should be.
+</p>
+    </div>
+  </div>
+
+  <script>
+    // Slide-up animation
+    const slideSection = document.querySelector('.slide-up');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(slideSection);
+  </script>
+
+</body>
+</html>

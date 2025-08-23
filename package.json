@@ -1,0 +1,28 @@
+{
+  "name": "srivarihomes2",
+  "version": "1.0.0",
+  "description": "To make it easy for you to get started with GitLab, here's a list of recommended next steps.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/harini3642328/srivarihomes2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/harini3642328/srivarihomes2/issues"
+  },
+  "homepage": "https://gitlab.com/harini3642328/srivarihomes2#readme",
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.17.2",
+    "node": "^24.6.0"
+  }
+}
