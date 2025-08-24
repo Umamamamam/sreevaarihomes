@@ -600,6 +600,24 @@ hr {
 
 
 <script>
+  window.addEventListener("scroll", () => {
+  const widget = document.querySelector(".contact-widget");
+  const footer = document.querySelector("footer");
+
+  if (!widget || !footer) return;
+
+  const footerRect = footer.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (footerRect.top < windowHeight - 50) {
+    // Footer is visible → move widget up
+    let offset = windowHeight - footerRect.top + 50;
+    widget.style.transform = `translateY(-${offset}px)`;
+  } else {
+    // Normal position
+    widget.style.transform = "translateY(0)";
+  }
+});
   // Mapping card text to property ID (slug)
   const propertyIdMap = {
     'SLV Golden Towers': 'slv_golden_towers',
@@ -660,7 +678,7 @@ window.addEventListener("click", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  form.style.display = "none";
+  form.style.display = "none";s
   thanksBox.style.display = "block";
 
   setTimeout(() => {

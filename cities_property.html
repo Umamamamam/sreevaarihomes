@@ -194,6 +194,7 @@
       text-align: center;
       padding: 15px;
       z-index: 9999;
+      transition: transform 0s ease-in-out;
     }
     .contact-widget h3 {
       font-size: 16px;
@@ -1199,6 +1200,27 @@ document.addEventListener('click', e => {
     document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
   }
 });
+
+
+window.addEventListener("scroll", function() {
+  const widget = document.querySelector(".contact-widget");
+  const footer = document.querySelector("footer");
+
+  const footerRect = footer.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (footerRect.top < windowHeight) {
+    // Footer is visible → push widget up
+    const overlap = windowHeight - footerRect.top;
+    widget.style.transform = `translateY(-${overlap + -100}px)`; 
+  } else {
+    // Normal position
+    widget.style.transform = "translateY(0)";
+  }
+});
+
+
+
  </script>
 </body>
 </html>
