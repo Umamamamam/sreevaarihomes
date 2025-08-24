@@ -177,7 +177,7 @@ app.get("/cities_property.html", (req, res) => {
 app.get('/property-details/:propertyId', (req, res) => {
   const propertyId = req.params.propertyId;
   // Send the same HTML file for all property details
-  res.sendFile(path.join(__dirname, 'public', 'property-details.html'));
+  res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
 });
 
 // === Routes ===
