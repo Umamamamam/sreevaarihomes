@@ -174,6 +174,12 @@ app.get("/", (req, res) => {
 app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
+app.get('/property-details/:propertyId', (req, res) => {
+  const propertyId = req.params.propertyId;
+  // Send the same HTML file for all property details
+  res.sendFile(path.join(__dirname, 'public', 'property-details.html'));
+});
+
 // === Routes ===
 app.post("/form", async (req, res) => {
   const { name, mobile, project } = req.body.form;
