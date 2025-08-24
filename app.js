@@ -150,7 +150,6 @@ const SubmitContact = require("./models/SubmitContact");
 
 const app = express();
 
-// Middleware
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // needed for JSON POST requests
@@ -170,6 +169,10 @@ db.once("open", () => {
 // Serve index.html at root
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.get("/cities_property.html", (req, res) => {
+  res.sendFile(path.join(__dirname, "cities_property.html"));
 });
 
 // === Routes ===
