@@ -176,9 +176,22 @@ app.get("/cities_property.html", (req, res) => {
 });
 app.get('/property-details/:propertyId', (req, res) => {
   const propertyId = req.params.propertyId;
-  // Send the same HTML file for all property details
   res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
 });
+
+app.get('/yelahankaabout.html', (req, res) => {
+  res.sendFile(path.join(__dirname, "yelahankaabout.html"));
+})
+app.get('/jiganiabout.html', (req, res) => {
+  res.sendFile(path.join(__dirname,"jiganiabout.html"));
+})
+app.get('/kolarabout.html', (req, res) => {
+  res.sendFile(path.join(__dirname,"kolarabout.html"));
+})
+app.get('/chikkaballapurabout.html', (req, res) => {
+  res.sendFile(path.join(__dirname,"chikkaballapurabout.html"));
+})
+
 
 // === Routes ===
 app.post("/form", async (req, res) => {
