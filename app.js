@@ -179,8 +179,8 @@ app.get('/property-details/:propertyId', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
 });
 
-app.get('/yelahankaabout.html', (req, res) => {
-  res.sendFile(path.join(__dirname, "yelahankaabout.html"));
+app.get('/Yelahankaabout.html', (req, res) => {
+  res.sendFile(path.join(__dirname, "Yelahankaabout.html"));
 })
 app.get('/jiganiabout.html', (req, res) => {
   res.sendFile(path.join(__dirname,"jiganiabout.html"));
