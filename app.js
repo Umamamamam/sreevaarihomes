@@ -176,7 +176,7 @@ app.get("/cities_property.html", (req, res) => {
 });
 app.get('/property-details.html/:propertyId', (req, res) => {
   const propertyId = req.params.propertyId;
-  res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
+  res.sendFile(path.join(__dirname, 'public', 'property-details.html/propertyId=${propertyId}'));
 });
 
 app.get('/Yelahankaabout.html', (req, res) => {
