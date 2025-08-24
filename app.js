@@ -175,9 +175,14 @@ app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
 app.get('/property-details/:propertyId', (req, res) => {
-  const propertyId = req.query.propertyId;
-  res.sendFile(path.join(__dirname, 'public', 'property-details.html/propertyId=${propertyId}'));
-});
+  try{
+  const propertyId = req.params.propertyId;
+  res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
+  }
+  catch(e) {
+    console.log(e);
+  }
+})
 
 app.get('/Yelahankaabout.html', (req, res) => {
   res.sendFile(path.join(__dirname, "Yelahankaabout.html"));
