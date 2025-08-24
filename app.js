@@ -1,6 +1,8 @@
 const Form = require('./models/form');
 const View = require('./models/view'); 
 const ViewSecond = require('./models/viewsecond'); 
+const Property = require("./models/Property");
+const SubmitContact = require('./models/SubmitContact');
 
 require("dotenv").config();
 const express = require('express');
@@ -39,6 +41,44 @@ app.post('/form', async (req, res) => {
     await form.save();
     res.render('thanksform');
 })
+app.post("/submit-property", async (req, res) => {
+  try {
+    const { fullName, email, phone, propertyType, propertyAddress, propertyDescription } = req.body;
+
+    const newProperty = new Property({
+      fullName,
+      email,
+      phone,
+      propertyType,
+      propertyAddress,
+      propertyDescription,
+    });
+
+    await newProperty.save();
+    res.json({ success: true, message: "Property submitted successfully!" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error", error: err.message });
+  }
+})
+app.post("/citiesproperty", async (req, res) => {
+  try {
+    const { fullName, email, phone, propertyType, propertyAddress, propertyDescription } = req.body;
+
+    const newProperty = new Property({
+      fullName,
+      email,
+      phone,
+      propertyType,
+      propertyAddress,
+      propertyDescription,
+    });
+
+    await newProperty.save();
+    res.json({ success: true, message: "Property submitted successfully!" });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Server error", error: err.message });
+  }
+})
 app.post('/view', async (req, res) => {
     try {
       const { name, phoneNumber } = req.body;
@@ -64,9 +104,33 @@ app.post('/view', async (req, res) => {
             error: "Error saving data" 
         });
     }
-});
-const port = 3000;
+})
+app.post("/submit-contact", async (req, res) => {
+  try {
+    const { name, phone, email, bhk, agree } = req.body;
 
-app.listen(port, '0.0.0.0', () => {
-    console.log(`Listening on port ${port}`);
+    // Create a new contact document
+    const newContact = new SubmitContact({
+      name,
+      phone,
+      email,
+      bhk,
+      agree
+    });
+
+    await newContact.save();
+
+    res.json({ success: true, message: "Contact submitted successfully!" });
+  } catch (err) {
+    console.error("Error saving contact:", err);
+    res.status(500).json({ success: false, message: "Server error", error: err.message });
+  }
 });
+
+
+// const port = 3000;
+
+// app.listen(port, '0.0.0.0', () => {
+//     console.log(`Listening on port ${port}`);
+// });
+module.exports = app;

@@ -206,39 +206,27 @@
     .gallery-next-btn:hover {
       background: #f5f5f5;
     }
-    /* Section 3: Amenities */
-    .amenities-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 17px 23px;
-      margin-top: 16px;
-      margin-bottom: 7px;
-    }
-    .amenity-card {
-      background: #faf9f9;
-     
-      padding: 13px 8px 10px 12px;
-      text-align: left;
-      font-size: 0.97rem;
-      color: #453e3e;
-      box-shadow: 0 1px 8px rgba(0,0,0,0.03);
-      position: relative;
-      min-height: 54px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      justify-content: center;
-      text-align: center;
-       border: 1px solid red;
-      border-radius: 6px;
-    }
-    
+ .amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, auto)); 
+  gap: 5px;            
+  justify-content: start;  
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;         
+  max-width: 700px;    
+}
+
+
+.amenity-card { margin: 0 !important; background: #faf9f9; padding: 13px 8px 10px 12px; text-align: left; font-size: 10px; color: #453e3e; box-shadow: 0 1px 8px rgba(0,0,0,0.03); position: relative; min-height: 54px; width: 100px; display: flex; flex-direction: column; gap: 6px; justify-content: center; text-align: center; border-radius: 6px;  }
+
     .amenity-card .fa {
       font-size: 1.36em;
       color: #176a56;
       margin-bottom: 2px;
       margin-right: 7px;
       vertical-align: -2px;
+      
     }
     .amenity-card.top {
       /* first 2 cards */
@@ -547,7 +535,7 @@
 
     .amenity-card {
       background: transparent !important;
-      border: none !important;
+      border: 1px solid #ccc;
       box-shadow: none !important;
     }
 
@@ -916,9 +904,9 @@
               <span id="project-location-text">Sarjapur Road, Bangalore</span>
           </div>
           <div class="project-actions">
-            <button class="main-btn-red" id="contactNowBtn">
+            <a href="" id="contactNowBtn" class="contact-btn main-btn-red" style="text-decoration: none;">
               Contact Now
-            </button>
+            </a>
             <button class="main-btn-light" id="downloadBrochureBtn">
               <i class="fa fa-download"></i>
               Download Brochure
@@ -976,12 +964,47 @@
         <!-- Gallery card for multiple floor plans (with arrow) -->
         <div class="floor-gallery-card">
           <div class="floor-plan-gallery" id="floor-plan-gallery"></div>
-          <button class="floor-gallery-arrow"><i class="fa fa-arrow-right"></i></button>
+          <!-- <button class="floor-gallery-arrow"><i class="fa fa-arrow-right"></i></button> -->
         </div>
       </div>
 
-    <script>
+<!-- nav bar script -->
+ <script> 
+  // Hero Tabs Dropdown Logic
+document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
+  const btn = tabw.querySelector('.hero-tab');
+  const dd = tabw.querySelector('.hero-tab-dropdown');
+  btn.addEventListener('mouseenter', () => {
+    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+    dd.classList.add('opened'); btn.classList.add('active');
+  });
+  btn.addEventListener('mouseleave', () => {
+    setTimeout(() => { if(!tabw.matches(':hover')) dd.classList.remove('opened');}, 110);
+    setTimeout(() => { if(!tabw.matches(':hover')) btn.classList.remove('active'); }, 120);
+  });
+  dd.addEventListener('mouseenter', () => {
+    dd.classList.add('opened');
+    btn.classList.add('active');
+  });
+  dd.addEventListener('mouseleave', () => {
+    dd.classList.remove('opened');
+    btn.classList.remove('active');
+  });
+  // Show on keyboard focus too
+  btn.addEventListener('focus', ()=>{dd.classList.add('opened');btn.classList.add('active');});
+  btn.addEventListener('blur', ()=>{setTimeout(()=>{dd.classList.remove('opened');btn.classList.remove('active');},150);});
+});
 
+// Close all dropdowns if click elsewhere
+document.addEventListener('click', e => {
+  if (!e.target.closest('.hero-tab-wrapper')) {
+    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+  }
+});
+ </script>
+    <script>
 const data = {
   slv_golden_towers: {
     title: "SLV Golden Towers",

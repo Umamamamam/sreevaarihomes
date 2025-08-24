@@ -13,4 +13,4 @@ const ViewSecondSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('ViewSecond', ViewSecondSchema);n
+module.exports = mongoose.model('ViewSecond', ViewSecondSchema);

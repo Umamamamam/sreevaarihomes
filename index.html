@@ -630,8 +630,8 @@
       color: #23303d;
     }
     .carousel-arrow svg { display: block; }
-    .carousel-arrow.left { left: 7px;}
-    .carousel-arrow.right { right: 7px;}
+    .carousel-arrow.left { left: 7px; position: absolute; left: 20px;}
+    .carousel-arrow.right { right: 7px; position: absolute; right: 35px;}
     .carousel-arrow:hover, .carousel-arrow:focus {
       border-color: #3583e1;
       background: #e9f2fe;
@@ -930,58 +930,78 @@
 }
 
     /*-------------------
-      SECTION 7: Real Estate Services (final block)
-    --------------------*/
-    .real-estate-services {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      padding: 40px 20px;
-      text-align: center;
-    }
+  SECTION 7: Real Estate Services (final block)
+--------------------*/
+.real-estate-services {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
 
-    .real-estate-services .section-title {
-      color: #c00;
-      font-size: 26px;
-      font-weight: bold;
-      margin-bottom: 40px;
-    }
+  /* Scroll animation (hidden by default) */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
 
-    .real-estate-services .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.real-estate-services.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    .real-estate-services .service-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-      height: 170px;
-    }
+.real-estate-services .section-title {
+  color: #c00;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
 
-    .real-estate-services .service-card:hover {
-      transform: translateY(-5px);
-    }
+.real-estate-services .services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
 
-    .real-estate-services .service-card h3 {
-      font-size: 18px;
-      margin: 0 0 10px;
-      color: #333;
-    }
+.real-estate-services .service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0px 3px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  height: 170px;
 
-    .real-estate-services .service-card p {
-      font-size: 14px;
-      color: #555;
-      margin-bottom: 20px;
-      letter-spacing: 0.5px;
-    }
+  /* Scroll animation for cards */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.real-estate-services.visible .service-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.real-estate-services .service-card:hover {
+  transform: translateY(-5px);
+}
+
+.real-estate-services .service-card h3 {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.real-estate-services .service-card p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
 
 .real-estate-services .read-more {
   display: inline-block;
@@ -998,27 +1018,24 @@
   border: 1px solid #007bff;
 }
 
+.real-estate-services .read-more:hover {
+  background: #007bff;
+  color: #fff;
+}
 
-    .real-estate-services .read-more:hover {
-      background: #007bff;
-      color: #fff;
-    }
-
-    /* Big Icon Circle */
-    .real-estate-services .icon-circle {
-      position: absolute;
-      bottom: -85px;  
-      right: -65px;  
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: #d4e6fa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-   
-    }
+/* Big Icon Circle */
+.real-estate-services .icon-circle {
+  position: absolute;
+  bottom: -85px;  
+  right: -65px;  
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #d4e6fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
     /*-------------------------
       RESPONSIVE STYLING
@@ -1530,6 +1547,287 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+/* Hidden by default */
+.city-section {
+  opacity: 0;
+  transform: translateY(60px); /* start from bottom */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.city-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Hidden by default */
+.latest-props-section {
+  opacity: 0;
+  transform: translatex(60px); 
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.latest-props-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Hidden by default */
+.actions-section {
+  opacity: 0;
+  transform: translateX(-60px); /* start from left */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+.actions-section.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+footer {
+  opacity: 0;
+  transform: translateY(60px, 40px); 
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* When visible */
+footer.visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+/* Contact Button */
+.contact-btn {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.contact-btn:hover {
+  background: #218838;
+}
+/* Make modal wider */
+#homeContactModal { width: auto !important; }
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 999;
+}
+.modal-content {
+  background: #fff;
+  padding: 10px;
+  width: 100%;
+  max-width: 480px;           
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Yellow top strip */
+.modal-content::before{
+  content:"✨ Hey, you’re just one step away from your dream home!";
+  display:block;
+  background:#fff7e0;
+  color:#a67800;
+  font-size:14px; font-weight:600;
+  padding:10px 16px;
+  border-bottom:1px solid #f0e0b2;
+}
+
+/* Close */
+.closeBtn{ position:absolute; top:12px; right:14px; font-size:30px; cursor:pointer; color:#666; }
+
+/* Headings above the bordered form */
+.modal-content h2{ margin:20px 16px 4px; font-size:18px; font-weight:700; }
+.modal-content p{ margin:0 16px 10px; color:#555; font-size:14px; }
+
+/* === Inner border ONLY for the form === */
+#homeContactForm{
+  margin:0 16px 18px;               /* space from card edges */
+  padding:16px;
+  border:1px solid #e9e9e9;         /* requested inner border */
+  background:#fff;
+}
+
+/* Inputs */
+#homeContactForm label{ display:block; margin-bottom:6px; font-size:13px; color:#333; font-weight:500; }
+#homeContactForm input, #homeContactForm select{
+  width:100%; padding:10px 0; margin-bottom:14px;
+  border:none; border-bottom:1px solid #ddd; background:transparent; outline:none; font-size:14px;
+}
+#homeContactForm input:focus, #homeContactForm select:focus{ border-bottom:1px solid #000; }
+
+/* Checkbox */
+#homeContactForm input[type="checkbox"]{ width:auto; margin-right:8px; }
+
+/* Button */
+#homeContactForm button{
+  width:100%; background:#007bff; color:#fff; border:none;
+  padding:14px; font-size:15px; font-weight:700;  cursor:pointer;
+}
+#homeContactForm button:hover{ background:blue; }
+
+/* Confirmation (hidden) */
+#homeConfirmation{ display:none; padding:20px; text-align:center; font-size:15px; color:#333; }
+
+/* Responsive */
+@media (max-width: 860px){
+  .modal-content{ width: calc(100vw - 24px); max-width: 100%; }
+  #homeContactForm{ margin:0 12px 16px; padding:14px; }
+}
+
+
+/* Lock background scroll when modal is active */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* === Property Modal Overlay === */
+.contactmodalProperty {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;            /* hidden by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* === Property Modal Content === */
+.modal-content-property {
+  padding: 20px;
+  background: #fff;
+  width: 100%;
+  max-width: 480px;         /* same as homeContactModal */
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+/* Yellow top strip */
+.modal-content-property::before {
+  content:"✨ Hey, you’re just one step away from publishing your property!";
+  display:block;
+  background:#fff7e0;
+  color:#a67800;
+  font-size:14px;
+  font-weight:600;
+  padding:10px 16px;
+  border-bottom:1px solid #f0e0b2;
+}
+
+/* Close button */
+.modal-content-property .closeBtn {
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:30px;
+  cursor:pointer;
+  color:#666;
+}
+
+/* Headings */
+.modal-content-property h2 {
+  margin:20px 16px 4px;
+  font-size:18px;
+  font-weight:700;
+}
+.modal-content-property p {
+  margin:0 16px 10px;
+  color:#555;
+  font-size:14px;
+}
+
+/* === Inner border for the form === */
+#propertyForm {
+  margin:0 16px 18px;
+  padding:16px;
+  border:1px solid #e9e9e9;
+  border-radius:6px;
+  background:#fff;
+}
+
+/* Inputs */
+#propertyForm label {
+  display:block;
+  margin-bottom:6px;
+  font-size:13px;
+  color:#333;
+  font-weight:500;
+}
+#propertyForm input,
+#propertyForm select,
+#propertyForm textarea {
+  width:100%;
+  padding:10px 0;
+  margin-bottom:14px;
+  border:none;
+  border-bottom:1px solid #ddd;
+  background:transparent;
+  outline:none;
+  font-size:14px;
+}
+#propertyForm textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+#propertyForm input:focus,
+#propertyForm select:focus,
+#propertyForm textarea:focus {
+  border-bottom:1px solid #000;
+}
+
+/* Submit button */
+#propertyForm button {
+  width:100%;
+  background:#007bff;
+  color:#fff;
+  border:none;
+  padding:14px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+}
+#propertyForm button:hover {
+  background: blue;
+}
+
+/* Confirmation message */
+#confirmation {
+  display:none;
+  padding:20px;
+  text-align:center;
+  font-size:15px;
+  color:#333;
+}
+#confirmation .tick {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* === Disable background scroll when modal open === */
+body.modal-open {
+  overflow:hidden;
+}
+
+/* === Responsive === */
+@media (max-width: 860px) {
+  .modal-content-property {
+    width: calc(100vw - 24px);
+    max-width: 100%;
+  }
+  #propertyForm {
+    margin:0 12px 16px;
+    padding:14px;
+  }
+}
+
 
 </style>
 </head>
@@ -1537,7 +1835,8 @@ footer {
 <body>
 <!-- Logo Splash Overlay (insert ABOVE .site-container) -->
 <div class="logo-splash-overlay" id="logoSplash">
-  <img src="images/PROJECT IMAGES/sreevarihomes.png" alt="Sree Vaari Homes Logo" />
+  <a href="index.html">
+  <img src="images/PROJECT IMAGES/sreevarihomes.png" alt="Sree Vaari Homes Logo" /></a>
 </div>
 
 <div class="site-container">
@@ -1613,6 +1912,45 @@ footer {
     </div>
   </div>
 </nav>
+<div id="homeContactModal" style="display:none;">
+  <div class="modal-overlay">
+    <div class="modal-content">
+      <span class="closeBtn">&times;</span>
+
+      <h2>Connect us</h2>
+      <p>Sreevaari Homes</p>
+
+      <form id="homeContactForm" action="/submitContact" method="POST">
+        
+        <input type="text" name="name" placeholder="Name"required/>
+         
+        <input type="text" name="phone" placeholder="Phone Number"required/>
+
+        <input type="email" name="email" placeholder="Email"required/>
+
+        <label>What are you looking for?</label>
+        <select name="bhk" required style="width:100%; margin-bottom:10px;">
+          <option value="" disabled selected>Select BHK</option>
+          <option value="2BHK">2BHK</option>
+          <option value="3BHK">3BHK</option>
+          <option value="4BHK">4BHK</option>
+        </select>
+
+        <label>
+          <input type="checkbox" name="agree" required>
+          I agree to be contacted via WhatsApp, SMS, phone, email
+        </label>
+
+        <button type="submit">Get Contact Details</button>
+      </form>
+
+      <div id="homeConfirmation">
+        <div>✅</div>
+        <p>Thanks for messaging us! Our team will contact you soon. 🙂</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   <div class="carousel-container section" id="hero-carousel">
@@ -1795,6 +2133,7 @@ footer {
   </button>
 </div>
 </div>
+
   <!-- SECTION 4: CITY SELECTOR -->
   <div class="city-section section">
     <div class="section-title" >Find Your Property in Your Preferred City</div>
@@ -1884,7 +2223,7 @@ footer {
     <div class="action-box action-box-1">
       <div class="action-box-title">Market your property for free !!</div>
       <div class="action-box-desc"></div>
-      <button class="action-btn contact">Contact Us<i class="fa-solid fa-arrow-right-long"></i></button>
+      <button id="openModalBtn" class="action-btn contact">Contact Us<i class="fa-solid fa-arrow-right-long"></i></button>
      
     </div>
     <div class="action-box action-box-2">
@@ -1907,74 +2246,116 @@ footer {
      </div>
   </div>
 </div>
+<!-- Modal -->
+ 
+<div id="contactModalProperty" class="contactmodalProperty">
+  <div class="modal-content-property">
+    <span class="closeBtn">&times;</span>
+    <h2>Publish Your Property for Free</h2>
+    <p>Fill out the form to submit your property details. Publishing is free.</p>
+
+    <!-- Form -->
+    <form id="propertyForm" action="http://localhost:3000/submit-property" method="POST">
+      
+      <input type="text" name="fullName" placeholder="Full Name" required>
+
+      
+      <input type="email" name="email" placeholder="Email Address"required>
+
+      
+      <input type="text" name="phone" placeholder="Phone Number"required>
+
+      <label>Property Type:</label>
+      <select name="propertyType" required>
+        <option value="">Select Type</option>
+        <option value="Apartment">Apartment</option>
+        <option value="Villa">Villa</option>
+        <option value="Plot">Plot</option>
+      </select>
+
+      
+      <input type="text" name="propertyAddress" placeholder="Property Address"required>
+
+      
+      <textarea name="propertyDescription" placeholder="Property Description"></textarea>
+
+      <button type="submit">Submit Property</button>
+    </form>
+
+    <!-- Confirmation (hidden initially) -->
+    <div id="confirmation" class="confirmation" style="display: none;">
+      <div class="tick">✅</div>
+      <p>Thanks for messaging us! Our team will contact you soon. 🙂</p>
+    </div>
+
+  </div>
+</div>
+
+
   <!-- SECTION 7: REAL ESTATE SERVICES -->
-  <section class="real-estate-services">
+   <section class="real-estate-services">
     <h2 class="section-title">Explore our Real Estate Services</h2>
 
     <div class="services-grid">
 
       <div class="service-card">
-        <h3>Real-estate </h3>
+        <h3>Real-estate</h3>
         <p>Find the space that fits your life – and your future.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 60px; height: 60px; position: relative; top: -35px; left: -20px;"src="images/img icons/compressed/9.png"></div>
+        <div class="icon-circle"><img style="width:60px; height:60px; position:relative; top:-35px; left:-20px;" src="images/img icons/compressed/9.png"></div>
       </div>
 
       <div class="service-card">
         <h3>Builders / Developers</h3>
         <p>List of the most trusted and reliable builders to fulfill your Dream HOME.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 70px; height: 70px; position: relative; top: -35px; left: -25px;"src="images/img icons/compressed/10.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-25px;" src="images/img icons/compressed/10.png"></div>
       </div>
 
       <div class="service-card">
         <h3>Architects / Architecture</h3>
         <p>Professional Architecture will meet your needs and expectations.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 70px; height: 70px; position: relative; top: -35px; left: -20px;"src="images/img icons/compressed/11.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-20px;" src="images/img icons/compressed/11.png"></div>
       </div>
 
       <div class="service-card">
         <h3>Interior Decorators</h3>
         <p>A One-Stop Solution for all your decor Needs to Match Your Lifestyle.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 70px; height: 70px; position: relative; top: -35px; left: -20px;"src="images/img icons/compressed/12.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-20px;" src="images/img icons/compressed/12.png"></div>
       </div>
 
       <div class="service-card">
         <h3>Solar energy</h3>
         <p>Power your world with the sun – clean, smart, and sustainable solar solutions</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><<img style="width: 70px; height: 70px; position: relative; top: -35px; left: -25px;"src="images/img icons/compressed/13.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-25px;" src="images/img icons/compressed/13.png"></div>
       </div>
 
       <div class="service-card">
         <h3>Home Inspection</h3>
         <p>A complete range of building and home inspection services.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 70px; height: 70px; position: relative; top: -35px; left: -25px;"src="images/img icons/compressed/14.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-25px;" src="images/img icons/compressed/14.png"></div>
       </div>
 
       <div class="service-card">
         <h3>UPVC</h3>
         <p>Strength meets style – durable, weatherproof uPVC solutions for modern living.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 70px; height: 70px; position: relative; top: -35px; left: -25px;"src="images/img icons/compressed/15.png"></div>
+        <div class="icon-circle"><img style="width:70px; height:70px; position:relative; top:-35px; left:-25px;" src="images/img icons/compressed/15.png"></div>
       </div>
 
       <div class="service-card">
-        <h3>Real-estate marketing </h3>
+        <h3>Real-estate marketing</h3>
         <p>List smart. Sell fast. Market like never before</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width: 60px; height: 60px; position: relative; top: -35px; left: -20px;"src="images/img icons/compressed/16.png"></div>
+        <div class="icon-circle"><img style="width:60px; height:60px; position:relative; top:-35px; left:-20px;" src="images/img icons/compressed/16.png"></div>
       </div>
 
     </div>
   </section>
-
-
-</div>
-
 
       <div class="our-expertise-section">
         <div class="our-expertise-container">
@@ -2089,77 +2470,196 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
             </div>
         </div>
     </footer>
+ 
     <script>
-const carousel = document.querySelector('.carousel');
-const images = document.querySelectorAll('.carousel-image');
-// const dots = document.querySelectorAll('.dot');
-const leftBtn = document.querySelector('.carousel-control.left');
-const rightBtn = document.querySelector('.carousel-control.right');
-const tabs = document.querySelectorAll('.tab');
-const searchInputs = document.querySelectorAll('.search-form select, .search-form input, .search-form button');
-const carouselContainer = document.querySelector('.carousel-container');
-let currentIndex = 0;
-let timer = null;
-const INTERVAL = 2000;
-function showSlide(index) {
-  if (index >= images.length) index = 0;
-  if (index < 0) index = images.length - 1;
-  // carousel.style.transform = translateX(-${100 * index}vw);
-  carousel.style.transform = `translateX(-${100 * index}vw)`;
-  // dots.forEach(dot => dot.classList.remove('active'));
-  // dots[index].classList.add('active');
-  currentIndex = index;
-}
-function nextSlide() { showSlide((currentIndex + 1) % images.length); }
-function prevSlide() { showSlide((currentIndex - 1 + images.length) % images.length); }
-function resetTimer() {
-  if (timer) clearInterval(timer);
-  timer = setInterval(nextSlide, INTERVAL);
-}
-rightBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
-leftBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
-// dots.forEach((dot, i) => {
-//   dot.addEventListener('click', () => { showSlide(i); resetTimer(); });
-//   dot.setAttribute('tabindex', '0');
-//   dot.addEventListener('keydown', (e) => {
-//     if (e.key === 'Enter' || e.key === ' ') {
-//       showSlide(i); resetTimer();
-    // }
-//   });
-// });
-function pauseAutoScroll() { if (timer) clearInterval(timer); }
-function resumeAutoScroll() { resetTimer(); }
-carouselContainer.addEventListener('mouseenter', pauseAutoScroll);
-carouselContainer.addEventListener('mouseleave', resumeAutoScroll);
-[...searchInputs, ...tabs].forEach(el => {
-  el.addEventListener('focus', pauseAutoScroll);
-  el.addEventListener('input', pauseAutoScroll);
-  el.addEventListener('blur', resumeAutoScroll);
-});
-carouselContainer.addEventListener('focusin', pauseAutoScroll);
-carouselContainer.addEventListener('focusout', resumeAutoScroll);
-carouselContainer.addEventListener('keydown', (e) => {
-  if (e.key === "ArrowRight") { nextSlide(); resetTimer(); e.preventDefault(); }
-  if (e.key === "ArrowLeft") { prevSlide(); resetTimer(); e.preventDefault(); }
-  if (e.key === "Escape") { pauseAutoScroll(); }
-});
-tabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    tabs.forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    showSlide(0); resetTimer();
-  });
-  tab.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === " ") { tab.click(); }
-  });
-});
-document.querySelector('.search-form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  pauseAutoScroll();
-});
-showSlide(0);
-resetTimer();
 
+      
+document.addEventListener("DOMContentLoaded", function() {
+  
+  setTimeout(() => {
+    const modal = document.getElementById("homeContactModal");
+    const closeBtn = modal.querySelector(".closeBtn");
+    const form = document.getElementById("homeContactForm");
+    const confirmation = document.getElementById("homeConfirmation");
+
+    if (!modal || !form || !confirmation) return;
+
+
+    modal.style.display = "flex"; 
+    form.style.display = "block";
+    confirmation.style.display = "none";
+
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+    
+      form.style.display = "none";
+      confirmation.style.display = "block";
+
+    
+      setTimeout(() => {
+        modal.style.display = "none";
+        form.reset();
+        form.style.display = "block";
+        confirmation.style.display = "none";
+      }, 4000);
+    });
+
+  }, 2000); 
+});
+
+
+      const modal = document.getElementById("contactModalProperty");
+const openBtn = document.getElementById("openModalBtn");
+const closeBtn = modal.querySelector(".closeBtn");
+const form = document.getElementById('propertyForm');
+const confirmation = document.getElementById('confirmation');
+
+// Open modal
+openBtn.onclick = () => {
+  modal.style.display = "flex";
+  form.style.display = "block";          
+  confirmation.style.display = "none";   
+};
+
+// Close modal
+  closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+// Close when clicking outside modal
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+
+// Handle form submission
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); 
+
+  form.style.display = 'none';
+  confirmation.style.display = 'block';
+
+  setTimeout(() => {
+    modal.style.display = 'none';
+    form.reset();               
+    form.style.display = 'block';       
+    confirmation.style.display = 'none'; 
+  }, 4000);
+});
+
+
+  
+    document.addEventListener("DOMContentLoaded", () => {
+      const sections = document.querySelectorAll(".real-estate-services");
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.2 }); // 20% visible
+
+      sections.forEach(sec => observer.observe(sec));
+    });
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    ".city-section, .latest-props-section, .actions-section, .real-estate-services, footer"
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visible
+
+  sections.forEach(sec => observer.observe(sec));
+});
+// === HERO CAROUSEL INFINITE (TOP HERO BANNER) ===
+(function() {
+  const heroCarousel = document.querySelector('.carousel');
+  const heroImages = Array.from(document.querySelectorAll('.carousel-image'));
+  const heroCount = heroImages.length;
+  let heroCurrentIndex = 1;
+
+  // Clone
+  const heroFirst = heroImages[0].cloneNode(true);
+  const heroLast = heroImages[heroCount-1].cloneNode(true);
+  heroCarousel.insertBefore(heroLast, heroImages[0]);
+  heroCarousel.appendChild(heroFirst);
+  heroCarousel.style.transform = `translateX(-100vw)`;
+
+  function showHeroSlide(index, animate = true) {
+    if(animate)
+      heroCarousel.style.transition = "transform 0.6s cubic-bezier(.83,.06,.33,1.01)";
+    else
+      heroCarousel.style.transition = "none";
+    heroCarousel.style.transform = `translateX(-${100*index}vw)`;
+    heroCurrentIndex = index;
+  }
+  heroCarousel.addEventListener('transitionend', () => {
+    if (heroCurrentIndex === 0) showHeroSlide(heroCount, false);
+    else if (heroCurrentIndex === heroCount + 1) showHeroSlide(1, false);
+  });
+  function nextHero() {
+    if(heroCurrentIndex < heroCount + 1) showHeroSlide(heroCurrentIndex + 1);
+  }
+  function prevHero() {
+    if(heroCurrentIndex > 0) showHeroSlide(heroCurrentIndex - 1);
+  }
+  document.querySelector('.carousel-control.right').onclick = () => { nextHero(); resetHeroTimer(); }
+  document.querySelector('.carousel-control.left').onclick = () => { prevHero(); resetHeroTimer(); }
+  let heroTimer = null;
+  const HERO_INTERVAL = 2000;
+  function resetHeroTimer() {
+    if(heroTimer) clearInterval(heroTimer);
+    heroTimer = setInterval(nextHero, HERO_INTERVAL);
+  }
+  /* heroCarousel.addEventListener('mouseenter', ()=>{ if(heroTimer) clearInterval(heroTimer); });
+  heroCarousel.addEventListener('mouseleave', resetHeroTimer); */
+  document.querySelectorAll('.search-form select, .search-form input, .search-form button').forEach(el => {
+    el.addEventListener('focus', ()=>{ if(heroTimer) clearInterval(heroTimer); });
+    el.addEventListener('blur', resetHeroTimer);
+  });
+  document.querySelector('.carousel-container').addEventListener('keydown', (e) => {
+    if (e.key === "ArrowRight") { nextHero(); resetHeroTimer(); e.preventDefault(); }
+    if (e.key === "ArrowLeft") { prevHero(); resetHeroTimer(); e.preventDefault(); }
+  });
+  showHeroSlide(1, false);
+  resetHeroTimer();
+})();
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(
+    ".city-section, .latest-props-section, .actions-section, .real-estate-services"
+  );
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visible
+
+  sections.forEach(sec => observer.observe(sec));
+});
 
 // === PROPERTY TYPES/CARDS INFINITE CAROUSEL + ARROWS + AUTOPLAY ===
 (function() {
@@ -2226,13 +2726,37 @@ resetTimer();
       slideToCard(currentCardIndex + 1);
     }, 4000);
   }
-   cardCarousel.addEventListener('mouseenter', ()=>{ if(autoCardInterval) clearInterval(autoCardInterval); }); //
-  cardCarousel.addEventListener('mouseleave', startAutoScroll);
   window.addEventListener('resize', ()=>{ cloneCardsAndInit(); });
   cloneCardsAndInit();
   startAutoScroll();
 })();
 
+document.addEventListener("DOMContentLoaded", () => {
+  const citySection = document.querySelector(".city-section");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+        citySection.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visible
+
+  observer.observe(citySection);
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".city-section, .latest-props-section");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.2 }); // 20% visible
+
+  sections.forEach(sec => observer.observe(sec));
+});
 /* --- Autocomplete in Search Bar --- */
 const locations = [
   "North Bangalore",

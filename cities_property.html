@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
   <title>Property Cities Listing</title>
   <style>
     html,body {
@@ -391,7 +392,7 @@ hr {
   margin: 0 auto 0 auto;
   display: flex;
   justify-content: center;
-  z-index: 50;
+  z-index: 10000;
   position: fixed;
   max-height: 60px;
   box-shadow: 0 10px 8px rgba(96,92,112,0.17);
@@ -968,7 +969,7 @@ footer {
     <div class="top-badge">
       <span>&#9889;</span> Great choice! Most viewed project in this area
     </div>
-    <form id="contactForm" autocomplete="off">
+    <form id="contactForm" action="https://localhost:3000/citiesproperty" method="POST">
       <div class="form-fields-box">
         <h2 class="contact-title">Contact Sellers in</h2>
         <div class="dev-row">
@@ -1003,7 +1004,7 @@ footer {
       <div class="modal-checkbox">
         <input type="checkbox" id="loan"><label for="loan">I am interested in Home Loans</label>
       </div>
-      <button type="submit" id="submitBtn" disabled>Get Contact Details</button>
+      <button type="submit" id="submitBtn">Get Contact Details</button>
     </form>
     <div id="contactThanks" style="display:none; text-align:center; padding:30px 10px;">
   <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success" style="width:60px; margin-bottom:15px;">
@@ -1092,56 +1093,112 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
     });
   });
 
-  // Open contact modal when "Contact" button clicked
-  // Modal logic
-document.querySelectorAll('.contact-btn').forEach(btn => {
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation(); e.preventDefault();
-    const propCard = btn.closest('.property-card');
-    const name = propCard.querySelector('.title').textContent.trim();
-    document.getElementById('modalProjectName').textContent = name;
-    document.getElementById('modalDevInitial').textContent = name.charAt(0);
-    document.getElementById('contactModal').style.display = 'flex';
-    document.getElementById('contactForm').reset();
-    document.getElementById('submitBtn').disabled = true;
+  const modal = document.getElementById("contactModal");
+  const closeModal = document.getElementById("closeModal");
+  const form = document.getElementById("contactForm");
+  const thanksBox = document.getElementById("contactThanks");
+  const closeThanksBtn = document.getElementById("closeThanksBtn");
+  const submitBtn = document.getElementById("submitBtn");
+
+  // Find all "Contact" buttons
+  const contactBtns = document.querySelectorAll(".contact-btn");
+
+  // Open modal when any "Contact" button is clicked
+  contactBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal.style.display = "flex";
+      form.style.display = "block";
+      thanksBox.style.display = "none";
+      document.body.style.overflow = "hidden"; // stop background scroll
+    });
   });
-});
 
-document.getElementById('closeModal').onclick = function() {
-  document.getElementById('contactModal').style.display = 'none';
-};
-document.getElementById('contactModal').onclick = function(e) {
-  if (e.target === this) this.style.display = 'none';
-};
+  // Close modal
+  closeModal.addEventListener("click", () => {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto"; // allow scroll again
+  });
 
-// Enable submit if name, 10 digit phone, and agree are set
-function validateContactForm() {
-  const name = document.querySelector('#contactForm input[name="name"]').value.trim();
-  const phone = document.querySelector('#contactForm input[name="phone"]').value.trim();
-  const agree = document.getElementById('agree').checked;
-  document.getElementById('submitBtn').disabled = !(name && agree && phone.length === 10 && /^[0-9]+$/.test(phone));
-}
-document.querySelector('#contactForm input[name="name"]').addEventListener('input', validateContactForm);
-document.querySelector('#contactForm input[name="phone"]').addEventListener('input', validateContactForm);
-document.getElementById('agree').addEventListener('change', validateContactForm);
+  // Close when clicking outside
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+  });
 
-document.getElementById('contactForm').onsubmit = function(e) {
-  e.preventDefault();
-  // Hide form, show thanks message
-  document.getElementById('contactForm').style.display = 'none';
-  document.getElementById('contactThanks').style.display = 'block';
-};
+  // Enable button when phone has 10 digits
+  form.phone.addEventListener("input", () => {
+    submitBtn.disabled = form.phone.value.length !== 10;
+  });
 
-// Handle "Close" button on thank you message
-document.getElementById('closeThanksBtn').onclick = function() {
-  document.getElementById('contactModal').style.display = 'none';
-  // Restore form for next open
-  document.getElementById('contactForm').reset();
-  document.getElementById('contactForm').style.display = 'block';
-  document.getElementById('contactThanks').style.display = 'none';
-  document.getElementById('submitBtn').disabled = true; // Reset state
-};
+  // Handle form submit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    form.style.display = "none";
+    thanksBox.style.display = "block";
+
+    setTimeout(() => {
+      modal.style.display = "none";
+      form.reset();
+      form.style.display = "block";
+      thanksBox.style.display = "none";
+      submitBtn.disabled = true;
+      document.body.style.overflow = "auto";
+    }, 4000);
+  });
+
+  // Close Thank You box
+  closeThanksBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+    form.reset();
+    form.style.display = "block";
+    thanksBox.style.display = "none";
+    submitBtn.disabled = true;
+    document.body.style.overflow = "auto";
+  });
+
+
 
 </script>
+
+<!-- nav bar script -->
+ <script> 
+  // Hero Tabs Dropdown Logic
+document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
+  const btn = tabw.querySelector('.hero-tab');
+  const dd = tabw.querySelector('.hero-tab-dropdown');
+  btn.addEventListener('mouseenter', () => {
+    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+    dd.classList.add('opened'); btn.classList.add('active');
+  });
+  btn.addEventListener('mouseleave', () => {
+    setTimeout(() => { if(!tabw.matches(':hover')) dd.classList.remove('opened');}, 110);
+    setTimeout(() => { if(!tabw.matches(':hover')) btn.classList.remove('active'); }, 120);
+  });
+  dd.addEventListener('mouseenter', () => {
+    dd.classList.add('opened');
+    btn.classList.add('active');
+  });
+  dd.addEventListener('mouseleave', () => {
+    dd.classList.remove('opened');
+    btn.classList.remove('active');
+  });
+  // Show on keyboard focus too
+  btn.addEventListener('focus', ()=>{dd.classList.add('opened');btn.classList.add('active');});
+  btn.addEventListener('blur', ()=>{setTimeout(()=>{dd.classList.remove('opened');btn.classList.remove('active');},150);});
+});
+
+// Close all dropdowns if click elsewhere
+document.addEventListener('click', e => {
+  if (!e.target.closest('.hero-tab-wrapper')) {
+    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+  }
+});
+ </script>
 </body>
 </html>
