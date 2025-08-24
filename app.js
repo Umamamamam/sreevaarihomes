@@ -174,8 +174,8 @@ app.get("/", (req, res) => {
 app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
-app.get('/property-details.html/:propertyId', (req, res) => {
-  const propertyId = req.params.propertyId;
+app.get('/property-details/:propertyId', (req, res) => {
+  const propertyId = req.query.propertyId;
   res.sendFile(path.join(__dirname, 'public', 'property-details.html/propertyId=${propertyId}'));
 });
 
