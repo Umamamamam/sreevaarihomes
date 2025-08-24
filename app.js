@@ -154,6 +154,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // needed for JSON POST requests
 
+app.set('view engine', 'ejs');
+
 // MongoDB connection
 const dbUrl = process.env.DB_URL;
 mongoose.connect(dbUrl, {
@@ -174,15 +176,10 @@ app.get("/", (req, res) => {
 app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
-app.get('/property-details/:propertyId', (req, res) => {
-  try{
-  const propertyId = req.params.propertyId;
-  res.sendFile(path.join(__dirname, 'public', 'property-details.html?propertyId=${propertyId}'));
-  }
-  catch(e) {
-    console.log(e);
-  }
-})
+app.get('/property-details.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'property-details.html'));
+});
+
 
 app.get('/Yelahankaabout.html', (req, res) => {
   res.sendFile(path.join(__dirname, "Yelahankaabout.html"));
