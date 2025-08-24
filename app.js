@@ -166,19 +166,14 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
-
+// Serve index.html at root
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/cities_property", (req, res) => {
+app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
-app.get("/property-details", (req, res) => {
-  res.sendFile(path.join(__dirname, "property-details.html"));
-});
-
-
 // === Routes ===
 app.post("/form", async (req, res) => {
   const { name, mobile, project } = req.body.form;
