@@ -176,8 +176,8 @@ app.get("/", (req, res) => {
 app.get("/cities_property.html", (req, res) => {
   res.sendFile(path.join(__dirname, "cities_property.html"));
 });
-app.get('/property-details.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'property-details.html'));
+app.get('/property-details', (req, res) => {
+  res.sendFile(path.join(__dirname, 'property-details.html'));
 });
 
 
