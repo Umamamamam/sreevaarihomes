@@ -1292,7 +1292,7 @@
   padding: 18px 22px 14px 22px;
   min-width: 210px;
   max-width: 360px;
-  z-index: 999;
+  z-index: 99999;
   text-align: left;
   transition: opacity 0.17s, transform 0.15s;
   border-radius: 5px;
@@ -1300,6 +1300,8 @@
 .hero-tab-dropdown.opened {
   display: block;
 }
+
+
 .hero-dropdown-img {
   width: 130px;
   display: block;
@@ -1538,7 +1540,7 @@ footer {
 
 .carousel-strip-wrapper {
   opacity: 0;
-  transform: translateY(80px); /* start from bottom */
+  transform: translateY(80px); 
   transition: all 0.8s ease-out;
 }
 
@@ -2038,6 +2040,7 @@ body.modal-open {
     </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
+      
       <div class="hero-tab-dropdown">
         <img src="/images/PROJECT IMAGES/goldentowers.png" alt="Golden Towers" class="hero-dropdown-img" />
       <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
@@ -2759,10 +2762,50 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
         </div>
     </footer>
  
-    
-    <script>
 
-   
+    <script>
+ 
+  // Hero Tabs Dropdown Logic
+  document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
+    const btn = tabw.querySelector('.hero-tab');
+    const dd = tabw.querySelector('.hero-tab-dropdown');
+    if(!btn || !dd) return; // safety check
+
+    btn.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+      document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+      dd.classList.add('opened');
+      btn.classList.add('active');
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      setTimeout(() => { if(!tabw.matches(':hover')) dd.classList.remove('opened');}, 110);
+      setTimeout(() => { if(!tabw.matches(':hover')) btn.classList.remove('active'); }, 120);
+    });
+
+    dd.addEventListener('mouseenter', () => {
+      dd.classList.add('opened');
+      btn.classList.add('active');
+    });
+    dd.addEventListener('mouseleave', () => {
+      dd.classList.remove('opened');
+      btn.classList.remove('active');
+    });
+
+    // keyboard support
+    btn.addEventListener('focus', ()=>{dd.classList.add('opened');btn.classList.add('active');});
+    btn.addEventListener('blur', ()=>{setTimeout(()=>{dd.classList.remove('opened');btn.classList.remove('active');},150);});
+  });
+
+  // Close all dropdowns if click elsewhere
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.hero-tab-wrapper')) {
+      document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+      document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+    }
+  });
+
+
 document.addEventListener("DOMContentLoaded", function() {
   
   setTimeout(() => {
@@ -3533,42 +3576,6 @@ observer.observe(expertiseSection);
 
     </script>
 
-<!-- nav bar script -->
- <script> 
-  // Hero Tabs Dropdown Logic
-document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
-  const btn = tabw.querySelector('.hero-tab');
-  const dd = tabw.querySelector('.hero-tab-dropdown');
-  btn.addEventListener('mouseenter', () => {
-    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
-    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
-    dd.classList.add('opened'); btn.classList.add('active');
-  });
-  btn.addEventListener('mouseleave', () => {
-    setTimeout(() => { if(!tabw.matches(':hover')) dd.classList.remove('opened');}, 110);
-    setTimeout(() => { if(!tabw.matches(':hover')) btn.classList.remove('active'); }, 120);
-  });
-  dd.addEventListener('mouseenter', () => {
-    dd.classList.add('opened');
-    btn.classList.add('active');
-  });
-  dd.addEventListener('mouseleave', () => {
-    dd.classList.remove('opened');
-    btn.classList.remove('active');
-  });
-  // Show on keyboard focus too
-  btn.addEventListener('focus', ()=>{dd.classList.add('opened');btn.classList.add('active');});
-  btn.addEventListener('blur', ()=>{setTimeout(()=>{dd.classList.remove('opened');btn.classList.remove('active');},150);});
-});
-
-// Close all dropdowns if click elsewhere
-document.addEventListener('click', e => {
-  if (!e.target.closest('.hero-tab-wrapper')) {
-    document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
-    document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
-  }
-});
- </script>
  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js">
    AOS.init({
     duration: 900,  // animation speed
