@@ -1827,74 +1827,189 @@ body.modal-open {
     padding:14px;
   }
 }
-  .wrapper { max-width: 780px; margin: 24px auto; padding: 16px; }
-    .heading { text-align: center; margin-bottom: 20px; }
-    .heading h2 { margin: 0; font-size: 26px; color: #b91c1c; }
-    .heading p { margin: 6px 0 0; font-size: 15px; color: #6b7280; }
+/* === Partner Modal Overlay === */
+.partner-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;           /* hidden at start */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
 
-    /* Form Card */
-    .partner-card {
-      background: #fff;
-      border: 1px solid #374151;
-      padding: 18px;
-      border-radius: 0;
-    }
+/* === Partner Modal Content === */
+.partner-modal-content {
+  padding: 20px;
+  background: #fff;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  position: relative;
+  max-height: 90vh;
+}
 
-    /* Grid */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .grid-gap { display: grid; gap: 12px; }
+/* Close button */
+.partner-modal-content .closePartner {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  color: #666;
+}
+.partner-modal-content .closePartner:hover {
+  color: #b91c1c;
+}
 
-    label { display: block; font-size: 14px; color: #4b5563; margin-bottom: 4px; }
-    input, select, textarea, button {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #374151;
-      border-radius: 0;
-      background: #fff;
-      color: #111827;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: #0ea5e9;
-      box-shadow: 0 0 0 2px rgba(14,165,233,.25);
-    }
+/* Headings */
+.heading {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.heading h2 {
+  margin: 0;
+  font-size: 26px;
+  color: #b91c1c;
+}
+.heading p {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #6b7280;
+}
 
-    /* Fieldset & Legend */
-    .section-box {
-      border: 1px solid #374151;
-      border-radius: 0;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
-    .section-box legend {
-      padding: 6px 10px;
-      border: 1px solid #374151;
-      border-radius: 0;
-      background: #fff;
-      font-weight: 600;
-      margin-left: 10px;
-    }
+/* === Partner Form === */
+.partner-card {
+  background: #fff;
+  border: 1px solid #374151;
+  padding: 18px;
+  border-radius: 0;
+}
 
-    /* Chips */
-    .option-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .option-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      border: 1px solid #374151;
-      padding: 6px 10px;
-      background: #fff;
-      font-size: 14px;
-      border-radius: 0;
-    }
+/* Grid */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.grid-gap {
+  display: grid;
+  gap: 12px;
+}
 
-    /* Buttons */
-    .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
-    .btn { cursor: pointer; border: 1px solid #374151; background: #fff; font-weight: 600; padding: 10px 16px; }
-    .btn-primary { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+/* Inputs */
+label {
+  display: block;
+  font-size: 14px;
+  color: #4b5563;
+  margin-bottom: 4px;
+}
+input, select, textarea, button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #374151;
+  border-radius: 0;
+  background: #fff;
+  color: #111827;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 2px rgba(14,165,233,.25);
+}
 
-    .note { font-size: 12px; color: #6b7280; margin-top: 8px; }
+/* Fieldset & Legend */
+.section-box {
+  border: 1px solid #374151;
+  border-radius: 0;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+.section-box legend {
+  padding: 6px 10px;
+  border: 1px solid #374151;
+  border-radius: 0;
+  background: #fff;
+  font-weight: 600;
+  margin-left: 10px;
+}
 
+/* Chips */
+.option-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.option-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #374151;
+  padding: 6px 10px;
+  background: #fff;
+  font-size: 14px;
+  border-radius: 0;
+}
+
+/* Buttons */
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.btn {
+  cursor: pointer;
+  border: 1px solid #374151;
+  background: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+}
+.btn-primary {
+  background: #b91c1c;
+  color: #fff;
+  border-color: #b91c1c;
+}
+
+/* Note */
+.note {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 8px;
+}
+
+/* Confirmation */
+#partnerConfirmation {
+  display: none;
+  padding: 20px;
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+}
+#partnerConfirmation .tick {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Disable background scroll when modal open */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .partner-modal-content {
+    width: calc(100vw - 24px);
+    max-width: 100%;
+    padding: 16px;
+  }
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
 
 </style>
 </head>
@@ -2313,14 +2428,17 @@ body.modal-open {
      </div>
   </div>
 </div>
-<!-- Partner Form -->
- <div class="wrapper">
+<!-- Partner Form Modal -->
+<div class="partner-modal" id="channelPartnerModal">
+  <div class="partner-modal-content">
+    <span class="closePartner">&times;</span>
+
     <div class="heading">
       <h2>Channel Partner Form</h2>
       <p>Join us as a Channel Partner and grow with our projects</p>
     </div>
 
-    <form id="partnerEntryForm" class="partner-card" action="/partnerform" method="POST" novalidate>
+    <form id="channelPartnerForm" class="partner-card" action="/partnerform" method="POST" novalidate>
       <!-- Section 1 -->
       <fieldset class="section-box">
         <legend>1) Personal &amp; Business Details</legend>
@@ -2405,7 +2523,14 @@ body.modal-open {
       </div>
       <p class="note">On submit, a JSON file of your responses will download automatically.</p>
     </form>
+
+    <!-- Confirmation message -->
+    <div id="partnerConfirmation" style="display:none;">
+      <p>✅ Thank you! Your partner form has been submitted.</p>
+    </div>
   </div>
+</div>
+
 <!-- Modal -->
  
 <div id="contactModalProperty" class="contactmodalProperty">
@@ -2729,7 +2854,7 @@ form.addEventListener('submit', function(e) {
 
 
 });
-
+// Partner Form Js
 document.addEventListener("DOMContentLoaded", function() {
   const modal = document.getElementById("channelPartnerModal");
   const openBtn = document.getElementById("channelPartnerBtn");
@@ -2737,29 +2862,28 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.getElementById("channelPartnerForm");
   const confirmation = document.getElementById("partnerConfirmation");
 
-
+  // Open modal on button click
   openBtn.onclick = () => {
     modal.style.display = "flex";
     form.style.display = "block";
     confirmation.style.display = "none";
   };
 
-
-  closeBtn.addEventListener("click", () => {
+  // Close modal on ×
+  closeBtn.onclick = () => {
     modal.style.display = "none";
-  });
+  };
 
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
+  // Close modal on outside click
+  window.onclick = (e) => {
+    if (e.target === modal) {
       modal.style.display = "none";
     }
-  });
+  };
 
- 
-  form.addEventListener("submit", function(e) {
+  // Form submission
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-
     form.style.display = "none";
     confirmation.style.display = "block";
 
