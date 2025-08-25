@@ -2447,26 +2447,26 @@ body.modal-open {
         <div class="two-col">
           <div>
             <label for="fullName">Your Full Name *</label>
-            <input type="text" id="fullName" name="fullName" required />
+            <input type="text" id="name" name="fullName" required />
           </div>
           <div>
             <label for="contactNumber">Phone *</label>
-            <input type="tel" id="contactNumber" name="contactNumber" required />
+            <input type="tel" id="contactNumber" name="phone" required />
           </div>
         </div>
         <div class="two-col">
           <div>
             <label for="emailId">Email *</label>
-            <input type="email" id="emailId" name="emailId" required />
+            <input type="email" id="emailId" name="email" required />
           </div>
           <div>
             <label for="cityName">City</label>
-            <input type="text" id="cityName" name="cityName" />
+            <input type="text" id="cityName" name="city" />
           </div>
         </div>
         <div>
           <label for="firmName">Company / Firm Name</label>
-          <input type="text" id="firmName" name="firmName" />
+          <input type="text" id="firmName" name="company" />
         </div>
       </fieldset>
 
@@ -2474,21 +2474,21 @@ body.modal-open {
       <fieldset class="section-box">
         <legend>2) Areas of Interest</legend>
         <div class="option-list">
-          <label class="option-item"><input type="checkbox" name="interest" value="Lead Generation"> Lead Generation</label>
-          <label class="option-item"><input type="checkbox" name="interest" value="Property Sales"> Property Sales</label>
-          <label class="option-item"><input type="checkbox" name="interest" value="Referrals"> Referrals</label>
-          <label class="option-item"><input type="checkbox" name="interest" value="Marketing Support"> Marketing Support</label>
-          <label class="option-item"><input type="checkbox" name="interest" value="Exclusive Tie-up"> Exclusive Tie-up</label>
+          <label class="option-item"><input type="checkbox" name="areas" value="Lead Generation"> Lead Generation</label>
+          <label class="option-item"><input type="checkbox" name="areas" value="Property Sales"> Property Sales</label>
+          <label class="option-item"><input type="checkbox" name="areas" value="Referrals"> Referrals</label>
+          <label class="option-item"><input type="checkbox" name="areas" value="Marketing Support"> Marketing Support</label>
+          <label class="option-item"><input type="checkbox" name="areas" value="Exclusive Tie-up"> Exclusive Tie-up</label>
         </div>
         <div style="margin-top:10px;">
           <label for="partnerModel">Preferred Partnership Model</label>
-          <select id="partnerModel" name="partnerModel">
+          <select id="partnerModel" name="model">
             <option value="">Select…</option>
-            <option>Commission-based</option>
-            <option>Profit-sharing</option>
-            <option>Exclusive Territory Rights</option>
-            <option>Referral Incentives</option>
-            <option>Other</option>
+            <option value="Commission-based">Commission-based</option>
+            <option value="Profit-sharing">Profit-sharing</option>
+            <option value="Exclusive Territory Rights">Exclusive Territory Rights</option>
+            <option value="Referral Incentives">Referral Incentives</option>
+            <option value="other">Other</option>
           </select>
         </div>
       </fieldset>
@@ -2497,7 +2497,7 @@ body.modal-open {
       <fieldset class="section-box">
         <legend>3) Notes (optional)</legend>
         <label for="remarks">Anything else you'd like to share?</label>
-        <textarea id="remarks" name="remarks" rows="4"></textarea>
+        <textarea id="remarks" name="notes" rows="4"></textarea>
       </fieldset>
 
       <!-- Section 4 -->
@@ -2506,15 +2506,15 @@ body.modal-open {
         <div class="two-col">
           <div>
             <label for="signName">Your Name *</label>
-            <input type="text" id="signName" name="signName" required />
+            <input type="text" id="signName" name="declarant" required />
           </div>
           <div>
             <label for="signDate">Date *</label>
-            <input type="date" id="signDate" name="signDate" required />
+            <input type="date" id="signDate" name="date" required />
           </div>
         </div>
         <label class="option-item" style="margin-top:10px;">
-          <input type="checkbox" id="acceptTerms" required /> I confirm the information is true and understand this form is for partnership discussion only.
+          <input type="checkbox" name="agree" id="acceptTerms" required /> I confirm the information is true and understand this form is for partnership discussion only.
         </label>
       </fieldset>
 
