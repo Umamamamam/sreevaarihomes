@@ -1827,6 +1827,73 @@ body.modal-open {
     padding:14px;
   }
 }
+  .wrapper { max-width: 780px; margin: 24px auto; padding: 16px; }
+    .heading { text-align: center; margin-bottom: 20px; }
+    .heading h2 { margin: 0; font-size: 26px; color: #b91c1c; }
+    .heading p { margin: 6px 0 0; font-size: 15px; color: #6b7280; }
+
+    /* Form Card */
+    .partner-card {
+      background: #fff;
+      border: 1px solid #374151;
+      padding: 18px;
+      border-radius: 0;
+    }
+
+    /* Grid */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .grid-gap { display: grid; gap: 12px; }
+
+    label { display: block; font-size: 14px; color: #4b5563; margin-bottom: 4px; }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #374151;
+      border-radius: 0;
+      background: #fff;
+      color: #111827;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 2px rgba(14,165,233,.25);
+    }
+
+    /* Fieldset & Legend */
+    .section-box {
+      border: 1px solid #374151;
+      border-radius: 0;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .section-box legend {
+      padding: 6px 10px;
+      border: 1px solid #374151;
+      border-radius: 0;
+      background: #fff;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+
+    /* Chips */
+    .option-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .option-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #374151;
+      padding: 6px 10px;
+      background: #fff;
+      font-size: 14px;
+      border-radius: 0;
+    }
+
+    /* Buttons */
+    .form-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+    .btn { cursor: pointer; border: 1px solid #374151; background: #fff; font-weight: 600; padding: 10px 16px; }
+    .btn-primary { background: #b91c1c; color: #fff; border-color: #b91c1c; }
+
+    .note { font-size: 12px; color: #6b7280; margin-top: 8px; }
 
 
 </style>
@@ -1870,7 +1937,7 @@ body.modal-open {
           <li><a href="property-details.html?propertyId=vr_emerald"><b>VR Emerald</b></a></li>
           <li><a href="property-details.html?propertyId=vr_innovative_global_city"><b>VR Innovative Global City</b></a></li>
         </ol>
-      </div>7
+      </div>
     </div>
     <div class="hero-tab-wrapper">
   <button class="hero-tab" type="button" data-tab="construction">Home construction</button>
@@ -2235,7 +2302,7 @@ body.modal-open {
     <div class="action-box action-box-3">
       <div class="action-box-title">Collabrate as a channel partner</div>
       <div class="action-box-desc"></div>
-      <button class="action-btn">Explore Now<i class="fa-solid fa-arrow-right-long"></i></button>
+      <button class="action-btn" id="channelPartnerBtn">Explore Now<i class="fa-solid fa-arrow-right-long"></i></button>
        
     </div>
     <div class="action-box action-box-4">
@@ -2246,6 +2313,99 @@ body.modal-open {
      </div>
   </div>
 </div>
+<!-- Partner Form -->
+ <div class="wrapper">
+    <div class="heading">
+      <h2>Channel Partner Form</h2>
+      <p>Join us as a Channel Partner and grow with our projects</p>
+    </div>
+
+    <form id="partnerEntryForm" class="partner-card" action="/partnerform" method="POST" novalidate>
+      <!-- Section 1 -->
+      <fieldset class="section-box">
+        <legend>1) Personal &amp; Business Details</legend>
+        <div class="two-col">
+          <div>
+            <label for="fullName">Your Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div>
+            <label for="contactNumber">Phone *</label>
+            <input type="tel" id="contactNumber" name="contactNumber" required />
+          </div>
+        </div>
+        <div class="two-col">
+          <div>
+            <label for="emailId">Email *</label>
+            <input type="email" id="emailId" name="emailId" required />
+          </div>
+          <div>
+            <label for="cityName">City</label>
+            <input type="text" id="cityName" name="cityName" />
+          </div>
+        </div>
+        <div>
+          <label for="firmName">Company / Firm Name</label>
+          <input type="text" id="firmName" name="firmName" />
+        </div>
+      </fieldset>
+
+      <!-- Section 2 -->
+      <fieldset class="section-box">
+        <legend>2) Areas of Interest</legend>
+        <div class="option-list">
+          <label class="option-item"><input type="checkbox" name="interest" value="Lead Generation"> Lead Generation</label>
+          <label class="option-item"><input type="checkbox" name="interest" value="Property Sales"> Property Sales</label>
+          <label class="option-item"><input type="checkbox" name="interest" value="Referrals"> Referrals</label>
+          <label class="option-item"><input type="checkbox" name="interest" value="Marketing Support"> Marketing Support</label>
+          <label class="option-item"><input type="checkbox" name="interest" value="Exclusive Tie-up"> Exclusive Tie-up</label>
+        </div>
+        <div style="margin-top:10px;">
+          <label for="partnerModel">Preferred Partnership Model</label>
+          <select id="partnerModel" name="partnerModel">
+            <option value="">Select…</option>
+            <option>Commission-based</option>
+            <option>Profit-sharing</option>
+            <option>Exclusive Territory Rights</option>
+            <option>Referral Incentives</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <!-- Section 3 -->
+      <fieldset class="section-box">
+        <legend>3) Notes (optional)</legend>
+        <label for="remarks">Anything else you'd like to share?</label>
+        <textarea id="remarks" name="remarks" rows="4"></textarea>
+      </fieldset>
+
+      <!-- Section 4 -->
+      <fieldset class="section-box">
+        <legend>4) Declaration</legend>
+        <div class="two-col">
+          <div>
+            <label for="signName">Your Name *</label>
+            <input type="text" id="signName" name="signName" required />
+          </div>
+          <div>
+            <label for="signDate">Date *</label>
+            <input type="date" id="signDate" name="signDate" required />
+          </div>
+        </div>
+        <label class="option-item" style="margin-top:10px;">
+          <input type="checkbox" id="acceptTerms" required /> I confirm the information is true and understand this form is for partnership discussion only.
+        </label>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn">Reset</button>
+        <button type="button" id="printForm" class="btn">Print / Save as PDF</button>
+      </div>
+      <p class="note">On submit, a JSON file of your responses will download automatically.</p>
+    </form>
+  </div>
 <!-- Modal -->
  
 <div id="contactModalProperty" class="contactmodalProperty">
@@ -2570,6 +2730,47 @@ form.addEventListener('submit', function(e) {
 
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const modal = document.getElementById("channelPartnerModal");
+  const openBtn = document.getElementById("channelPartnerBtn");
+  const closeBtn = modal.querySelector(".closePartner");
+  const form = document.getElementById("channelPartnerForm");
+  const confirmation = document.getElementById("partnerConfirmation");
+
+
+  openBtn.onclick = () => {
+    modal.style.display = "flex";
+    form.style.display = "block";
+    confirmation.style.display = "none";
+  };
+
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+
+ 
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    form.style.display = "none";
+    confirmation.style.display = "block";
+
+    setTimeout(() => {
+      modal.style.display = "none";
+      form.reset();
+      form.style.display = "block";
+      confirmation.style.display = "none";
+    }, 4000);
+  });
+});
 
 
 const modal = document.getElementById("contactModalProperty");

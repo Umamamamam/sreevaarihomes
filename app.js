@@ -147,6 +147,8 @@ const View = require("./models/view");
 const ViewSecond = require("./models/viewsecond");
 const Property = require("./models/Property");
 const SubmitContact = require("./models/SubmitContact");
+const PartnerForm = require("./routes/partnerFormRoutes");
+
 
 const app = express();
 
@@ -220,6 +222,51 @@ app.post("/submit-property", async (req, res) => {
     res.json({ success: true, message: "Property submitted successfully!" });
   } catch (err) {
     res.status(500).json({ success: false, message: "Server error", error: err.message });
+  }
+});
+
+app.post("/partnerform", async (req, res) => {
+  try {
+    const {
+      name,
+      phone,
+      email,
+      city,
+      company,
+      areas,
+      model,
+      notes,
+      declarant,
+      date,
+      agree
+    } = req.body;
+
+    const newPartner = new PartnerForm({
+      name,
+      phone,
+      email,
+      city,
+      company,
+      areas,
+      model,
+      notes,
+      declarant,
+      date,
+      agree
+    });
+
+    await newPartner.save();
+
+    res.json({
+      success: true,
+      message: "Partner form submitted successfully!"
+    });
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Server error",
+      error: err.message
+    });
   }
 });
 
