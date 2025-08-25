@@ -250,8 +250,8 @@ app.post("/partnerform", async (req, res) => {
       model,
       notes,
       declarant,
-      date,
-      agree
+       date: new Date(date),     
+      agree: agree === "on" 
     });
 
     await newPartner.save();
