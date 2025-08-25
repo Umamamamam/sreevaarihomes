@@ -1925,10 +1925,45 @@
     opacity: 1;
     transform: translateY(0);
 }
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .our-expertise-container { width: 90%; }
+  .our-expertise-container h2 { font-size: 34px; }
+  .accordion { width: 90%; font-size: 16px; }
+  .panel { width: 90%; }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  .our-expertise-section { margin-top: 70px; padding: 30px 15px; }
+  .our-expertise-container h2 { font-size: 28px; margin-bottom: 24px; }
+  .accordion {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px 15px;
+  }
+  .panel {
+    width: 100%;
+    padding: 0 10px;
+    top: -10px;
+  }
+  .panel-content { font-size: 14px; }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .our-expertise-section { margin-top: 50px; }
+  .our-expertise-container h2 { font-size: 24px; }
+  .accordion {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+  .panel-content { font-size: 13.5px; line-height: 1.5; }
+}
+
 
 
 /* nav bar styles */
-
 .hero-tabs-nav {
   width: 100vw;
   background: #f7f9fb;
@@ -2054,12 +2089,62 @@
 .hero-tab-dropdown li a:hover { color: #349cff; }
 .hero-tab-dropdown li:hover { color: #349cff; }
 
-@media (max-width: 800px) {
-  .hero-tabs-list { gap: 10px; }
-  .hero-tabs-nav { padding: 0; }
-  .hero-tab { font-size:1em;padding:10px 1px 7px 1px;}
-  .hero-tab-dropdown{min-width: 92vw; max-width:99vw;padding:13px 2vw;}
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .hero-tabs-list {
+    justify-content: center;
+    gap: 18px;
+  }
+  .hero-tab { font-size: 0.95em; padding: 16px 2px; }
+  .hero-tab-dropdown { min-width: 180px; }
 }
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .hero-tabs-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    max-height: none;
+    padding: 10px 0;
+  }
+
+  .hero-tabs-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 20px;
+  }
+
+  .hero-tab {
+    font-size: 0.95em;
+    font-weight: 500;
+    min-width: auto;
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+  }
+
+  .hero-tab.active::after { left: 0; width: 40%; }
+  .hero-tab-dropdown {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-top: 6px;
+    width: 100%;
+    box-shadow: none;
+    border: 1px solid #eee;
+  }
+  .hero-tab-dropdown ol { padding-left: 20px; }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+  .hero-tabs-list { padding: 8px 16px; }
+  .hero-tab { font-size: 0.9em; }
+  .hero-tab-dropdown li { font-size: 0.75em; }
+}
+
 :root {
   --dark: #111;       /* or #000 for pure black */
   --gold: #f7c948;    /* golden color */
@@ -2257,6 +2342,11 @@ footer {
   border-radius: 10px;
   width: 100px;
 }
+ @media (max-width: 768px) {
+  .searchButton {
+  width: 40px;
+  }
+ }
 .searchButton:hover{
   background-color: #00af66;
   color: white;
@@ -2336,6 +2426,7 @@ footer.visible {
   background: #218838;
 }
 /* Make modal wider */
+
 #homeContactModal { width: auto !important; }
 .modal-overlay {
   position: fixed; inset: 0;
