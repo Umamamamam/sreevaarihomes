@@ -21,10 +21,10 @@ const submitContactSchema = new mongoose.Schema({
     required: true,
     enum: ['2BHK', '3BHK', '4BHK']
   },
-  // agree: {
-  //   type: Boolean,
-  //   required: true
-  // },
+  agree: {
+    type: Boolean,
+    required: true
+  },
   createdAt: {
     type: Date,
     default: Date.now
