@@ -147,7 +147,7 @@ const View = require("./models/view");
 const ViewSecond = require("./models/viewsecond");
 const Property = require("./models/Property");
 const SubmitContact = require("./models/SubmitContact");
-const PartnerForm = require("./routes/partnerFormRoutes");
+const PartnerForm = require("./models/partnerForm");
 
 
 const app = express();
@@ -197,7 +197,6 @@ app.get('/chikkaballapurabout.html', (req, res) => {
 })
 
 
-// === Routes ===
 app.post("/form", async (req, res) => {
   const { name, mobile, project } = req.body.form;
   const form = new Form({ name, mobile, project });
