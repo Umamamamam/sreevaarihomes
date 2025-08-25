@@ -120,7 +120,103 @@
       background-color: #298cff;
       box-shadow: 0 0 0 2px white, 0 0 0 4px #4285f4;
     }
-   
+   /* ===============================
+   Mobile & Tablet Responsiveness
+   =============================== */
+
+/* Tablets (width <= 1024px) */
+@media (max-width: 1024px) {
+  .logo-header {
+    height: 80vh;
+    padding: 20px 0;
+  }
+  .logo-header img {
+    width: 30vw;
+    min-width: 200px;
+    height: auto;
+    padding-bottom: 30px;
+  }
+
+  .carousel-container {
+    height: 80vh;
+  }
+  .carousel {
+    height: 80vh;
+  }
+  .carousel-image {
+    height: 80vh;
+    object-fit: cover;
+  }
+}
+
+/* Large Mobiles / Small Tablets (<= 768px) */
+@media (max-width: 768px) {
+  .logo-header {
+    height: 60vh;
+  }
+  .logo-header img {
+    width: 45vw;
+    min-width: 160px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .carousel-container {
+    height: 60vh;
+  }
+  .carousel {
+    height: 60vh;
+  }
+  .carousel-image {
+    height: 60vh;
+    object-fit: cover;
+  }
+
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+    border-width: 1.5px;
+  }
+  .carousel-control.left { left: 15px; }
+  .carousel-control.right { right: 15px; }
+}
+
+/* Small Mobiles (<= 480px) */
+@media (max-width: 480px) {
+  .logo-header {
+    height: 50vh;
+  }
+  .logo-header img {
+    width: 65vw;
+    min-width: 140px;
+    padding-bottom: 10px;
+  }
+
+  .carousel-container {
+    height: 50vh;
+  }
+  .carousel {
+    height: 50vh;
+  }
+  .carousel-image {
+    height: 50vh;
+  }
+
+  .carousel-control {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dots {
+    bottom: 8px;
+  }
+  .dot {
+    height: 8px;
+    width: 8px;
+    margin: 0 4px;
+  }
+}
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
@@ -202,15 +298,55 @@
     padding-left: 2px;
 }
 
-@media (max-width:800px){
-  .search-overlay {
-    padding: 15px 4vw 9px 4vw;
-    border-radius: 11px;
-    min-width: 97vw;
-    width: 98vw;
-  }
 
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .search-overlay {
+    padding: 16px 20px;
+    width: 95vw;
+    border-radius: 14px;
+    bottom: 20px;
+  }
 }
+
+/* Large Mobiles & Small Tablets (<= 768px) */
+@media (max-width: 768px) {
+  .search-overlay {
+    padding: 14px 5vw;
+    width: 96vw;
+    border-radius: 12px;
+    bottom: 18px;
+  }
+  .search-input-wrap {
+    flex: 1 1 100%;
+    height: 42px;
+  }
+  .search-input-wrap input {
+    font-size: 0.95em;
+  }
+}
+
+/* Small Mobiles (<= 480px) */
+@media (max-width: 480px) {
+  .search-overlay {
+    padding: 12px 4vw;
+    width: 98vw;
+    border-radius: 10px;
+    bottom: 12px;
+  }
+  .search-input-wrap {
+    height: 38px;
+    gap: 3px;
+  }
+  .search-input-wrap input {
+    font-size: 0.9em;
+  }
+  .search-icon {
+    font-size: 1em;
+    padding-left: 8px;
+  }
+}
+
 
 /* Tabs styling */
 .tabs {
@@ -252,6 +388,49 @@
 }
 .tab:active { color: #9b6eff; }
 .tab:hover { color: #7858f1; }
+
+/* ===== Tablets (<= 1024px) ===== */
+@media (max-width: 1024px) {
+  .tabs {
+    font-size: 1em;
+    gap: 4px;
+  }
+  .tab {
+    margin-right: 20px;
+    font-size: 1em;
+    padding: 7px 0 10px 0;
+  }
+}
+
+/* ===== Mobiles (<= 768px) ===== */
+@media (max-width: 768px) {
+  .tabs {
+    font-size: 0.95em;
+    gap: 3px;
+    justify-content: center; /* center tabs on mobile */
+    flex-wrap: wrap;          /* allow wrapping */
+  }
+  .tab {
+    margin-right: 14px;
+    font-size: 0.95em;
+    padding: 6px 0 8px 0;
+  }
+}
+
+/* ===== Small Mobiles (<= 480px) ===== */
+@media (max-width: 480px) {
+  .tabs {
+    font-size: 0.9em;
+    gap: 2px;
+    justify-content: space-around; /* spread evenly */
+    flex-wrap: wrap;
+  }
+  .tab {
+    margin-right: 10px;
+    font-size: 0.9em;
+    padding: 5px 0 7px 0;
+  }
+}
 
 /* SEARCH FORM FLEX */
 .search-form {
@@ -375,6 +554,71 @@
 .section-title:nth-child(2) {
   margin-bottom: 30px;
 }
+/* ========= Tablets (<= 1024px) ========= */
+@media (max-width: 1024px) {
+  .search-form {
+    gap: 8px;
+    font-size: 0.95em;
+  }
+  .search-form select {
+    min-width: 120px;
+    font-size: 0.95em;
+  }
+  .search-form input[type="text"] {
+    min-width: 100px;
+    font-size: 0.95em;
+  }
+  .search-form button {
+    font-size: 0.85em;
+    padding: 0 18px;
+    height: 36px;
+  }
+}
+
+/* ========= Mobiles (<= 768px) ========= */
+@media (max-width: 768px) {
+  .search-form {
+    flex-direction: column;   /* stack vertically */
+    align-items: stretch;
+    gap: 10px;
+    font-size: 0.95em;
+  }
+  .search-form select,
+  .search-form input[type="text"],
+  .search-form button {
+    width: 100%;              /* full width */
+    min-width: 0;
+    font-size: 0.95em;
+    height: 40px;
+    border-radius: 6px;
+    border-right: none;
+  }
+  .search-form button {
+    font-size: 0.9em;
+    height: 42px;
+  }
+}
+
+/* ========= Small Mobiles (<= 480px) ========= */
+@media (max-width: 480px) {
+  .search-form {
+    gap: 8px;
+    font-size: 0.9em;
+  }
+  .search-form select,
+  .search-form input[type="text"],
+  .search-form button {
+    height: 38px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    padding: 0 12px;
+  }
+  .search-form button {
+    font-size: 0.88em;
+    height: 40px;
+  }
+}
+
     /* --------- MEGAMENU FLOATING DROPDOWN --------- */
     .tab-wrapper { display: flex; flex-direction: column; align-items: center; position: relative; }
     .tab-dropdown {
@@ -430,15 +674,81 @@
     /* Sections 3-7: Preserve your original styling, omitted here for brevity,
      * But your core carousel and card CSS should stay as in your previous file
      */
+     
+/* Tablets (<= 1024px) */
+@media (max-width: 1024px) {
+  .tab-dropdown {
+    min-width: 300px;
+    padding: 28px 20px 20px 20px;
+    border-radius: 6px;
+  }
+  .dropdown-img {
+    max-height: 150px;
+    padding: 6px;
+  }
+  .dropdown-title {
+    font-size: 1em;
+  }
+  .dropdown-list li {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+  }
+}
 
-    @media (max-width:750px){
-      .tab-dropdown { min-width: 96vw; left: 2vw!important; }
-    }
+/* Mobiles (<= 768px) */
+@media (max-width: 768px) {
+  .tab-dropdown {
+    position: static;       /* no absolute positioning */
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    padding: 20px 16px;
+    border-radius: 0;
+    box-shadow: none;
+    margin-top: 10px;
+  }
+  .dropdown-img {
+    max-height: 140px;
+    width: 100%;
+    padding: 4px;
+  }
+  .dropdown-title {
+    font-size: 0.95em;
+    margin-bottom: 6px;
+  }
+  .dropdown-list {
+    padding-left: 16px;
+  }
+  .dropdown-list li {
+    font-size: 0.9em;
+    margin-bottom: 7px;
+  }
+}
 
+/* Small Mobiles (<= 480px) */
+@media (max-width: 480px) {
+  .tab-dropdown {
+    padding: 16px 12px;
+    margin-top: 8px;
+  }
+  .dropdown-img {
+    max-height: 120px;
+    margin-bottom: 12px;
+  }
+  .dropdown-title {
+    font-size: 0.9em;
+  }
+  .dropdown-list {
+    padding-left: 12px;
+  }
+  .dropdown-list li {
+    font-size: 0.88em;
+    margin-bottom: 6px;
+  }
+}
 
-/*-------------------------
-      RESPONSIVE STYLING
---------------------------*/
+/*
+
 @media (max-width: 1200px) {
   .carousel-strip-wrapper, .image-carousel { padding-left:3vw; padding-right:3vw; }
   .service-list { gap: 15px; }
@@ -454,7 +764,7 @@
   .prop-card { min-width: 160px; max-width: 95vw;}
 }
 
-/* ====== IMPROVED: Better Mobile Tabs & Search Overlay + Form ====== */
+
 @media (max-width:700px) {
   .tabs { font-size: 0.95em; gap: 3px; margin-bottom: 11px;}
   .tab { padding: 8px 4px 8px 4px; margin-right: 12px;}
@@ -494,7 +804,7 @@
   .logo-header img {max-height: 46px;}
   .carousel-control{width:35px;height:35px;}
   .carousel-main-title{font-size:1em;}
-}
+} */
 
 
     /*------------------------
@@ -528,13 +838,53 @@
   box-shadow: 0 12px 25px rgba(56, 55, 55, 0.09);
   border-radius: 10px;
 }
-@media (max-width: 1100px){
-  .property-type-track .card { min-width: 42vw; max-width:46vw; width:42vw; }
+
+/* ========= Tablets (<= 1024px) ========= */
+@media (max-width: 1024px) {
+  .property-type-carousel {
+    padding-left: 30px;
+    height: 360px;
+  }
+  .property-type-track .card {
+    min-width: 30vw;
+    max-width: 30vw;
+    width: 30vw;
+    height: 360px;
+  }
 }
-@media (max-width: 700px){
-  .property-type-track .card { min-width:78vw; width:79vw; max-width:90vw; }
-  .property-type-carousel { height: 210px;}
+
+/* ========= Mobiles (<= 768px) ========= */
+@media (max-width: 768px) {
+  .property-type-carousel {
+    padding-left: 20px;
+    height: 320px;
+  }
+  .property-type-track {
+    gap: 14px; /* spacing between cards */
+  }
+  .property-type-track .card {
+    min-width: 70vw;
+    max-width: 70vw;
+    width: 70vw;
+    height: 320px;
+  }
 }
+
+/* ========= Small Mobiles (<= 480px) ========= */
+@media (max-width: 480px) {
+  .property-type-carousel {
+    padding-left: 12px;
+    height: 280px;
+  }
+  .property-type-track .card {
+    min-width: 85vw;
+    max-width: 85vw;
+    width: 85vw;
+    height: 280px;
+    margin-right: 12px;
+  }
+}
+
     .carousel-main-title {
       font-size: 2rem;
       font-weight: 700;
@@ -634,6 +984,88 @@
       border-color: #3583e1;
       background: #e9f2fe;
     }
+    
+/* ======= Tablets (<= 1024px) ======= */
+@media (max-width: 1024px) {
+  .carousel-main-title {
+    font-size: 1.75rem;
+    margin-left: 24px;
+  }
+  .carousel-subtitle {
+    font-size: 0.95rem;
+    margin-left: 24px;
+  }
+  .image-carousel {
+    padding: 0 28px;
+    gap: 10px;
+  }
+  .card {
+    flex: 0 0 200px;
+    min-width: 200px;
+    height: 280px;
+  }
+  .card-title { font-size: 1em; }
+  .card-details { font-size: 0.9em; }
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ======= Mobiles (<= 768px) ======= */
+@media (max-width: 768px) {
+  .carousel-main-title {
+    font-size: 1.5rem;
+    margin: 32px 0 6px 16px;
+  }
+  .carousel-subtitle {
+    font-size: 0.9rem;
+    margin: 0 0 18px 16px;
+  }
+  .image-carousel {
+    padding: 0 18px;
+    gap: 10px;
+  }
+  .card {
+    flex: 0 0 70vw;   /* wider, 1.5 cards visible */
+    min-width: 70vw;
+    height: 260px;
+  }
+  .card-title { font-size: 0.95em; }
+  .card-details { font-size: 0.85em; }
+  .carousel-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ======= Small Mobiles (<= 480px) ======= */
+@media (max-width: 480px) {
+  .carousel-main-title {
+    font-size: 1.25rem;
+    margin: 24px 0 6px 12px;
+  }
+  .carousel-subtitle {
+    font-size: 0.85rem;
+    margin: 0 0 14px 12px;
+  }
+  .image-carousel {
+    padding: 0 12px;
+    gap: 8px;
+  }
+  .card {
+    flex: 0 0 85vw;   /* single card almost full width */
+    min-width: 85vw;
+    height: 240px;
+  }
+  .card-title { font-size: 0.9em; }
+  .card-details { font-size: 0.8em; }
+  .carousel-arrow {
+    width: 34px;
+    height: 34px;
+  }
+}
+
     /*------------------
       SECTION 4: City Select
     ------------------*/
@@ -700,6 +1132,98 @@
       background: #2186f0;
       color: #fff;
     }
+    
+/* ======= Tablets (<= 1024px) ======= */
+@media (max-width: 1024px) {
+  .city-title {
+    font-size: 1.25rem;
+    margin-bottom: 3vh;
+  }
+  .city-list {
+    grid-template-columns: repeat(4, auto); /* 4 per row */
+    gap: 24px;
+  }
+  .city-img {
+    width: 78px;
+    height: 78px;
+  }
+  .city-name {
+    font-size: 14px;
+  }
+  .city-more-btn {
+    width: 200px;
+    font-size: 0.95em;
+    padding: 9px 22px;
+  }
+}
+
+/* ======= Mobiles (<= 768px) ======= */
+@media (max-width: 768px) {
+  .city-title {
+    font-size: 1.15rem;
+    margin-bottom: 2.5vh;
+  }
+  .city-list {
+    grid-template-columns: repeat(3, auto); /* 3 per row */
+    gap: 20px;
+  }
+  .city-img {
+    width: 72px;
+    height: 72px;
+  }
+  .city-name {
+    font-size: 13.5px;
+  }
+  .city-more-btn {
+    width: 180px;
+    font-size: 0.9em;
+    padding: 8px 20px;
+  }
+}
+
+/* ======= Small Mobiles (<= 480px) ======= */
+@media (max-width: 480px) {
+  .city-title {
+    font-size: 1rem;
+    margin-bottom: 2vh;
+  }
+  .city-list {
+    grid-template-columns: repeat(2, auto); /* 2 per row */
+    gap: 16px;
+  }
+  .city-img {
+    width: 66px;
+    height: 66px;
+  }
+  .city-name {
+    font-size: 13px;
+  }
+  .city-more-btn {
+    width: 160px;
+    font-size: 0.85em;
+    padding: 7px 18px;
+  }
+}
+
+/* ======= Extra Small Mobiles (<= 360px) ======= */
+@media (max-width: 360px) {
+  .city-list {
+    grid-template-columns: repeat(2, auto); /* still 2 per row */
+    gap: 12px;
+  }
+  .city-img {
+    width: 60px;
+    height: 60px;
+  }
+  .city-name {
+    font-size: 12.5px;
+  }
+  .city-more-btn {
+    width: 140px;
+    font-size: 0.8em;
+    padding: 6px 16px;
+  }
+}
     /*-------------------
       SECTION 5: Latest Properties for Sale
     --------------------*/
@@ -792,6 +1316,58 @@
       background: #fff;
       color: #007bff;
     }
+    
+/* ======= Large Tablets (<= 1024px) ======= */
+@media (max-width: 1024px) {
+  .prop-card-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 18px;
+  }
+  .prop-card-img { height: 150px; }
+  .prop-title { font-size: 0.98em; }
+  .prop-desc { font-size: 0.9em; }
+}
+
+/* ======= Tablets & Small Laptops (<= 768px) ======= */
+@media (max-width: 768px) {
+  .latest-title { font-size: 1.2em; }
+  .prop-card-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 16px;
+  }
+  .prop-card {
+    min-width: unset;
+    min-height: 200px;
+  }
+  .prop-card-img { height: 140px; }
+  .prop-title { font-size: 0.95em; }
+  .prop-desc { font-size: 0.88em; }
+  .prop-card .prop-btn {
+    width: 100px;
+    font-size: 0.85em;
+  }
+}
+
+/* ======= Small Mobiles (<= 480px) ======= */
+@media (max-width: 480px) {
+  .latest-title { font-size: 1.1em; }
+  .prop-card-list {
+    grid-template-columns: 1fr; /* 1 card per row */
+    gap: 14px;
+  }
+  .prop-card {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .prop-card-img { height: 130px; }
+  .prop-title { font-size: 0.9em; }
+  .prop-desc { font-size: 0.85em; }
+  .prop-card .prop-btn {
+    width: 95px;
+    font-size: 0.8em;
+  }
+}
+
     /*-------------------
       SECTION 6: Actions Block
     --------------------*/
@@ -928,6 +1504,46 @@
   pointer-events: none;
   z-index: 2;
 }
+/* ===== Tablets (≤1024px) ===== */
+@media (max-width: 1024px) {
+  .actions-box-list {
+    max-width: 90%;
+    gap: 16px;
+  }
+  .action-box {
+    flex: 1 1 45%; /* 2 per row */
+    max-width: 45%;
+  }
+}
+
+/* ===== Small Tablets & Large Phones (≤768px) ===== */
+@media (max-width: 768px) {
+  .actions-section { padding: 36px 0 28px 0; }
+  .actions-box-list { gap: 14px; }
+  .action-box {
+    flex: 1 1 100%;
+    max-width: 100%;
+    padding: 24px 16px;
+    font-size: 0.95em;
+  }
+  .action-box-title { font-size: 1em; }
+  .action-btn { font-size: 0.9em; padding: 7px 10px; }
+}
+
+/* ===== Small Mobiles (≤480px) ===== */
+@media (max-width: 480px) {
+  .actions-box-list { gap: 12px; }
+  .action-box {
+    padding: 22px 14px;
+    font-size: 0.9em;
+  }
+  .action-box-title { font-size: 0.95em; }
+  .action-btn {
+    font-size: 0.85em;
+    min-width: 90px;
+    padding: 6px 8px;
+  }
+}
 
     /*-------------------
   SECTION 7: Real Estate Services (final block)
@@ -1037,10 +1653,92 @@
   justify-content: center;
 }
 
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .real-estate-services {
+    padding: 35px 15px;
+  }
+  .real-estate-services .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    gap: 18px;
+  }
+  .real-estate-services .service-card {
+    height: auto;
+    min-height: 160px;
+  }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .real-estate-services {
+    padding: 30px 12px;
+  }
+  .real-estate-services .section-title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  .real-estate-services .services-grid {
+    grid-template-columns: 1fr; /* full width */
+    gap: 16px;
+  }
+  .real-estate-services .service-card {
+    padding: 18px;
+    font-size: 0.95em;
+  }
+  .real-estate-services .service-card h3 {
+    font-size: 17px;
+  }
+  .real-estate-services .service-card p {
+    font-size: 13px;
+  }
+  .real-estate-services .read-more {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+  .real-estate-services .icon-circle {
+    width: 120px;
+    height: 120px;
+    bottom: -60px;
+    right: -40px;
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .real-estate-services {
+    padding: 25px 10px;
+  }
+  .real-estate-services .section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .real-estate-services .service-card {
+    padding: 15px;
+  }
+  .real-estate-services .service-card h3 {
+    font-size: 16px;
+  }
+  .real-estate-services .service-card p {
+    font-size: 12.5px;
+  }
+  .real-estate-services .read-more {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .real-estate-services .icon-circle {
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+    right: -30px;
+  }
+}
+
+
     /*-------------------------
       RESPONSIVE STYLING
     --------------------------*/
-    @media (max-width: 1200px) {
+    /* @media (max-width: 1200px) {
       .carousel-strip-wrapper, .image-carousel { padding-left:3vw; padding-right:3vw; }
       .service-list { gap: 15px; }
     }
@@ -1070,8 +1768,8 @@
       .logo-header img {max-height: 46px;}
       .carousel-control{width:35px;height:35px;}
       .carousel-main-title{font-size:1em;}
-    }
-    /* section 6 */
+    } */
+   
     .action-box {
   position: relative;
   background-repeat: no-repeat;
@@ -1128,6 +1826,33 @@
   opacity 1s cubic-bezier(.24,.7,.6,1) 0.7s;
 }
 
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .actions-box-list { gap: 18px; }
+  .action-box { flex: 1 1 45%; max-width: 45%; }
+  .action-box-title { font-size: 1em; }
+  .action-btn { font-size: 0.95em; }
+  .logo-splash-overlay img { width: 45vw; }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .actions-section { padding: 30px 15px; }
+  .actions-box-list { flex-direction: column; align-items: center; }
+  .action-box { width: 100%; max-width: 400px; }
+  .action-box-title { font-size: 0.95em; }
+  .action-btn { font-size: 0.9em; padding: 7px 10px; }
+  .logo-splash-overlay img { width: 55vw; }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .action-box { padding: 22px 15px; font-size: 0.9em; }
+  .action-box-title { font-size: 0.9em; }
+  .action-box-desc { font-size: 0.85em; }
+  .action-btn { font-size: 0.85em; min-width: 90px; }
+  .logo-splash-overlay img { width: 70vw; min-width: 180px; }
+}
 
             .our-expertise-section {
             font-family: Arial, sans-serif;
