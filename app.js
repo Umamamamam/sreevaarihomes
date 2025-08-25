@@ -246,7 +246,7 @@ app.post("/partnerform", async (req, res) => {
       email,
       city,
       company,
-      areas,
+      areas: Array.isArray(areas) ? areas : [areas], 
       model,
       notes,
       declarant,
