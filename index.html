@@ -2120,11 +2120,11 @@ body.modal-open {
           <option value="3BHK">3BHK</option>
           <option value="4BHK">4BHK</option>
         </select>
-
+<!-- 
         <label>
           <input type="checkbox" name="agree" required>
           I agree to be contacted via WhatsApp, SMS, phone, email
-        </label>
+        </label> -->
 
         <button type="submit">Get Contact Details</button>
       </form>
@@ -2762,7 +2762,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
     
     <script>
 
-      
+/*      
 document.addEventListener("DOMContentLoaded", function() {
   
   setTimeout(() => {
@@ -2808,7 +2808,72 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
   }, 4000); 
+}); */
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const modal = document.getElementById("homeContactModal");
+    const closeBtn = modal.querySelector(".closeBtn");
+    const form = document.getElementById("homeContactForm");
+    const confirmation = document.getElementById("homeConfirmation");
+
+    if (!modal || !form || !confirmation) return;
+
+    modal.style.display = "flex";
+    form.style.display = "block";
+    confirmation.style.display = "none";
+
+    // Close button
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    // Click outside
+    window.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+    // Form submit
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      // Get form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        // Send data to backend
+        const response = await fetch("/api/home-contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          // ✅ Saved in MongoDB
+          form.style.display = "none";
+          confirmation.style.display = "block";
+
+          setTimeout(() => {
+            modal.style.display = "none";
+            form.reset();
+            form.style.display = "block";
+            confirmation.style.display = "none";
+          }, 4000);
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to send form. Check your internet or server.");
+      }
+    });
+  }, 4000);
 });
+
 
 document.addEventListener("DOMContentLoaded", function() {
   
