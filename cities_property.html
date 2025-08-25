@@ -1108,6 +1108,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
   contactBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       e.preventDefault();
+      e.stopPropagation(); 
       modal.style.display = "flex";
       form.style.display = "block";
       thanksBox.style.display = "none";
