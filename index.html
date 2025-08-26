@@ -1262,14 +1262,27 @@
 /* ======= Tablets & Small Laptops (<= 768px) ======= */
 @media (max-width: 768px) {
   .latest-title { font-size: 1.2em; }
+
   .prop-card-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
-    gap: 16px;
+    display: flex !important;       /* 👈 override grid */
+    overflow-x: auto;               /* 👈 enable horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    gap: 14px;
+    padding: 0 10px;
+    scrollbar-width: none;
+    justify-content: flex-start;    /* align left */
   }
+  .prop-card-list::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+  }
+
   .prop-card {
-    min-width: unset;
-    min-height: 200px;
+    flex: 0 0 80%;   
+    min-width: 260px;
+    max-width: 320px;
+    margin: 0;
   }
+
   .prop-card-img { height: 140px; }
   .prop-title { font-size: 0.95em; }
   .prop-desc { font-size: 0.88em; }
@@ -1450,14 +1463,17 @@
 
 @media (max-width: 768px) {
   .actions-section { padding: 36px 0 28px 0; }
-  .actions-box-list {grid-template-columns: repeat(1, 1fr); 
-  }
+  .actions-box-list {  display: grid; grid-template-columns: repeat(2, 1fr); /* ✅ still 2 per row */
+    gap: 14px;
+    gap: 14px; }
+
   .action-box {
-    flex: 1 1 100%;
-    max-width: 100%;
-    padding: 24px 16px;
+    flex: 1 1 38%;   /* 👈 two per row */
+    max-width: 38% !important;
+    padding: 22px 14px;
     font-size: 0.95em;
   }
+
   .action-box-title { font-size: 1em; }
   .action-btn { font-size: 0.9em; padding: 7px 10px; }
 }
@@ -1600,72 +1616,99 @@
     min-height: 160px;
   }
 }
-
-/* Mobiles (≤768px) */
+/* ✅ Mobile (≤768px) - show 2 per row */
 @media (max-width: 768px) {
   .real-estate-services {
-    padding: 30px 12px;
+    padding: 25px 12px;
   }
-  .real-estate-services .section-title {
-    font-size: 22px;
-    margin-bottom: 25px;
-  }
-  .real-estate-services .services-grid {
-    grid-template-columns: 1fr; /* full width */
-    gap: 16px;
-  }
-  .real-estate-services .service-card {
-    padding: 18px;
-    font-size: 0.95em;
-  }
-  .real-estate-services .service-card h3 {
-    font-size: 17px;
-  }
-  .real-estate-services .service-card p {
-    font-size: 13px;
-  }
-  .real-estate-services .read-more {
-    font-size: 13px;
-    padding: 7px 12px;
-  }
-  .real-estate-services .icon-circle {
-    width: 120px;
-    height: 120px;
-    bottom: -60px;
-    right: -40px;
-  }
-}
 
-/* Small Phones (≤480px) */
-@media (max-width: 480px) {
-  .real-estate-services {
-    padding: 25px 10px;
-  }
   .real-estate-services .section-title {
     font-size: 20px;
     margin-bottom: 20px;
   }
+
+  .real-estate-services .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* 👈 two cards per row */
+    gap: 14px;
+  }
+
   .real-estate-services .service-card {
     padding: 15px;
+    font-size: 0.9em;
+    box-shadow: 0px 6px 18px rgba(0,0,0,0.22); 
+    height: auto;
+    min-height: 150px;
+    margin-bottom: 12px;
   }
+
   .real-estate-services .service-card h3 {
-    font-size: 16px;
+    font-size: 15px;
+    margin-bottom: 6px;
   }
+
   .real-estate-services .service-card p {
     font-size: 12.5px;
+    margin-bottom: 12px;
   }
+
   .real-estate-services .read-more {
     font-size: 12px;
     padding: 6px 10px;
+    bottom: 10px;
+    left: 10px;
   }
+
   .real-estate-services .icon-circle {
-    width: 100px;
-    height: 100px;
-    bottom: -50px;
+    width: 90px;
+    height: 90px;
+    bottom: -45px;
     right: -30px;
+  }
+  .real-estate-services .icon-circle img {
+    width: 50px !important;
+    height: 50px !important;
+    top: -30px !important;
+    left: -15px !important;
   }
 }
 
+/* ✅ Small phones (≤480px) - still 2 per row but tighter */
+@media (max-width: 480px) {
+  .real-estate-services .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .real-estate-services .service-card {
+    padding: 12px;
+    font-size: 0.85em;
+    min-height: 130px;
+  }
+
+  .real-estate-services .service-card h3 {
+    font-size: 14px;
+  }
+
+  .real-estate-services .service-card p {
+    font-size: 12px;
+  }
+
+  .real-estate-services .read-more {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+
+  .real-estate-services .icon-circle {
+    width: 80px;
+    height: 80px;
+    bottom: -40px;
+    right: -25px;
+  }
+  .real-estate-services .icon-circle img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
 
     /*-------------------------
       RESPONSIVE STYLING
