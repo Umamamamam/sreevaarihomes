@@ -2092,23 +2092,32 @@
 /* Mobiles (≤768px) */
 @media (max-width: 768px) {
   .hero-tabs-nav {
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 60px;
-    position: fixed; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;   /* so content below doesn’t overlap */
+    z-index: 9999;
+    min-height: 80px;   /* taller so logo fits */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-   .navbarLogo {
+  .navbarLogo {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 100px;  
+    width: 120px;  
     height: auto;
   }
+
+ 
   .hero-tabs-list {
     display: none;
   }
 }
+
 
 
 
