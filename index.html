@@ -3802,15 +3802,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
  
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("aboutBtnMob");
 
-  if (button) {
-    button.addEventListener("click", function () {
-      window.location.href = "about_us.html";
-    });
-  }
-});
 
 const toggleMenu = document.querySelector(".toggleMenu");
 const sidebar = document.getElementById("mobileSidebar");
@@ -3994,7 +3986,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }, 4000);
 }); */
 
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("aboutBtnMob");
 
+  if (button) {
+    button.addEventListener("click", function () {
+      window.location.href = "about_us.html";
+    });
+  }
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   
