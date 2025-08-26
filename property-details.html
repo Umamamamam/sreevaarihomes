@@ -6,7 +6,8 @@
   <!-- Font Awesome for icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
     body {
       font-family: "Roboto", Arial, sans-serif;
@@ -1017,7 +1018,6 @@
   width: 130px;
   display: block;
   margin: 0 auto 14px auto;
-  /* border-radius: 10px; */
 }
 .hero-tab-dropdown ol {
   margin: 0;
@@ -1040,7 +1040,7 @@
 .hero-tab-dropdown li a:hover { color: #349cff; }
 .hero-tab-dropdown li:hover { color: #349cff; }
 
-@media (max-width: px) {
+@media (max-width: 768px) {
   .hero-tabs-nav { padding: 0; }
   .hero-tab { font-size:1em;padding:10px 1px 7px 1px;}
   .hero-tab-dropdown{min-width: 92vw; max-width:99vw;padding:13px 2vw;}
@@ -1150,7 +1150,7 @@
 .mobile-sidebar .hero-tab-dropdown li {
   margin: 6px 0;
 }
-/* Ensure all main links are left aligned */
+
 .mobile-sidebar .hero-tab-wrapper a {
   display: block;
   text-align: left;
@@ -1160,11 +1160,11 @@
   text-decoration: none;
 }
 
-/* Dropdown items inside sidebar */
+
 .mobile-sidebar .hero-tab-dropdown li a {
-  padding-left: 20px;   /* indent children */
+  padding-left: 20px;   
   font-size: 14px;
-  border: none;         /* remove extra lines */
+  border: none;         
   color: #444;
 }
 
