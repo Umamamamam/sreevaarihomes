@@ -312,38 +312,14 @@
 /* Large Mobiles & Small Tablets (<= 768px) */
 @media (max-width: 768px) {
   .search-overlay {
-    padding: 14px 5vw;
-    width: 96vw;
-    border-radius: 12px;
-    bottom: 18px;
-  }
-  .search-input-wrap {
-    flex: 1 1 100%;
-    height: 42px;
-  }
-  .search-input-wrap input {
-    font-size: 0.95em;
+  display: none;
   }
 }
 
 /* Small Mobiles (<= 480px) */
 @media (max-width: 480px) {
   .search-overlay {
-    padding: 12px 4vw;
-    width: 98vw;
-    border-radius: 10px;
-    bottom: 12px;
-  }
-  .search-input-wrap {
-    height: 38px;
-    gap: 3px;
-  }
-  .search-input-wrap input {
-    font-size: 0.9em;
-  }
-  .search-icon {
-    font-size: 1em;
-    padding-left: 8px;
+    display: none;
   }
 }
 
@@ -836,15 +812,15 @@
 @media (max-width: 768px) {
   .property-type-carousel {
     padding-left: 20px;
-    height: 420px !important;
+    height: 450px !important;
   }
   .property-type-track {
-    gap: 12px; 
+    gap: 5px; 
   }
   .property-type-track .card {
-    min-width: 70vw;
-    max-width: 70vw;
-    width: 70vw;
+    min-width: 60vw !important;
+    max-width: 60vw !important;
+    width: 100%;
     height: 420px !important;
   }
 }
@@ -1006,7 +982,7 @@
     gap: 10px;
   }
   .card {
-    flex: 0 0 70vw;   /* wider, 1.5 cards visible */
+    flex: 0 0 70vw;   
     min-width: 70vw;
     height: 260px;
   }
@@ -2971,10 +2947,98 @@ body.modal-open {
   from { width: 0; opacity: 0; }
   to { width: 52%; opacity: 1; }
 }
+.mobile-tabs-section {
+      display: none;
+    }
 
+    /* MOBILE ONLY */
+    @media (max-width: 768px) {
+      .mobile-tabs-section {
+        display: block;
+        padding-top: 30px !important;
+      }
 
+      /* Tabs wrapper */
+      .mobile-tabs {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        background: #fff;
+        padding: 8px 6px;
+      }
 
+      .mobile-tabs::-webkit-scrollbar {
+        display: none;
+      }
 
+      .mobile-tab-wrapper {
+        flex: 0 0 auto;
+      }
+
+      .mobile-tab {
+        background: #f8f8f8;
+        border: none;
+        padding: 8px 14px;
+        margin-right: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        border-radius: 20px;
+        white-space: nowrap;
+
+         outline: none;
+  -webkit-tap-highlight-color: transparent
+      }
+
+      .mobile-tab.active {
+        background: #fff;
+        border: 1px solid orange;
+        color: orange;
+      }
+
+      .mobile-divider {
+        width: 100%;
+        height: 2px;
+        background: #eee;
+      }
+
+      /* Search bar */
+      .mobile-search-form {
+        padding: 12px 10px;
+        background: #fff;
+      }
+
+      .mobile-search-wrap {
+        display: flex;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .mobile-search-wrap input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+
+      .mobile-search-btn {
+        background: orange;
+        border: none;
+        color: #fff;
+        padding: 10px 14px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        margin: 5px;
+        border-radius: 5px;
+      }
+    }
 
 </style>
 </head>
@@ -3295,7 +3359,29 @@ body.modal-open {
 
     </div>
   </div>
+  <div>
 
+<div class="mobile-tabs-section">
+<div class="mobile-tabs" id="mobileTabs">
+    <div class="mobile-tab-wrapper"><button class="mobile-tab active">Apartments</button></div>
+    <div class="mobile-tab-wrapper"><button class="mobile-tab">Plots</button></div>
+    <div class="mobile-tab-wrapper"><button class="mobile-tab">Home Construction</button></div>
+    <div class="mobile-tab-wrapper"><button class="mobile-tab">UPVC</button></div>
+    <div class="mobile-tab-wrapper"><button class="mobile-tab">Solar</button></div>
+    <div class="mobile-tab-wrapper"><button class="mobile-tab">Interior</button></div>
+  </div>
+
+  <div class="mobile-divider"></div>
+
+  <form class="mobile-search-form" onsubmit="return false;">
+      <div class="mobile-search-wrap">
+        <input type="text" placeholder='Search "North Bangalore plots"' autocomplete="off"/>
+        <button type="submit" class="mobile-search-btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </form>
+</div>
   <!-- SECTION 3: PROPERTY TYPE AUTOSLIDE CAROUSEL -->
    <div style="position: relative; top: -20px;">  
 <div class="carousel-main-title">Apartments, Plots and more</div>
@@ -3802,7 +3888,12 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
  
 
     <script>
-
+document.querySelectorAll(".mobile-tab").forEach(tab => {
+      tab.addEventListener("click", function() {
+        document.querySelectorAll(".mobile-tab").forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+      });
+    });
 
 const toggleMenu = document.querySelector(".toggleMenu");
 const sidebar = document.getElementById("mobileSidebar");
