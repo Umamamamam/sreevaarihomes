@@ -811,6 +811,7 @@
 /* ========= Mobiles (<= 768px) ========= */
 @media (max-width: 768px) {
   .property-type-carousel {
+    margin-top: 30px;
     padding-left: 20px;
     height: 450px !important;
   }
@@ -818,8 +819,8 @@
     gap: 5px; 
   }
   .property-type-track .card {
-    min-width: 60vw !important;
-    max-width: 60vw !important;
+    min-width: 70vw !important;
+    max-width: 70vw !important;
     width: 100%;
     height: 420px !important;
   }
@@ -1118,17 +1119,36 @@
     font-size: 1.15rem;
     margin-bottom: 2.5vh;
   }
-  .city-list {
-    grid-template-columns: repeat(3, auto); /* 3 per row */
-    gap: 20px;
+}
+@media (max-width: 768px) {
+    .city-list {
+    display: flex; 
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 16px;
+    scrollbar-width: none;
+    padding: 0 10px;
   }
+  .city-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .city-item {
+    flex: 0 0 auto;   
+    width: 120px;  
+    height: 50px;   
+  }
+
   .city-img {
-    width: 72px;
-    height: 72px;
+    width: 100%;
+    max-width: 120px;
+    height: auto;
   }
+
   .city-name {
     font-size: 13.5px;
   }
+
   .city-more-btn {
     width: 180px;
     font-size: 0.9em;
@@ -1136,50 +1156,7 @@
   }
 }
 
-/* ======= Small Mobiles (<= 480px) ======= */
-@media (max-width: 480px) {
-  .city-title {
-    font-size: 1rem;
-    margin-bottom: 2vh;
-  }
-  .city-list {
-    grid-template-columns: repeat(2, auto); /* 2 per row */
-    gap: 16px;
-  }
-  .city-img {
-    width: 66px;
-    height: 66px;
-  }
-  .city-name {
-    font-size: 13px;
-  }
-  .city-more-btn {
-    width: 160px;
-    font-size: 0.85em;
-    padding: 7px 18px;
-  }
-}
-
-/* ======= Extra Small Mobiles (<= 360px) ======= */
-@media (max-width: 360px) {
-  .city-list {
-    grid-template-columns: repeat(2, auto); /* still 2 per row */
-    gap: 12px;
-  }
-  .city-img {
-    width: 60px;
-    height: 60px;
-  }
-  .city-name {
-    font-size: 12.5px;
-  }
-  .city-more-btn {
-    width: 140px;
-    font-size: 0.8em;
-    padding: 6px 16px;
-  }
-}
-    /*-------------------
+ /*-------------------
       SECTION 5: Latest Properties for Sale
     --------------------*/
     .latest-props-section {
@@ -2953,9 +2930,12 @@ body.modal-open {
 
     /* MOBILE ONLY */
     @media (max-width: 768px) {
+
       .mobile-tabs-section {
         display: block;
         padding-top: 30px !important;
+        background: #fff;
+        padding-bottom: 30px !important;
       }
 
       /* Tabs wrapper */
@@ -2966,6 +2946,7 @@ body.modal-open {
         scrollbar-width: none;
         background: #fff;
         padding: 8px 6px;
+        gap: 15px;
       }
 
       .mobile-tabs::-webkit-scrollbar {
@@ -2980,10 +2961,9 @@ body.modal-open {
         background: #f8f8f8;
         border: none;
         padding: 8px 14px;
-        margin-right: 6px;
         cursor: pointer;
         font-size: 14px;
-        border-radius: 20px;
+        border-radius: 10px;
         white-space: nowrap;
 
          outline: none;
@@ -3012,7 +2992,7 @@ body.modal-open {
         display: flex;
         align-items: center;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 10px;
         overflow: hidden;
         background: #fff;
       }
@@ -3036,10 +3016,10 @@ body.modal-open {
         justify-content: center;
         width: 50px;
         margin: 5px;
-        border-radius: 5px;
+        border-radius: 10px;
       }
     }
-
+ 
 </style>
 </head>
 
@@ -3383,7 +3363,7 @@ body.modal-open {
     </form>
 </div>
   <!-- SECTION 3: PROPERTY TYPE AUTOSLIDE CAROUSEL -->
-   <div style="position: relative; top: -20px;">  
+   <div style="position: relative; top: 10px;" class="carousel-main-section">  
 <div class="carousel-main-title">Apartments, Plots and more</div>
 <div class="carousel-subtitle">At Sree Vaari Homes</div>
 <div class="carousel-strip-wrapper">
