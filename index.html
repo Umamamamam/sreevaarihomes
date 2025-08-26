@@ -389,7 +389,7 @@
 .tab:active { color: #9b6eff; }
 .tab:hover { color: #7858f1; }
 
-/* ===== Tablets (<= 1024px) ===== */
+
 @media (max-width: 1024px) {
   .tabs {
     font-size: 1em;
@@ -402,35 +402,14 @@
   }
 }
 
-/* ===== Mobiles (<= 768px) ===== */
+
 @media (max-width: 768px) {
   .tabs {
-    font-size: 0.95em;
-    gap: 3px;
-    justify-content: center; /* center tabs on mobile */
-    flex-wrap: wrap;          /* allow wrapping */
-  }
-  .tab {
-    margin-right: 14px;
-    font-size: 0.95em;
-    padding: 6px 0 8px 0;
+   display: none;
   }
 }
 
-/* ===== Small Mobiles (<= 480px) ===== */
-@media (max-width: 480px) {
-  .tabs {
-    font-size: 0.9em;
-    gap: 2px;
-    justify-content: space-around; /* spread evenly */
-    flex-wrap: wrap;
-  }
-  .tab {
-    margin-right: 10px;
-    font-size: 0.9em;
-    padding: 5px 0 7px 0;
-  }
-}
+
 
 /* SEARCH FORM FLEX */
 .search-form {
@@ -857,16 +836,16 @@
 @media (max-width: 768px) {
   .property-type-carousel {
     padding-left: 20px;
-    height: 320px;
+    height: 420px !important;
   }
   .property-type-track {
-    gap: 14px; /* spacing between cards */
+    gap: 12px; 
   }
   .property-type-track .card {
     min-width: 70vw;
     max-width: 70vw;
     width: 70vw;
-    height: 320px;
+    height: 420px !important;
   }
 }
 
@@ -1054,7 +1033,7 @@
     gap: 8px;
   }
   .card {
-    flex: 0 0 85vw;   /* single card almost full width */
+    flex: 0 0 85vw;   
     min-width: 85vw;
     height: 240px;
   }
@@ -1516,10 +1495,11 @@
   }
 }
 
-/* ===== Small Tablets & Large Phones (≤768px) ===== */
+
 @media (max-width: 768px) {
   .actions-section { padding: 36px 0 28px 0; }
-  .actions-box-list { gap: 14px; }
+  .actions-box-list {grid-template-columns: repeat(1, 1fr); 
+  }
   .action-box {
     flex: 1 1 100%;
     max-width: 100%;
@@ -1838,10 +1818,13 @@
 /* Mobiles (≤768px) */
 @media (max-width: 768px) {
   .actions-section { padding: 30px 15px; }
-  .actions-box-list { flex-direction: column; align-items: center; }
+  .actions-box-list {
+    grid-template-columns: 1fr;
+  }
   .action-box { width: 100%; max-width: 400px; }
   .action-box-title { font-size: 0.95em; }
-  .action-btn { font-size: 0.9em; padding: 7px 10px; }
+  .action-btn { font-size: 0.9em; padding: 10px 20px;  min-width: auto; 
+    width: auto; }
   .logo-splash-overlay img { width: 55vw; }
 }
 
@@ -1989,7 +1972,7 @@
   max-width: 1100px;
   padding: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   align-items: center;
   gap: 28px;
   position: relative;
@@ -1999,8 +1982,8 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-end; 
-  text-align: right;     
+  align-items: center; 
+  text-align: center;     
        
 }
 
@@ -2026,7 +2009,7 @@
 .hero-tab:hover {
   color: #f1734b;
   font-weight: 600;
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 .hero-tab.active::after, .hero-tab:focus::after {
   content: '';
@@ -2111,46 +2094,15 @@
   .hero-tabs-nav {
     flex-direction: column;
     align-items: flex-start;
-    max-height: none;
+    min-height: 20px;
   }
 
   .hero-tabs-list {
     display: none;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 12px;
-    padding: 10px 20px;
   }
-
-  .hero-tab {
-    font-size: 0.95em;
-    font-weight: 500;
-    min-width: auto;
-    padding: 10px 0;
-    width: 100%;
-    text-align: left;
-  }
-
-  .hero-tab.active::after { left: 0; width: 40%; }
-  .hero-tab-dropdown {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    margin-top: 6px;
-    width: 100%;
-    box-shadow: none;
-    border: 1px solid #eee;
-  }
-  .hero-tab-dropdown ol { padding-left: 20px; }
 }
 
-/* Small phones (≤480px) */
-@media (max-width: 480px) {
-  .hero-tabs-list { padding: 8px 16px; }
-  .hero-tab { font-size: 0.9em; }
-  .hero-tab-dropdown li { font-size: 0.75em; }
-}
+
 
 :root {
   --dark: #111;       /* or #000 for pure black */
@@ -2839,13 +2791,113 @@ body.modal-open {
 .toggleMenu {
   display: none;
 }
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+  overflow-y: auto;
+  text-align: left;         /* force text left */
+}
+
+.mobile-sidebar .hero-tab-wrapper {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.mobile-sidebar .hero-tab {
+  display: block;
+  width: 100%;              /* take full width */
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.mobile-sidebar .hero-tab-dropdown {
+  position: static;
+  width: 100%;
+  box-shadow: none;
+  display: none;
+  margin: 8px 0 0 0;
+  text-align: left;
+  padding-left: 100px;       
+  box-sizing: border-box;   
+}
+
+
+.mobile-sidebar .hero-tab-dropdown img {
+  max-width: 90%;           
+  height: auto;
+  display: block;
+  margin: 0 auto 10px 0;    
+}
+.mobile-sidebar .hero-tab-dropdown ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.mobile-sidebar .hero-tab-dropdown li {
+  margin: 6px 0;
+}
+/* Ensure all main links are left aligned */
+.mobile-sidebar .hero-tab-wrapper a {
+  display: block;
+  text-align: left;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Dropdown items inside sidebar */
+.mobile-sidebar .hero-tab-dropdown li a {
+  padding-left: 20px;   /* indent children */
+  font-size: 14px;
+  border: none;         /* remove extra lines */
+  color: #444;
+}
+
+  
+  .mobile-sidebar.active {
+    right: 0;
+  }
+  .mobile-sidebar .hero-tab-dropdown.active {
+    display: block;
+  }
+  
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 998; 
+}
+
+.overlay.active {
+  display: block;
+}
+
 
 @media (max-width: 768px) {
   .toggleMenu {
     display: block;
     position: absolute;
-    left: 330px;
-    bottom: 60px;
+    left: 342px;
+    bottom: 10px;
   }
   .toggleMenuImg {
     width: 30px;
@@ -2855,6 +2907,56 @@ body.modal-open {
     display: flex;
   }
 }
+#aboutBtn {
+  text-decoration: none; 
+  color: black;
+  position: relative; 
+}
+
+@media(max-width: 768px) {
+  #aboutBtn,
+  #aboutBtn:hover,
+  #aboutBtn:focus,
+  #aboutBtn:visited,
+  #aboutBtn:active {
+    text-decoration: none !important;
+    -webkit-text-decoration: none !important;
+  }
+}
+
+
+#aboutBtn:hover {
+  color: #f1734b !important;
+  font-weight: 600;
+  transform: scale(1.05);
+}
+
+
+#aboutBtn:hover::after,
+
+#aboutBtn.active::after,
+
+#aboutBtn:focus::after {
+  content: '';
+  display: block;
+  width: 52%;
+  height: 3.5px;
+  background: #f1734b;
+  border-radius: 3px;
+  position: absolute;
+  left: 24%;
+  bottom: 2px;
+  z-index: 2;
+  animation: heroTabUnderline .18s cubic-bezier(.18,0,.9,1);
+}
+
+@keyframes heroTabUnderline {
+  from { width: 0; opacity: 0; }
+  to { width: 52%; opacity: 1; }
+}
+
+
+
 
 </style>
 </head>
@@ -2880,7 +2982,7 @@ body.modal-open {
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
      <div class="hero-tab-wrapper">
-      <a href ="about_us.html" class="hero-tab" style="text-decoration: none; color: black !important; " type="button" data-tab="apartments"></a>
+      <button class="hero-tab" id="aboutBtn" type="button">About</button>
     </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
@@ -2944,6 +3046,80 @@ body.modal-open {
     </div>
   </div>
 </nav>
+<div class="overlay" id="overlay"></div>
+<!-- Mobile Sidebar -->
+<div class="mobile-sidebar" id="mobileSidebar">
+  <span class="closeSidebar" id="closeSidebar">&times;</span>
+
+  <!-- Mobile Tabs -->
+  <div class="hero-tab-wrapper">
+    <a href="about_us.html" class="hero-tab" style="text-decoration: none;" id="#aboutBtnMob">About Us</a>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Apartment’s</button>
+    <div class="hero-tab-dropdown">
+      <img src="/images/PROJECT IMAGES/goldentowers.png" alt="Golden Towers" />
+      <ol>
+        <li><a href="property-details.html?propertyId=slv_golden_towers"><b>Golden Towers</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Plots</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/6.png" alt="Plots" />
+      <ol>
+        <li><a href="property-details.html?propertyId=slv_nandhi_view"><b>SLV Nandhi View</b></a></li>
+        <li><a href="property-details.html?propertyId=nandhi_gardenia"><b>Nandhi Gardenia</b></a></li>
+        <li><a href="property-details.html?propertyId=vr_emerald"><b>VR Emerald</b></a></li>
+        <li><a href="property-details.html?propertyId=vr_innovative_global_city"><b>VR Innovative Global City</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Home Construction</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/construction.png" alt="Home Construction" />
+      <div style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
+        Sree Vaari Home Construction
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">UPVC</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/img icons/compressed/15.png" alt="UPVC" />
+      <ol>
+        <li><a href="service-details.html?serviceId=upvc"><b>View UPVC</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Solar</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/yrsolar.png" alt="Solar" />
+      <ol>
+        <li><a href="service-details.html?serviceId=upvc"><b>YR Solar</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Interior</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/img icons/compressed/12.png" alt="Interior" />
+      <ol>
+        <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
 <div id="homeContactModal" style="display:none;">
   <div class="modal-overlay">
     <div class="modal-content">
@@ -3609,14 +3785,37 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
 
     <script>
 
+
 const toggleMenu = document.querySelector(".toggleMenu");
-const navList = document.querySelector(".hero-tabs-list");
+const sidebar = document.getElementById("mobileSidebar");
+const closeSidebar = document.getElementById("closeSidebar");
+const overlay = document.getElementById("overlay");
 
 toggleMenu.addEventListener("click", () => {
-  navList.classList.toggle("active");
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
 });
 
- 
+closeSidebar.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Close sidebar if clicked outside (on overlay)
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Mobile dropdown toggle
+document.querySelectorAll(".mobile-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const dropdown = btn.nextElementSibling;
+    dropdown.classList.toggle("active");
+  });
+});
+
+
   // Hero Tabs Dropdown Logic
   document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
     const btn = tabw.querySelector('.hero-tab');
