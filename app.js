@@ -182,7 +182,7 @@ app.get('/property-details.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'property-details.html'));
 });
 
-app.get('about_us.html', (req, res) => {
+app.get('/about_us.html', (req, res) => {
   res.sendFile(path.join(__dirname, 'about_us.html'));
 })
 app.get('/Yelahankaabout.html', (req, res) => {
