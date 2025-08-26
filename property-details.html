@@ -716,21 +716,25 @@
   .amenities-grid {
     display: grid !important;
     grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 5px; 
-    max-width: 100%; 
+    gap: 12px; 
+    max-width: 90%;        /* ✅ narrower grid */
+    margin: 0 auto;        /* ✅ centers the whole grid */
+    justify-items: center; /* ✅ centers each card inside */
   }
 
   .amenity-card {
-    font-size: 12px;         
-    padding: 14px 10px;
+    font-size: 10px;         
+    padding: 10px;
     min-height: 70px;       
     border-radius: 8px;
+    text-align: center;     
   }
 
   .amenity-card .fa {
     font-size: 1.5em;        
     margin-bottom: 6px;
   }
+
 
   .gallery-row,
   .floor-list,
@@ -748,23 +752,43 @@
 
 /* ====== SMALL MOBILE (max-width: 480px) ====== */
 @media (max-width: 480px) {
-  .amenities-grid,
-  .gallery-row,
-  .floor-list,
-  .alt-floor-list-row {
-    grid-template-columns: 1fr; 
-    gap: 12px;
+ .amenities-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 12px; 
+    max-width: 90%;        /* ✅ narrower grid */
+    margin: 0 auto;        /* ✅ centers the whole grid */
+    justify-items: center; /* ✅ centers each card inside */
   }
 
   .amenity-card {
-    font-size: 13px;
-    padding: 10px;
+    font-size: 8px;         
+    padding: 5px ;
+    min-height: 70px;       
+    border-radius: 8px;
+    text-align: center; 
+    position: relative;
+    left: -20px;
+    top: 20px;
   }
 
+  .amenity-card .fa {
+    font-size: 1.5em;        
+    margin-bottom: 6px;
+  }
+
+
+ .gallery-row,
+  .floor-list,
+  .alt-floor-list-row {
+    grid-template-columns: 2fr 1fr;
+    gap: 2px;
+  }
+
+
   .hero-logo {
-    max-width: 100px;
-    display: block;
-    margin: 8px auto;
+    max-width: 120px;
+    margin: 10px auto;
   }
 }
 
