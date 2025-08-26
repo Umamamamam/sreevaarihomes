@@ -419,10 +419,10 @@
   width: 100vw;
   background: #f7f9fb;
   padding: 0;
-  margin-top: -50px;
+  margin-top: 0px;
   display: flex;
   justify-content: center;
-  z-index: 50;
+  z-index: 998;
   position: fixed;
   max-height: 60px;
   box-shadow: 0 10px 8px rgba(96,92,112,0.17);
@@ -558,7 +558,7 @@
     width: 100%;
     background: #fff;   /* so content below doesn’t overlap */
     z-index: 99;
-    min-height: 90px;   /* taller so logo fits */
+    min-height: 60px;   /* taller so logo fits */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -570,6 +570,7 @@
     left: 10px;
     width: 120px;  
     height: auto;
+    z-index: 9999;
   }
 
  
@@ -704,7 +705,7 @@
 <body onload="moveCarousel()">
   <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-     <img style="width: 130px; height: 120px; overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+     <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
     <div class="hero-tab-wrapper">
