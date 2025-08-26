@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Prestige Group</title>
   <style>
-    body {
+    html, body {
       font-family: "Helvetica Neue", Arial, sans-serif;
       color: #333;
       margin: 0;
@@ -123,6 +123,72 @@
         transform: translateY(0);
       }
     }
+    @media (max-width: 992px) {
+  .about-section {
+    margin: 60px auto;
+    padding: 20px;
+  }
+
+  .about-container {
+    gap: 30px;
+  }
+
+  .about-right {
+    padding-left: 20px;
+    gap: 20px;
+  }
+
+  .stat-box h3 {
+    font-size: 28px;
+  }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-right {
+    border-left: none;
+    border-top: 1px solid #ddd;
+    padding-left: 0;
+    padding-top: 20px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about-left img {
+    height: 50px;
+  }
+
+  .about-left h2 {
+    font-size: 20px;
+  }
+}
+
+/* Small Mobiles (≤480px) */
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 22px;
+  }
+
+  .about-subtitle {
+    font-size: 18px;
+  }
+
+  .about-left h2 {
+    font-size: 18px;
+  }
+
+  .about-right {
+    grid-template-columns: 1fr; /* stack stats vertically */
+    gap: 15px;
+  }
+
+  .stat-box h3 {
+    font-size: 24px;
+  }
+}
       .ourProjects {
             color: white;
             background-color: black;
@@ -272,7 +338,81 @@
             height: 100vh;
         }
         
-     
+     @media (max-width: 1024px) {
+  .carousel-item {
+    flex: 1 1 calc(30% - 20px);
+  }
+}
+
+/* Tablets (≤768px) → 2 per row */
+@media (max-width: 768px) {
+  .ourProjects {
+    display: block;       
+    width: 96%;          
+    margin: 0;       
+    padding: 30px 10px;      
+    text-align: center;   
+  }
+  .carousal-container {
+    width: 100%;
+  }
+
+  .ourProjects .project-card {
+  width: 80%;
+  margin: 10px auto;
+  border-radius: 20px;
+  background: #fff;
+  overflow: hidden; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.ourProjects .project-card img {
+  width: 100%;
+  display: block;
+}
+
+.ourProjects .project-card p {
+  padding: 12px 16px;  
+  font-size: 14px;
+  color: #333;
+  text-align: center;  
+}
+
+  .ourProjects h2 {
+    font-size: 32px;
+  }
+  .ourProjects p {
+    font-size: 14px;
+  }
+  .carousel-item {
+    flex: 1 1 calc(45% - 20px);
+    max-width: 100%;
+  }
+  .carousel-item img {
+    height: 180px;
+  }
+}
+
+/* Mobile (≤480px) → 1 per row */
+@media (max-width: 480px) {
+  .ourProjects h2 {
+    font-size: 26px;
+  }
+  .carousel-track {
+    gap: 15px;
+  }
+  .carousel-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .carousel-item img {
+    height: 160px;
+  }
+  .carousel-item p {
+    font-size: 13px;
+    padding: 20px;
+  }
+}
 /* nav bar styles */
 
 .hero-tabs-nav {
@@ -398,18 +538,174 @@
 .hero-tab-dropdown li a:hover { color: #349cff; }
 .hero-tab-dropdown li:hover { color: #349cff; }
 
-@media (max-width: 800px) {
-  .hero-tabs-list { gap: 10px; }
-  .hero-tabs-nav { padding: 0; }
-  .hero-tab { font-size:1em;padding:10px 1px 7px 1px;}
-  .hero-tab-dropdown{min-width: 92vw; max-width:99vw;padding:13px 2vw;}
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .hero-tabs-list {
+    justify-content: center;
+    gap: 18px;
+  }
+  .hero-tab { font-size: 0.95em; padding: 16px 2px; }
+  .hero-tab-dropdown { min-width: 180px; }
+}
+
+/* Mobiles (≤768px) */
+@media (max-width: 768px) {
+  .hero-tabs-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;   /* so content below doesn’t overlap */
+    z-index: 99;
+    min-height: 60px;   /* taller so logo fits */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbarLogo {
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    width: 120px;  
+    height: auto;
+  }
+
+ 
+  .hero-tabs-list {
+    display: none;
+  }
+}
+
+
+
+.toggleMenu {
+  display: none;
+}
+.mobile-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -4px 0 10px rgba(0,0,0,0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+  padding: 20px;
+  overflow-y: auto;
+  text-align: left;         /* force text left */
+}
+
+.mobile-sidebar .hero-tab-wrapper {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  text-align: left;
+}
+
+.mobile-sidebar .hero-tab {
+  display: block;
+  width: 100%;              /* take full width */
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  padding: 8px 0;
+  cursor: pointer;
+}
+.mobile-sidebar .hero-tab-dropdown {
+  position: static;
+  width: 100%;
+  box-shadow: none;
+  display: none;
+  margin: 8px 0 0 0;
+  text-align: left;
+  padding-left: 100px;       
+  box-sizing: border-box;   
+}
+
+
+.mobile-sidebar .hero-tab-dropdown img {
+  max-width: 90%;           
+  height: auto;
+  display: block;
+  margin: 0 auto 10px 0;    
+}
+.mobile-sidebar .hero-tab-dropdown ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.mobile-sidebar .hero-tab-dropdown li {
+  margin: 6px 0;
+}
+/* Ensure all main links are left aligned */
+.mobile-sidebar .hero-tab-wrapper a {
+  display: block;
+  text-align: left;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Dropdown items inside sidebar */
+.mobile-sidebar .hero-tab-dropdown li a {
+  padding-left: 20px;   /* indent children */
+  font-size: 14px;
+  border: none;         /* remove extra lines */
+  color: #444;
+}
+
+  
+  .mobile-sidebar.active {
+    right: 0;
+  }
+  .mobile-sidebar .hero-tab-dropdown.active {
+    display: block;
+  }
+  
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 998; 
+}
+
+.overlay.active {
+  display: block;
+}
+
+
+@media (max-width: 768px) {
+  .toggleMenu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  .toggleMenuImg {
+    width: 30px;
+    height: 30px;
+  }
+   .hero-tabs-list.active {
+    display: flex;
+  }
 }
   </style>
 </head>
 <body onload="moveCarousel()">
   <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-    <img style="width: 130px; height: 120px; overflow: visible;"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+     <img style="width: 130px; height: 120px; overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+    <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
@@ -472,6 +768,79 @@
     </div>
   </div>
 </nav>
+<div class="overlay" id="overlay"></div>
+<!-- Mobile Sidebar -->
+<div class="mobile-sidebar" id="mobileSidebar">
+  <span class="closeSidebar" id="closeSidebar" style="font-size: 12px;">&times;</span>
+
+  <!-- Mobile Tabs -->
+  <div class="hero-tab-wrapper">
+    <a href="about_us.html" class="hero-tab" style="text-decoration: none; border: none;" id="#aboutBtnMob">About Us</a>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Apartment’s</button>
+    <div class="hero-tab-dropdown">
+      <img src="/images/PROJECT IMAGES/goldentowers.png" alt="Golden Towers" />
+      <ol>
+        <li><a href="property-details.html?propertyId=slv_golden_towers"><b>Golden Towers</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Plots</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/6.png" alt="Plots" />
+      <ol>
+        <li><a href="property-details.html?propertyId=slv_nandhi_view"><b>SLV Nandhi View</b></a></li>
+        <li><a href="property-details.html?propertyId=nandhi_gardenia"><b>Nandhi Gardenia</b></a></li>
+        <li><a href="property-details.html?propertyId=vr_emerald"><b>VR Emerald</b></a></li>
+        <li><a href="property-details.html?propertyId=vr_innovative_global_city"><b>VR Innovative Global City</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Home Construction</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/construction.png" alt="Home Construction" />
+      <div style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
+        Sree Vaari Home Construction
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">UPVC</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/img icons/compressed/15.png" alt="UPVC" />
+      <ol>
+        <li><a href="service-details.html?serviceId=upvc"><b>View UPVC</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Solar</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/PROJECT IMAGES/yrsolar.png" alt="Solar" />
+      <ol>
+        <li><a href="service-details.html?serviceId=upvc"><b>YR Solar</b></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="hero-tab-wrapper">
+    <button class="hero-tab mobile-toggle">Interior</button>
+    <div class="hero-tab-dropdown">
+      <img src="images/img icons/compressed/12.png" alt="Interior" />
+      <ol>
+        <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
+      </ol>
+    </div>
+  </div>
+</div>
   <section class="about-section" onload="moveCarousel()">
     <h1 class="about-title">About us</h1>
     <p class="about-subtitle">SREEVARI HOMES</p>
@@ -578,6 +947,78 @@ To create enduring value for clients by delivering sustainable, intelligently de
         </div>
     </section>
 <script>
+  
+
+const toggleMenu = document.querySelector(".toggleMenu");
+const sidebar = document.getElementById("mobileSidebar");
+const closeSidebar = document.getElementById("closeSidebar");
+const overlay = document.getElementById("overlay");
+
+toggleMenu.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
+});
+
+closeSidebar.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Close sidebar if clicked outside (on overlay)
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Mobile dropdown toggle
+document.querySelectorAll(".mobile-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const dropdown = btn.nextElementSibling;
+    dropdown.classList.toggle("active");
+  });
+});
+
+
+  // Hero Tabs Dropdown Logic
+  document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
+    const btn = tabw.querySelector('.hero-tab');
+    const dd = tabw.querySelector('.hero-tab-dropdown');
+    if(!btn || !dd) return; // safety check
+
+    btn.addEventListener('mouseenter', () => {
+      document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+      document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+      dd.classList.add('opened');
+      btn.classList.add('active');
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      setTimeout(() => { if(!tabw.matches(':hover')) dd.classList.remove('opened');}, 110);
+      setTimeout(() => { if(!tabw.matches(':hover')) btn.classList.remove('active'); }, 120);
+    });
+
+    dd.addEventListener('mouseenter', () => {
+      dd.classList.add('opened');
+      btn.classList.add('active');
+    });
+    dd.addEventListener('mouseleave', () => {
+      dd.classList.remove('opened');
+      btn.classList.remove('active');
+    });
+
+    // keyboard support
+    btn.addEventListener('focus', ()=>{dd.classList.add('opened');btn.classList.add('active');});
+    btn.addEventListener('blur', ()=>{setTimeout(()=>{dd.classList.remove('opened');btn.classList.remove('active');},150);});
+  });
+
+  // Close all dropdowns if click elsewhere
+  document.addEventListener('click', e => {
+    if (!e.target.closest('.hero-tab-wrapper')) {
+      document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
+      document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
+    }
+  });
+
             let isTransitioning = false;
 
             function nextSlide() {
