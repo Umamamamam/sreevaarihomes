@@ -169,6 +169,7 @@
       padding: 4px 8px;
       font-size: 10px;
     }
+
     .contact-btn {
       background: #6a11cb;
       color: #fff;
@@ -227,6 +228,54 @@
       transform: scale(1.05);
     }
 
+@media (max-width: 1024px) {
+  .property-card,
+  .property-card1 {
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+  }
+  .slider { flex: 0 0 auto; width: 100%; }
+  .slides img {
+    width: 100%;
+    height: auto;             
+    border-radius: 12px;
+  }
+  .prices { justify-content: flex-start; }
+  .footer { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 768px) {
+  .property-card,
+  .property-card1 {
+    width: 100%;
+  
+  }
+  .title { font-size: 15px; }
+  .subtitle, .details { font-size: 12px; }
+  .prices .price { font-size: 13px; padding-right: 0; }
+  .prices .price::after { display: none; }     
+
+
+  .contact-widget {
+    display: none;
+    left: 50%;
+    right: auto;
+    bottom: 18px;
+    width: min(420px, 92vw);
+    transform: translateX(-50%);
+    padding: 12px;
+  }
+  .contact-widget img { height: 200px; }
+}
+
+@media (max-width: 480px) {
+  .section-title { font-size: 18px; }
+  .contact-widget h3 { font-size: 14px; }
+  .contact-widget img { height: 170px; }
+  .contact-btn { width: 100%; text-align: center; }
+}
+
 
   /* contact us form styles */
     .modal-overlay {
@@ -240,7 +289,7 @@
 }
 .modal-content {
   background: #fff;
-  /* border-radius: 12px; */
+
   width: 420px;
   box-shadow: 0 6px 30px rgb(0 0 0 / 30%);
   padding: 24px 28px 20px 28px;
