@@ -577,8 +577,28 @@
       .container { width: 100vw; padding: 0 3vw}
       .banner-lower { flex-direction: column; }
       .banner-lower-right { min-width: 0; width: 100%; }
-      .gallery-row { gap: 10px; height: auto;}
-      .gallery-img { max-width: 90px !important; max-height: 130px !important; margin-right: 10px;}
+      /* ✅ Gallery row horizontal scroll */
+  .gallery-row { 
+    display: flex;
+    flex-wrap: nowrap;           /* keep in one row */
+    gap: 10px; 
+    height: auto;
+    overflow-x: auto;            /* enable horizontal scroll */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    scrollbar-width: none;       /* hide scrollbar (Firefox) */
+  }
+  .gallery-row::-webkit-scrollbar {
+    display: none;              /* hide scrollbar (WebKit) */
+  }
+
+  .gallery-img { 
+    flex: 0 0 auto;              /* prevents shrinking */
+    width: 120px;                /* fixed responsive size */
+    height: 90px; 
+    border-radius: 6px;
+    object-fit: cover;
+    margin-right: 8px;
+  }
       .section-block { padding: 8px 3vw 6px 3vw; }
       .alt-floor-list-row { flex-direction: column; gap: 12px; }
       .alt-floor-card { width: 94vw; }
