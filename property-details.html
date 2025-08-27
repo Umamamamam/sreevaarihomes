@@ -323,7 +323,7 @@
 }
 
 
-.amenity-card { margin: 0 !important; background: #faf9f9; padding: 13px 8px 10px 12px; text-align: left; font-size: 10px; color: #453e3e; box-shadow: 0 1px 8px rgba(0,0,0,0.03); position: relative; min-height: 54px; width: 100px; display: flex; flex-direction: column; gap: 6px; justify-content: center; text-align: center; border-radius: 6px;  }
+.amenity-card { margin: 0 !important; background: #faf9f9; padding: 13px 8px 10px 12px; text-align: left;  color: #453e3e; box-shadow: 0 1px 8px rgba(0,0,0,0.03); position: relative; min-height: 54px; width: 100px; display: flex; flex-direction: column; gap: 6px; justify-content: center; text-align: center; border-radius: 6px;  }
 
     .amenity-card .fa {
       font-size: 1.36em;
@@ -641,7 +641,7 @@
   }
 
   .project-title {
-    font-size: 18px;
+    font-size: 16px !important;
     margin-bottom: 6px;
   }
 
@@ -681,11 +681,6 @@
   }
 }
 
-    .amenity-card {
-      background: transparent !important;
-      border: 1px solid #ccc;
-      box-shadow: none !important;
-    }
 
     .alt-floor-list-row {
       margin-bottom: 0 !important;
@@ -714,27 +709,38 @@
 /* ====== MOBILE (max-width: 768px) ====== */
 @media (max-width: 768px) {
   .amenities-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 12px; 
-    max-width: 90%;        /* ✅ narrower grid */
-    margin: 0 auto;        /* ✅ centers the whole grid */
-    justify-items: center; /* ✅ centers each card inside */
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 auto;
+    justify-content: flex-start;  
   }
-
+  .amenities.title {
+    font-size: 6px !important;
+  }
   .amenity-card {
-    font-size: 10px;         
+    flex: 0 0 40%;   
+    font-size: 10px;
     padding: 10px;
-    min-height: 70px;       
+    min-height: 70px;
     border-radius: 8px;
-    text-align: center;     
+    text-align: center;
+  }
+      .amenity-card {
+      background: transparent !important;
+      border: 1px solid #ccc;
+      box-shadow: none !important;
+    }
+
+
+  .amenity-card:nth-child(1), .amenity-card:nth-child(2){
+    margin-top: 20px !important;
   }
 
   .amenity-card .fa {
     font-size: 1.5em;        
     margin-bottom: 6px;
   }
-
 
   .gallery-row,
   .floor-list,
@@ -743,55 +749,51 @@
     gap: 2px;
   }
 
-
   .hero-logo {
     max-width: 120px;
     margin: 10px auto;
   }
 }
 
+
+
 /* ====== SMALL MOBILE (max-width: 480px) ====== */
 @media (max-width: 480px) {
- .amenities-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 12px; 
-    max-width: 90%;        /* ✅ narrower grid */
-    margin: 0 auto;        /* ✅ centers the whole grid */
-    justify-items: center; /* ✅ centers each card inside */
+  .amenities-grid {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 auto;
+    justify-content: flex-start;  
   }
 
   .amenity-card {
-    font-size: 8px;         
-    padding: 5px ;
-    min-height: 70px;       
+    flex: 0 0 35%;   
+    font-size: 8px;
+    padding: 6px;
+    min-height: 65px;
     border-radius: 8px;
-    text-align: center; 
-    position: relative;
-    left: -20px;
-    top: 20px;
+    text-align: center;
   }
 
+
   .amenity-card .fa {
-    font-size: 1.5em;        
+    font-size: 1.3em;        
     margin-bottom: 6px;
   }
 
-
- .gallery-row,
+  .gallery-row,
   .floor-list,
   .alt-floor-list-row {
     grid-template-columns: 2fr 1fr;
     gap: 2px;
   }
 
-
   .hero-logo {
-    max-width: 120px;
-    margin: 10px auto;
+    max-width: 100px;
+    margin: 8px auto;
   }
 }
-
 
 .unit-selector-card {
   background: #fff;
