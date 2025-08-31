@@ -138,6 +138,7 @@
 // //     console.log(`Listening on port ${port}`);
 // // });
 // module.exports = app;
+
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -339,9 +340,9 @@ app.post("/submitContact", async (req, res) => {
   }
 });
 
-// // Export for Vercel
-// module.exports = app;
+// Export for Vercel
+module.exports = app;
 
-app.listen(3000, () => {
-  console.log("Server ruuning on 3000");
-})
+// app.listen(3000, () => {
+//   console.log("Server ruuning on 3000");
+// })
