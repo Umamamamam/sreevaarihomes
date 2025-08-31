@@ -9,7 +9,7 @@ const ContactSchema = new mongoose.Schema({
   phone: {
     type: String,
     required: true,
-    match: /^[0-9]{10}$/   // ensures only 10-digit numbers
+    match: /^[0-9]{10}$/   
   },
   email: {
     type: String,

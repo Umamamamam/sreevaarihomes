@@ -149,6 +149,7 @@ const Property = require("./models/Property");
 const SubmitContact = require("./models/SubmitContact");
 const PartnerForm = require("./models/partnerForm");
 
+require("dotenv").config();
 
 const app = express();
 
@@ -170,7 +171,7 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
-// Serve index.html at root
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
@@ -318,10 +319,10 @@ app.post("/viewsecond", async (req, res) => {
   }
 });
 
-app.post("/submit-contact", async (req, res) => {
+app.post("/submitContact", async (req, res) => {
   try {
-    const { name, phone, email, bhk, agree } = req.body;
-
+    const { name, phone, email, bhk } = req.body;
+     const agree = req.body.agree === "on";
     const newContact = new SubmitContact({
       name,
       phone,
@@ -338,5 +339,9 @@ app.post("/submit-contact", async (req, res) => {
   }
 });
 
-// Export for Vercel
-module.exports = app;
+// // Export for Vercel
+// module.exports = app;
+
+app.listen(3000, () => {
+  console.log("Server ruuning on 3000");
+})
