@@ -1054,11 +1054,11 @@
     }
   .city-list {
   display: grid;
-  grid-template-columns: repeat(5, auto); /* 👈 only as wide as items */
+  grid-template-columns: repeat(5, auto); 
   gap: 30px;
-  justify-content: center;  /* 👈 centers grid horizontally */
-  align-items: center;      /* 👈 centers grid vertically (within row height) */
-  margin: 0 auto 26px auto; /* 👈 centers the grid block */
+  justify-content: center;  
+  align-items: center;      
+  margin: 0 auto 26px auto; 
 }
     .city-item {
       display: flex;
@@ -1100,14 +1100,14 @@
       color: #fff;
     }
     
-/* ======= Tablets (<= 1024px) ======= */
+
 @media (max-width: 1024px) {
   .city-title {
     font-size: 1.25rem;
     margin-bottom: 3vh;
   }
   .city-list {
-    grid-template-columns: repeat(4, auto); /* 4 per row */
+    grid-template-columns: repeat(4, auto); 
     gap: 24px;
   }
   .city-img {
@@ -1124,7 +1124,6 @@
   }
 }
 
-/* ======= Mobiles (<= 768px) ======= */
 @media (max-width: 768px) {
   .city-title {
     font-size: 1.15rem;
@@ -1132,13 +1131,15 @@
   }
 }
 @media (max-width: 768px) {
-    .city-list {
-    display: flex !important; 
+  .city-list {
+    display: flex !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    gap: 16px !important;
+    gap: 16px;
+    padding-left: 180px;
     scrollbar-width: none;
-    padding: 0 10px;
+    max-width: 100%;     
+    white-space: nowrap; 
   }
   .city-list::-webkit-scrollbar {
     display: none;
@@ -1146,13 +1147,16 @@
 
   .city-item {
     flex: 0 0 auto;   
-    width: 120px;    
+    width: 140px;     
+    text-align: center;
   }
 
+
   .city-img {
-    width: 100%;
-    max-width: 80px;
-    height: auto;
+    width: 100px;    
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .city-name {
@@ -1275,16 +1279,16 @@
   .latest-title { font-size: 1.2em; }
 
   .prop-card-list {
-    display: flex !important;       /* 👈 override grid */
-    overflow-x: auto;               /* 👈 enable horizontal scroll */
+    display: flex !important;      
+    overflow-x: auto;          
     -webkit-overflow-scrolling: touch;
     gap: 14px;
     padding: 0 10px;
     scrollbar-width: none;
-    justify-content: flex-start;    /* align left */
+    justify-content: flex-start;    /
   }
   .prop-card-list::-webkit-scrollbar {
-    display: none; /* hide scrollbar */
+    display: none;
   }
 
   .prop-card {
@@ -2104,9 +2108,9 @@
     top: 0;
     left: 0;
     width: 100%;
-    background: #fff;   /* so content below doesn’t overlap */
+    background: #fff; 
     z-index: 99;
-    min-height: 60px;   /* taller so logo fits */
+    min-height: 60px;  
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3515,7 +3519,7 @@ body.modal-open {
   <div class="latest-props-section section">
     <div class="section-title">Latest Properties for Sale</div>
     <div class="prop-card-list">
-      <div class="prop-card">
+      <div class="prop-card" id="goldenTowersProperty">
         <img src="images/PROJECT IMAGES/3.png" class="prop-card-img" alt="SLV Golden Towers">
         <div class="prop-card-content">
           <div class="prop-title">SLV Golden Towers</div>
@@ -4504,7 +4508,7 @@ document.addEventListener("DOMContentLoaded", () => {
         entry.target.classList.add("visible");
       }
     });
-  }, { threshold: 0.2 }); // 20% visible
+  }, { threshold: 0.2 }); 
 
   sections.forEach(sec => observer.observe(sec));
 });
@@ -4606,9 +4610,9 @@ searchInput.addEventListener('focus', function() {
         if (entry.isIntersecting) {
           section.classList.add("show");
      
-          observer.unobserve(sectionsub);
-          observer.unobserve(sectiontitle);
-          observer.unobserve(section); // run only once
+          // observer.unobserve(sectionsub);
+           //observer.unobserve(sectiontitle);
+          observer.unobserve(section);
         }
       });
     }, { threshold: 0.2 }); // 20% visible
@@ -4702,11 +4706,14 @@ slideToCard(0, false);
 </script>
 
 <script>
-document.querySelectorAll('.city-more-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    window.location.href = 'cities_property.html';
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('.city-more-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.location.href = 'cities_property.html';
+    });
   });
 });
+
 </script>
 
 <script>
@@ -4718,12 +4725,21 @@ const propertyIdMap = {
   'VR Innovative Global City': 'vr_innovative_global_city'
 };
 
-document.querySelectorAll('.prop-card').forEach(card => {
+document.querySelectorAll('.prop-card').forEach((card, index) => {
   card.style.cursor = 'pointer';
+  
   card.addEventListener('click', function (e) {
-    if (e.target.closest('.prop-btn')) return;
+    if (e.target.closest('.prop-btn')) return; 
+
+  
+    if (index === 0) {
+      window.location.href = "https://goldentower.vercel.app";
+      return;
+    }
+
     const name = card.querySelector('.prop-title').textContent.trim();
     const propertyId = propertyIdMap[name];
+
     if (propertyId) {
       window.location.href = `property-details.html?propertyId=${propertyId}`;
     } else {
@@ -4731,6 +4747,7 @@ document.querySelectorAll('.prop-card').forEach(card => {
     }
   });
 });
+
 
 document.querySelectorAll('.prop-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -4761,8 +4778,7 @@ document.querySelectorAll('.tab-wrapper').forEach(function(tabw){
   dropdown.addEventListener('mouseleave', function(){ hideTimeout = setTimeout(hideDropdown, 130); });
   tabBtn.addEventListener("focus", showDropdown); tabBtn.addEventListener("blur", hideDropdown);
 });
-/* ----------- AUTOCOMPLETE, CAROUSEL, ETC - unchanged below this as in your file ----------- */
-// Place your autocomplete, carousel and other original scripts here.
+
 </script>
 
 <script>
@@ -4772,16 +4788,14 @@ document.body.style.overflow = "hidden";
 window.addEventListener('DOMContentLoaded', function() {
   const splash = document.getElementById('logoSplash');
 
-  // Optionally add a logo pop/fade effect after load
   setTimeout(function() {
     splash.classList.add('animate-up');
   }, 1600); // show logo for ~1.6sec
 
-  // After up animation ends, remove overlay & unlock scroll
   splash.addEventListener('transitionend', function(e) {
     if (splash.classList.contains('animate-up')) {
       splash.parentNode.removeChild(splash);
-      document.body.style.overflow = ""; // unlock scroll
+      document.body.style.overflow = ""; 
       // Optionally, focus a main area, e.g. document.querySelector('.carousel-container').focus();
     }
   });
@@ -4789,15 +4803,15 @@ window.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <script>
-             
-        const accordions = document.querySelectorAll(".accordion");
+  
+  const accordions = document.querySelectorAll(".accordion");
 
-        accordions.forEach((accordion) => {
+accordions.forEach((accordion) => {
   // Append the symbol span if not already there
   if (!accordion.querySelector(".symbol")) {
     const symbol = document.createElement("span");
     symbol.classList.add("symbol");
-    symbol.textContent = "+";
+    symbol.textContent = "˅"; // down arrow by default
     accordion.appendChild(symbol);
   }
 
@@ -4808,26 +4822,29 @@ window.addEventListener('DOMContentLoaded', function() {
     // Toggle open/close
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
-      symbol.textContent = "+";
+      symbol.textContent = "˅"; // closed state
     } else {
       // Close others
       accordions.forEach((acc) => {
         acc.nextElementSibling.style.maxHeight = null;
-        acc.querySelector(".symbol").textContent = "+";
+        acc.querySelector(".symbol").textContent = "˅";
       });
 
       panel.style.maxHeight = panel.scrollHeight + "px";
-      symbol.textContent = "-";
+      symbol.textContent = "˄"; // open state
     }
   });
-});const expertiseSection = document.querySelector(".our-expertise-section");
+});
+
+  
+  const expertiseSection = document.querySelector(".our-expertise-section");
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Animate only once
+        observer.unobserve(entry.target); 
       }
     });
   },
@@ -4842,9 +4859,9 @@ observer.observe(expertiseSection);
 
  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js">
    AOS.init({
-    duration: 900,  // animation speed
-    once: true,     // animate only once
-    easing: 'ease-out-back' // makes it smooth & bouncy
+    duration: 900,  
+    once: true,     
+    easing: 'ease-out-back' 
   });
  </script>
  
