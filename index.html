@@ -2122,8 +2122,12 @@
     left: 10px;
     width: 120px;  
     height: auto;
+    transition: all 0.3s ease;
   }
-
+  .hero-tabs-nav.fixed .navbarLogo {
+    width: 90px;
+    height: 80px;
+  }
  
   .hero-tabs-list {
     display: none;
@@ -2437,19 +2441,20 @@ footer.visible {
   position: relative;
 }
 
-/* Yellow top strip */
+
 .modal-content::before{
   content:"✨ Hey, you’re just one step away from your dream home!";
   display:block;
   background:#fff7e0;
   color:#a67800;
   font-size:14px; font-weight:600;
+  margin-top: 10px;
   padding:10px 16px;
   border-bottom:1px solid #f0e0b2;
 }
 
 /* Close */
-.closeBtn{ position:absolute; top:12px; right:14px; font-size:30px; cursor:pointer; color:#666; }
+.closeBtn{ position:absolute; top:30px; right:25px; font-size:30px; cursor:pointer; color:#666; }
 
 /* Headings above the bordered form */
 .modal-content h2{ margin:20px 16px 4px; font-size:18px; font-weight:700; }
@@ -2476,7 +2481,7 @@ footer.visible {
 
 /* Button */
 #homeContactForm button{
-  width:100%; background:#007bff; color:#fff; border:none;
+  width:100%; background: orange; color:#fff; border:none;
   padding:14px; font-size:15px; font-weight:700;  cursor:pointer;
 }
 #homeContactForm button:hover{ background:blue; }
@@ -3267,11 +3272,11 @@ body.modal-open {
         <label>What are you looking for?</label>
         <select name="bhk" required style="width:100%; margin-bottom:10px;">
           <option value="" disabled selected>Select BHK</option>
-          <option value="2BHK">Plots</option>
-          <option value="3BHK">Apartments</option>
-          <option value="4BHK">Home Construction</option>
-          <option value="4BHK">UPVC</option>
-          <option value="4BHK">Solar</option>
+          <option value="Plots">Plots</option>
+          <option value="Apartments">Apartments</option>
+          <option value="Home Construction">Home Construction</option>
+          <option value="UPVC">UPVC</option>
+          <option value="Solar">Solar</option>
         </select>
 
         <label>
@@ -4149,6 +4154,17 @@ form.addEventListener('submit', function(e) {
 
 
 
+});
+document.addEventListener("scroll", function () {
+  const nav = document.getElementById("heroTabsNav");
+
+  if (window.innerWidth <= 768) { 
+    if (window.scrollY >= window.innerHeight) {
+      nav.classList.add("fixed");
+    } else {
+      nav.classList.remove("fixed");
+    }
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function() {
