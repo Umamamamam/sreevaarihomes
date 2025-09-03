@@ -19,7 +19,7 @@ const submitContactSchema = new mongoose.Schema({
   bhk: {
     type: String,
     required: true,
-    enum: ['2BHK', '3BHK', '4BHK']
+    enum: ['Plots', 'Apartments', 'Home Construction', 'UPVC', 'Solar']
   },
   agree: {
     type: Boolean,

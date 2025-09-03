@@ -2505,6 +2505,7 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   z-index: 999;
+  border-radius: 5px;
 }
 
 /* === Property Modal Content === */
@@ -3249,13 +3250,13 @@ body.modal-open {
 
 <div id="homeContactModal" style="display:none;">
   <div class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content" style="border-radius:  10px;">
       <span class="closeBtn">&times;</span>
 
       <h2>Connect us</h2>
       <p>Sreevaari Homes</p>
 
-      <form id="homeContactForm">
+      <form id="homeContactForm" style="border-radius:  10px;">
         
         <input type="text" name="name" placeholder="Name"required/>
          
@@ -3266,9 +3267,11 @@ body.modal-open {
         <label>What are you looking for?</label>
         <select name="bhk" required style="width:100%; margin-bottom:10px;">
           <option value="" disabled selected>Select BHK</option>
-          <option value="2BHK">2BHK</option>
-          <option value="3BHK">3BHK</option>
-          <option value="4BHK">4BHK</option>
+          <option value="2BHK">Plots</option>
+          <option value="3BHK">Apartments</option>
+          <option value="4BHK">Home Construction</option>
+          <option value="4BHK">UPVC</option>
+          <option value="4BHK">Solar</option>
         </select>
 
         <label>
@@ -3276,7 +3279,7 @@ body.modal-open {
           I agree to be contacted via WhatsApp, SMS, phone, email
         </label>
 
-        <button type="submit">Submit</button>
+        <button type="submit" style="border-radius:  7px;">Submit</button>
       </form>
 
       <div id="homeConfirmation">
@@ -4774,7 +4777,7 @@ document.querySelectorAll('.tab-wrapper').forEach(function(tabw){
   }
   tabBtn.addEventListener('mouseenter', function() { clearTimeout(hideTimeout); showDropdown(); });
   tabBtn.addEventListener('mouseleave', function(){ hideTimeout = setTimeout(hideDropdown, 130); });
-  dropdown.addEventListener('mouseenter', function(){ clearTimeout(hideTimeout); });
+  dropdown.addEventListener('mouseenter', function(){ clearTimeout(hideTimeout);});
   dropdown.addEventListener('mouseleave', function(){ hideTimeout = setTimeout(hideDropdown, 130); });
   tabBtn.addEventListener("focus", showDropdown); tabBtn.addEventListener("blur", hideDropdown);
 });
@@ -4831,7 +4834,7 @@ accordions.forEach((accordion) => {
       });
 
       panel.style.maxHeight = panel.scrollHeight + "px";
-      symbol.textContent = "˄"; // open state
+      symbol.textContent = "˄"; 
     }
   });
 });
