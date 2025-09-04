@@ -140,6 +140,7 @@
   .container {
     width: 96%;
     margin-top: 10px;
+    margin-left: 20px;
   }
 }
 
@@ -220,20 +221,23 @@
       margin-bottom: 18px;
     }
     .main-btn-red {
-      background: #e53935;
+       background: linear-gradient(50deg,#f17b4a,#f17b4a, #f7c948);
+box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
+    0px 0.3em 0.7em -0.01em rgb(128 90 0 / 30%),
+    inset 0px -0.01em 0px rgb(255 170 0 / 50%);
+
+
       color: #fff;
-      padding: 11px 34px;
       border: none;
-      border-radius: 5px;
-      font-size: 1.11rem;
-      font-weight: 500;
-      letter-spacing: 0.4px;
+      padding: 8px 18px;
+      border-radius: 6px;
       cursor: pointer;
-      transition: background 0.15s;
-      margin-top: 0;
+      font-weight: bold;
+      transition: background 0.3s;
+      text-decoration: none;
     }
     .main-btn-red:hover {
-      background: #c62828;
+      background: rgb(245, 177, 50);
     }
     .main-btn-light {
       background: #fff;
@@ -374,6 +378,9 @@
       text-decoration: underline;
     }
     /* Section 4: About/Loans */
+    .about-block {
+      background: #bf4747;
+    }
     .about-block .about-title {
       font-weight: 500;
       font-size: 1.3em;
@@ -416,6 +423,9 @@
     }
 
     
+    @media (max-width: 768px) {
+    
+    }
     
     /* Responsive tweaks */
     @media (max-width: 1024px) {
@@ -593,7 +603,7 @@
  
   .amenity-card {
     flex: 0 0 40% !important;   
-    font-size: 10px !important;
+    font-size: 22px !important;
     padding: 10px;
     min-height: 70px;
     border-radius: 8px;
@@ -603,15 +613,18 @@
       background: transparent !important;
       border: 1px solid #ccc;
       box-shadow: none !important;
+
     }
+.amenity-card.top {
+  font-size: 14px !important;
+}
 
 
   .amenity-card:nth-child(1), .amenity-card:nth-child(2){
     margin-top: 20px !important;
   }
 
-  .amenity-card .fa {
-    font-size: 1.5em;        
+  .amenity-card .fa {     
     margin-bottom: 6px;
   }
 
@@ -1657,7 +1670,7 @@ hr {
     <div class="banner-lower" id="banner-lower">
 
 <div class="banner-lower-left" id="banner-lower-left">
-          <div class="project-title" id="project-title">Assetz Trees and Tandem</div>
+          <div class="project-title" id="project-title" style="font-size: 24px !important;">Assetz Trees and Tandem</div>
           <div class="project-location" id="project-location">
               <i class="fa fa-map-marker-alt location-icon"></i>
               <span id="project-location-text">Sarjapur Road, Bangalore</span>
