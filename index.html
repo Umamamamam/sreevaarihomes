@@ -59,7 +59,7 @@
       max-width: 100vw;
       height:100vh;
       min-height: 400px;
-      overflow: visible;
+      overflow: hidden;
       outline: none;
       background: #ggg;
       display: block;
@@ -173,8 +173,8 @@
     display: none;
   }
   .carousel-mobile {
-    display: block;
-    height: 70vh;
+    display: flex;
+    height: 80vh;
     z-index: 100;
   }
   .carousel-image-mob {
@@ -4602,6 +4602,57 @@ document.addEventListener("DOMContentLoaded", () => {
   showHeroSlide(1, false);
   resetHeroTimer();
 })();
+
+document.addEventListener("DOMContentLoaded", function(){
+// === MOBILE CAROUSEL INFINITE (TOP HERO BANNER) ===
+ const mobileCarousel = document.querySelector('.carousel-mobile');
+  const mobileImages = Array.from(document.querySelectorAll('.carousel-image-mob'));
+  const mobileCount = mobileImages.length;
+  let mobileCurrentIndex = 1;
+
+  if (mobileCarousel && mobileImages.length > 0) {
+    // Clone for infinite
+    const mobFirst = mobileImages[0].cloneNode(true);
+    const mobLast = mobileImages[mobileCount - 1].cloneNode(true);
+    mobileCarousel.insertBefore(mobLast, mobileImages[0]);
+    mobileCarousel.appendChild(mobFirst);
+    mobileCarousel.style.transform = `translateX(-100vw)`;
+
+    function showMobileSlide(index, animate = true) {
+      mobileCarousel.style.transition = animate ? "transform 0.6s cubic-bezier(.83,.06,.33,1.01)" : "none";
+      mobileCarousel.style.transform = `translateX(-${100 * index}vw)`;
+      mobileCurrentIndex = index;
+    }
+
+    mobileCarousel.addEventListener('transitionend', () => {
+      if (mobileCurrentIndex === 0) showMobileSlide(mobileCount, false);
+      else if (mobileCurrentIndex === mobileCount + 1) showMobileSlide(1, false);
+    });
+
+    function nextMobile() { if (mobileCurrentIndex < mobileCount + 1) showMobileSlide(mobileCurrentIndex + 1); }
+    function prevMobile() { if (mobileCurrentIndex > 0) showMobileSlide(mobileCurrentIndex - 1); }
+
+    let mobileTimer = null;
+    const MOBILE_INTERVAL = 3000;
+    function resetMobileTimer() {
+      if (mobileTimer) clearInterval(mobileTimer);
+      mobileTimer = setInterval(nextMobile, MOBILE_INTERVAL);
+    }
+
+    // Touch swipe (for mobile)
+    let startX = 0;
+    mobileCarousel.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; });
+    mobileCarousel.addEventListener("touchend", (e) => {
+      let endX = e.changedTouches[0].clientX;
+      if (startX - endX > 50) { nextMobile(); resetMobileTimer(); }
+      else if (endX - startX > 50) { prevMobile(); resetMobileTimer(); }
+    });
+
+    showMobileSlide(1, false);
+    resetMobileTimer();
+  }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(
     ".city-section, .latest-props-section, .actions-section, .real-estate-services"
