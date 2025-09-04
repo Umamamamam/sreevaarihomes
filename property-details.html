@@ -1708,7 +1708,7 @@ hr {
           <i class="fa fa-bank"></i> Loan Offers for <span id="loan-offer-project"></span>
         </div>
         <div class="loan-offer-desc" id="loan-offer-desc"></div>
-           <button id="contactNow2Btn" class="contact-btn main-btn-red">
+           <button id="contactNowBtn" class="contact-btn main-btn-red">
               Contact Now
             </button>
       </div>
@@ -1721,9 +1721,8 @@ hr {
 
 
 
-<!-- Contact Form Modal -->
 <div id="contactModal" class="modal-overlay" style="display:none;">
-  <div class="modal-content">
+  <div class="modal-content" style="margin: 10px;">
     <span class="close-btn" id="closeModal">&times;</span>
     <div class="top-badge">
       <span>&#9889;</span> Great choice! Most viewed project in this area
@@ -1831,7 +1830,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
     </footer>
  
 
-<!-- nav bar script -->
+
  <script> 
     
 
@@ -1850,13 +1849,13 @@ closeSidebar.addEventListener("click", () => {
   overlay.classList.remove("active");
 });
 
-// Close sidebar if clicked outside (on overlay)
+
 overlay.addEventListener("click", () => {
   sidebar.classList.remove("active");
   overlay.classList.remove("active");
 });
 
-// Mobile dropdown toggle
+
 document.querySelectorAll(".mobile-toggle").forEach(btn => {
   btn.addEventListener("click", () => {
     const dropdown = btn.nextElementSibling;
@@ -1865,11 +1864,11 @@ document.querySelectorAll(".mobile-toggle").forEach(btn => {
 });
 
 
-  // Hero Tabs Dropdown Logic
+  
   document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
     const btn = tabw.querySelector('.hero-tab');
     const dd = tabw.querySelector('.hero-tab-dropdown');
-    if(!btn || !dd) return; // safety check
+    if(!btn || !dd) return; 
 
     btn.addEventListener('mouseenter', () => {
       document.querySelectorAll('.hero-tab-dropdown').forEach(d => d.classList.remove('opened'));
@@ -2240,7 +2239,7 @@ function renderProject(project) {
   document.getElementById('project-title').innerText = project.title;
   // document.getElementById('project-location').innerText = project.location;
   document.getElementById('project-location-text').innerText = project.location;
-  document.getElementById('contactNowBtn').onclick = () => alert('Contact Now (action not implemented)');
+  
   document.getElementById('downloadBrochureBtn').onclick = () => alert('Download Brochure (action not implemented)');
 
   // 3. GALLERY
@@ -2288,7 +2287,6 @@ function renderProject(project) {
   };
   document.getElementById('loan-offer-title').innerHTML = `<i class="fa fa-bank"></i> Loan Offers for <span id="loan-offer-project">${project.title}</span>`;
   document.getElementById('loan-offer-desc').innerHTML = project.bankoffer || `<span style="color:#919191">Need to add bank offer info for this project.</span>`;
-  document.getElementById('contactNow2Btn').onclick = () => alert('Contact Now (action not implemented)');
 }
 
 function renderFloorPlans(project) {

@@ -341,8 +341,8 @@ app.post("/submitContact", async (req, res) => {
 });
 
 // Export for Vercel
-module.exports = app;
+// module.exports = app;
 
-// app.listen(3000, () => {
-//   console.log("Server ruuning on 3000");
-// })
+app.listen(3000, () => {
+  console.log("Server ruuning on 3000");
+})

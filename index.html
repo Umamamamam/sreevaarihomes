@@ -69,6 +69,10 @@
       transition: transform 0.6s cubic-bezier(.83,.06,.33,1.01);
       height: 120vh;
     }
+    .carousel-mobile {
+      display: none;
+      transition: transform 0.6s cubic-bezier(.83,.06,.33,1.01);
+    }
     .carousel-image {
       width: 100vw;
       min-width: 100vw;
@@ -165,11 +169,17 @@
     height: 60vh;
   }
   .carousel {
-    height: 60vh;
+    display: none;
   }
-  .carousel-image {
-    height: 60vh;
+  .carousal-mobile {
+    display: flex;
+    height: 70vh;
+  }
+  .carousel-image-mob {
+    width: 100vw;
+    min-width: 100vw;
     object-fit: cover;
+    height: 60vh;
   }
 
   .carousel-control {
@@ -819,8 +829,7 @@
     gap: 5px; 
   }
   .property-type-track .card {
-    min-width: 70vw !important;
-    max-width: 70vw !important;
+    min-width: 400px;
     width: 100%;
     height: 420px !important;
    display: flex;              /* enable flex */
@@ -1086,17 +1095,17 @@
       display: inline-block;
       width: 240px;
       padding: 10px 28px;
-      background: #fff;
-      color: #156fff;
-      border: 1px solid #298cff;
+      background: orange;
+      color: white;
       border-radius: 23px;
       font-size: 1em;
       cursor: pointer;
       transition: background 0.17s, color 0.17s, border-color 0.17s;
       box-shadow: 0 4px 13px rgba(41,140,255,0.05);
+      border: none;
     }
     .city-more-btn:hover, .city-more-btn:focus {
-      background: #2186f0;
+      background: rgb(232, 178, 79);
       color: #fff;
     }
     
@@ -1131,19 +1140,46 @@
   }
 }
 @media (max-width: 768px) {
+.city-section {
+padding-top: 60px;
+padding-bottom: 130px;
+position: relative;
+}
   .city-list {
     display: flex !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    gap: 16px;
-    padding-left: 180px;
-    scrollbar-width: none;
+    padding-left: 220px;
+    scrollbar-width: 100%;
     max-width: 100%;     
-    white-space: nowrap; 
+    white-space: nowrap;
+    padding-bottom: 30px; 
   }
-  .city-list::-webkit-scrollbar {
-    display: none;
-  }
+  
+
+
+.city-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.city-list::-webkit-scrollbar {
+  height: 8px; 
+  margin-top: 20px;
+}
+
+.city-list::-webkit-scrollbar-thumb {
+  background-color: orange;
+  border-radius: 4px;
+  min-width: 20px;  
+  max-width: 20px;  
+}
+
+.city-list::-webkit-scrollbar-thumb {
+  background-color: orange;
+  border-radius: 4px;
+  min-width: 40px;
+}
+
 
   .city-item {
     flex: 0 0 auto;   
@@ -1164,9 +1200,25 @@
   }
 
   .city-more-btn {
-    width: 180px;
-    font-size: 0.9em;
-    padding: 8px 20px;
+    width: 250px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: 60px;
+    border: none;
+    border-radius: 7px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2), 
+              0 6px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s ease-in-out;
+}
+
+/* when clicked (pressed effect) */
+.prop-card .prop-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2), 
+              0 4px 8px rgba(0,0,0,0.15);
   }
 }
 
@@ -1175,7 +1227,7 @@
     --------------------*/
     .latest-props-section {
       width: 100vw;
-      background: #f8f9fa;
+      background: white;
       padding: 48px 0 42px 0;
       margin: 0;
       display: flex;
@@ -1250,17 +1302,17 @@
       width: 110px;
       margin-bottom: 10px;
       border: 0;
-      background: #fff;
-      color: #007bff;
+      background: orange;
+      color: white;
       border-radius: 5px;
-      border: 1px solid #007bff;
+      border: 1px solid orange;
       font-size: 1em;
       cursor: pointer;
       transition: background 0.19s;
     }
     .prop-card .prop-btn:hover, .prop-card .prop-btn:focus {
-      background: #fff;
-      color: #007bff;
+      background: rgb(255, 185, 56);
+      color: white;
     }
     
 /* ======= Large Tablets (<= 1024px) ======= */
@@ -1282,8 +1334,9 @@
     display: flex !important;      
     overflow-x: auto;          
     -webkit-overflow-scrolling: touch;
-    gap: 14px;
-    padding: 0 10px;
+    gap: 18px !important;
+    margin-right: 10px;
+    padding-left: 30px;
     scrollbar-width: none;
     justify-content: flex-start;    /
   }
@@ -1298,8 +1351,8 @@
     margin: 0;
   }
 
-  .prop-card-img { height: 140px; }
-  .prop-title { font-size: 0.95em; }
+  .prop-card-img { height: 180px !important; }
+  .prop-title { font-size: 1.1em !important; }
   .prop-desc { font-size: 0.88em; }
   .prop-card .prop-btn {
     width: 100px;
@@ -1324,6 +1377,8 @@
   .prop-card .prop-btn {
     width: 95px;
     font-size: 0.8em;
+    padding: 8px 10px;
+    
   }
 }
 
@@ -1384,7 +1439,7 @@
       color: black;
       cursor: pointer;
       background: #fff;
-      border: 1px solid black;
+      border: 1px solid #555555;
       transition: background 0.19s;
       outline: none;
       text-align: center;
@@ -1415,11 +1470,12 @@
   width: 80px;  
   height: 80px;
   opacity: 0.4;
-
+  background-image: url("public/images/icon/5.png");
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 2;
+  opacity: 100;
 }
 .action-box:nth-child(2)::after {
   content: "";
@@ -1429,25 +1485,27 @@
   width: 80px;  
   height: 80px;
   opacity: 0.8;
-  background-image: url("D:/UR/srivari_project/6.png");
+  background-image: url("public/images/icon/6.png");
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 2;
+   opacity: 100;
 }
 .action-box:nth-child(3)::after {
   content: "";
   position: absolute;
-  bottom: 5px;  
+  bottom: 0px;  
   right: 10px;    
-   width: 80px;  
-  height: 80px;
+  width: 100px;  
+  height: 100px;
   opacity: 0.8;
-  background-image: url("D:/UR/srivari_project/7.png");
+  background-image: url("public/images/icon/7.png");
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 2;
+  opacity: 100;
 }
 .action-box:nth-child(4)::after {
   content: "";
@@ -1457,11 +1515,12 @@
   width: 80px;  
   height: 80px;
   opacity: 0.8;
-  background-image: url("D:/UR/srivari_project/8.png");
+  background-image: url("public/images/icon/8.png");
   background-size: contain;
   background-repeat: no-repeat;
   pointer-events: none;
   z-index: 2;
+   opacity: 100;
 }
 /* ===== Tablets (≤1024px) ===== */
 @media (max-width: 1024px) {
@@ -1477,7 +1536,7 @@
 
 
 @media (max-width: 768px) {
-  .actions-section { padding: 36px 0 28px 0; }
+  .actions-section { padding: 70px 0 !important; }
   .actions-box-list {  display: grid; grid-template-columns: repeat(2, 1fr); /* ✅ still 2 per row */
     gap: 14px;
     gap: 14px; }
@@ -1488,8 +1547,7 @@
     padding: 22px 14px;
     font-size: 0.95em;
   }
-
-  .action-box-title { font-size: 1em; }
+  .action-box-title { font-size: 18px !important; }
   .action-btn { font-size: 0.9em; padding: 7px 10px; }
 }
 
@@ -1634,95 +1692,105 @@
 /* ✅ Mobile (≤768px) - show 2 per row */
 @media (max-width: 768px) {
   .real-estate-services {
-    padding: 25px 12px;
+    display: none;
   }
-
-  .real-estate-services .section-title {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-
-  .real-estate-services .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* 👈 two cards per row */
-    gap: 14px;
-  }
-
-  .real-estate-services .service-card {
-    padding: 15px;
-    font-size: 0.9em;
-    box-shadow: 0px 6px 18px rgba(0,0,0,0.22); 
-    height: auto;
-    min-height: 150px;
-    margin-bottom: 12px;
-  }
-
-  .real-estate-services .service-card h3 {
-    font-size: 15px;
-    margin-bottom: 6px;
-  }
-
-  .real-estate-services .service-card p {
-    font-size: 12.5px;
-    margin-bottom: 12px;
-  }
-
-  .real-estate-services .read-more {
-    font-size: 12px;
-    padding: 6px 10px;
-    bottom: 10px;
-    left: 10px;
-  }
-
-  .real-estate-services .icon-circle {
-    width: 90px;
-    height: 90px;
-    bottom: -45px;
-    right: -30px;
-  }
-  .real-estate-services .icon-circle img {
-    width: 50px !important;
-    height: 50px !important;
-    top: -30px !important;
-    left: -15px !important;
-  }
+  /* Container Grid */
+.services-grid-mob {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 16px; /* space between cards */
+  padding: 20px;
 }
 
-/* ✅ Small phones (≤480px) - still 2 per row but tighter */
+/* Each Card */
+.service-card-mob {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* soft shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.service-card-mob:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Icon styling */
+.service-card-mob .icon-circle img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+  position: static; /* remove the inline position styling */
+}
+
+/* Text */
+.service-card-mob h3 {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+}
+
 @media (max-width: 480px) {
-  .real-estate-services .services-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+  .real-estate-services {
+    display: none;
   }
+ /* Grid container */
+.services-grid-mob {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row */
+  gap: 16px;
+  padding: 20px;
+}
 
-  .real-estate-services .service-card {
-    padding: 12px;
-    font-size: 0.85em;
-    min-height: 130px;
-  }
+/* Each card */
+.service-card-mob {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(58, 56, 64, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-  .real-estate-services .service-card h3 {
-    font-size: 14px;
-  }
+/* Hover effect */
+.service-card-mob:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
 
-  .real-estate-services .service-card p {
-    font-size: 12px;
-  }
+/* Circle background */
+.icon-circle-mob {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #f4f7fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
 
-  .real-estate-services .read-more {
-    font-size: 11px;
-    padding: 5px 8px;
-  }
+/* Image inside circle */
+.icon-circle-mob img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
 
-  .real-estate-services .icon-circle {
-    width: 80px;
-    height: 80px;
-    bottom: -40px;
-    right: -25px;
-  }
-  .real-estate-services .icon-circle img {
-    width: 40px !important;
-    height: 40px !important;
-  }
+/* Text */
+.service-card-mob h3 {
+  font-size: 18px;
+  font-weight: bold !important;
+  font-weight: 500;
+  margin: 0;
+  color: rgb(47, 46, 46);
+}
+
 }
 
     /*-------------------------
@@ -1939,17 +2007,28 @@
   .our-expertise-container h2 { font-size: 28px; margin-bottom: 24px; }
   .accordion {
     width: 100%;
-    font-size: 15px;
+    font-size: 18px !important;
     padding: 12px 15px;
     border-radius: 10px;
-    letter-spacing: 1px;
+    letter-spacing: 0;
+    line-height: 28px;
   }
+  .accordion .symbol{
+    margin-left: 5px !important;
+  }
+  
   .panel {
     width: 100%;
     padding: 0 10px;
     top: -10px;
   }
-  .panel-content { font-size: 14px; }
+  .panel-content { font-size: 18px !important; display: flex;
+    flex-direction: column;
+  justify-content: left; }
+  .panel-content a {
+    color: red;
+    font-weight: bold;
+  }
 }
 
 /* Small phones (≤480px) */
@@ -3004,7 +3083,8 @@ body.modal-open {
         display: block;
         padding-top: 30px !important;
         background: #fff;
-        padding-bottom: 30px !important;
+        padding-bottom: 20px !important;
+        padding-left: 10px;
         position: relative;
         top: -13px;
       }
@@ -3029,22 +3109,24 @@ body.modal-open {
       }
 
       .mobile-tab {
-        background: #f8f8f8;
+        background: #eee;
         border: none;
         padding: 8px 14px;
         cursor: pointer;
         font-size: 14px;
-        border-radius: 10px;
+        border-radius: 7px;
         white-space: nowrap;
-
-         outline: none;
-  -webkit-tap-highlight-color: transparent
+        outline: none;
+       -webkit-tap-highlight-color: transparent
       }
 
       .mobile-tab.active {
-        background: #fff;
-        border: 1px solid orange;
-        color: orange;
+        background: orange;
+        color: white;
+        font-weight: bold ;
+        letter-spacing: 1px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.14); 
+        z-index: 99;
       }
 
       .mobile-divider {
@@ -3057,6 +3139,8 @@ body.modal-open {
       .mobile-search-form {
         padding: 12px 10px;
         background: #fff;
+        position: relative;
+        top: -3px;
       }
 
       .mobile-search-wrap {
@@ -3090,6 +3174,24 @@ body.modal-open {
         border-radius: 10px;
       }
     }
+    .whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px; 
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;  
+}
+.whatsapp-float i {
+  margin-top: 10px;
+  font-size: 40px;
+}
  
 </style>
 </head>
@@ -3303,6 +3405,12 @@ body.modal-open {
       <img src="images/compressed/gt H page (2).png" alt="Banner 3" class="carousel-image">
       <img src="images/compressed/gt H page (3).png" alt="Banner 4" class="carousel-image">
     </div>
+     <div class="carousel-mobile">
+      <img src="images\PROJECT IMAGES\hero1.png" alt="Banner 1" class="carousel-image-mob">
+      <img src="images\PROJECT IMAGES\hero2.png" alt="Banner 2" class="carousel-image-mob">
+      <img src="images\PROJECT IMAGES\hero3.png" alt="Banner 3" class="carousel-image-mob">
+      <img src="images\PROJECT IMAGES\hero4.png" alt="Banner 4" class="carousel-image-mob">
+    </div>
     <button class="carousel-control left" aria-label="Previous">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M15.5 19L8.5 12L15.5 5" stroke="white" stroke-width="2.2"/></svg>
     </button>
@@ -3501,7 +3609,7 @@ body.modal-open {
 
   <!-- SECTION 4: CITY SELECTOR -->
   <div class="city-section section">
-    <div class="section-title" >Find Your Property in Your Preferred City</div>
+    <div class="section-title" style="font-size: 24px;">Find Your Property in Your Preferred City</div>
     <div class="city-list">
       <div class="city-item">
         <img src="images/city  4/1.png" alt="North Bengaluru" class="city-img">
@@ -3596,7 +3704,7 @@ body.modal-open {
       <button class="action-btn">Explore Now<i class="fa-solid fa-arrow-right-long"></i></button>
     </div>
     <div class="action-box action-box-3">
-      <div class="action-box-title">Collabrate as a channel partner</div>
+      <div class="action-box-title" style="color: white !important; ">Collabrate as a channel partner</div>
       <div class="action-box-desc"></div>
       <button class="action-btn" id="channelPartnerBtn">Explore Now<i class="fa-solid fa-arrow-right-long"></i></button>
        
@@ -3769,7 +3877,7 @@ body.modal-open {
         <h3>Real-estate</h3>
         <p>Find the space that fits your life – and your future.</p>
         <a href="#" class="read-more">Read More</a>
-        <div class="icon-circle"><img style="width:60px; height:60px; position:relative; top:-35px; left:-20px;" src="images/img icons/compressed/9.png"></div>
+        <div class="icon-circle"><img style="width:60px; height:60px; position:relative; top:-35px; left:-20px;" src="public/images/icon/7.png"></div>
       </div>
 
       <div class="service-card">
@@ -3822,7 +3930,70 @@ body.modal-open {
       </div>
 
     </div>
+
   </section>
+<section class="real-estate-services-mob">
+  <h2 class="section-title-mob section-title">Explore our Real Estate Services</h2>
+
+  <div class="services-grid-mob">
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/9.png" alt="Real-estate">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/10.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <!-- repeat until 8 boxes -->
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/11.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/12.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/13.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/14.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/15.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+
+    <div class="service-card-mob">
+      <div class="icon-circle-mob">
+        <img src="public/images/img icons/compressed/16.png" alt="Service">
+      </div>
+      <h3>Real-estate</h3>
+    </div>
+  </div>
+</section>
 
       <div class="our-expertise-section">
         <div class="our-expertise-container">
@@ -3847,7 +4018,7 @@ body.modal-open {
             </div>
      
    
-            <button class="accordion" style="background-color: #f84b79">Jigani: Bangalore’s Next Big Land Investment Destination Near Electronic City</button>
+            <button class="accordion" style="background-color: #f84b79">Jigani: Bangalore’s Next Big Land Investment Destination Near E-City</button>
             <div class="panel">
                 <div class="panel-content">Meta Title: Jigani Real Estate – Why Now Is the Best Time to Buy Land Near Electronic City
 Meta Description: Discover why Jigani is becoming Bangalore’s next real estate hotspot...<a href="jiganiabout.html" style="text-decoration: none;">Read more.</a> </div>
@@ -3881,7 +4052,15 @@ The roads get wider. The air feels lighter. The skyline shifts from modest homes
     </div>
     
 
-   
+<section class="whatsapp-section">
+  <a href="https://wa.me/9606179178" target="_blank" class="whatsapp-float">
+    <i class="fab fa- phone-icon"></i>
+  </a>
+  <a href="https://wa.me/9606179178" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+</section>
+
 
 <footer>
         <div class="container">
@@ -4027,8 +4206,8 @@ document.querySelectorAll(".mobile-toggle").forEach(btn => {
 
     if (!modal || !form || !confirmation) return;
 
-    modal.style.display = "flex";   
-    form.style.display = "block";   
+    modal.style.display = "none";   
+    form.style.display = "none";   
     confirmation.style.display = "none"; 
   }, 4000);
 });
@@ -4829,8 +5008,7 @@ accordions.forEach((accordion) => {
   // Append the symbol span if not already there
   if (!accordion.querySelector(".symbol")) {
     const symbol = document.createElement("span");
-    symbol.classList.add("symbol");
-    symbol.textContent = "˅"; // down arrow by default
+    symbol.classList.add("symbol", "fa-solid", "fa-chevron-down"); // default: down
     accordion.appendChild(symbol);
   }
 
@@ -4841,21 +5019,24 @@ accordions.forEach((accordion) => {
     // Toggle open/close
     if (panel.style.maxHeight) {
       panel.style.maxHeight = null;
-      symbol.textContent = "˅"; // closed state
+      symbol.classList.remove("fa-chevron-up");
+      symbol.classList.add("fa-chevron-down"); // closed state
     } else {
       // Close others
       accordions.forEach((acc) => {
         acc.nextElementSibling.style.maxHeight = null;
-        acc.querySelector(".symbol").textContent = "˅";
+        const otherSymbol = acc.querySelector(".symbol");
+        otherSymbol.classList.remove("fa-chevron-up");
+        otherSymbol.classList.add("fa-chevron-down");
       });
 
       panel.style.maxHeight = panel.scrollHeight + "px";
-      symbol.textContent = "˄"; 
+      symbol.classList.remove("fa-chevron-down");
+      symbol.classList.add("fa-chevron-up"); // open state
     }
   });
 });
 
-  
   const expertiseSection = document.querySelector(".our-expertise-section");
 
 const observer = new IntersectionObserver(
