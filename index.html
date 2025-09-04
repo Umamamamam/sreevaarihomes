@@ -168,6 +168,7 @@
   }
 
   .carousel-container {
+    position: relative;
     height: 60vh;
   }
   .carousel {
@@ -176,7 +177,9 @@
   .carousel-mobile {
     display: flex;
     height: 80vh !important;
-    z-index: 100;
+    z-index: 1;
+    position: absolute;
+    top: -50px;
   }
   .carousel-image-mob {
     width: 100vw;
@@ -259,6 +262,7 @@
       flex-direction: column;
       align-items: center;
 } */
+
 .search-overlay {
       position: absolute;
       left: 50%;
@@ -286,12 +290,10 @@
 }
 
 .search-input-wrap {
+
     display: flex;
     align-items: center;
     background: #fff;
-    /* border: none; */
-    /* border-right: 1px solid #eee;
-    padding: 0 16px; */
     flex: 1 1 170px;
     height: 44px;
     gap: 4px;
@@ -311,6 +313,7 @@
     background: transparent;
     height: 40px;
     padding-left: 2px;
+
 }
 
 
@@ -1688,7 +1691,7 @@ position: relative;
     padding: 35px 15px;
   }
   .real-estate-services .services-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row */
+    grid-template-columns: repeat(2, 1fr); 
     gap: 18px;
   }
   .real-estate-services .service-card {
@@ -1701,6 +1704,11 @@ position: relative;
   .real-estate-services {
     display: none;
   }
+
+.real-estate-services-mob{
+  display: block;
+}
+
   /* Container Grid */
 .services-grid-mob {
   display: grid;
@@ -1715,25 +1723,20 @@ position: relative;
   border-radius: 12px;
   padding: 20px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* soft shadow */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Hover effect */
-.service-card-mob:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-}
 
-/* Icon styling */
+
 .service-card-mob .icon-circle img {
   width: 60px;
   height: 60px;
   margin-bottom: 12px;
-  position: static; /* remove the inline position styling */
+  position: static; 
 }
 
-/* Text */
+
 .service-card-mob h3 {
   font-size: 14px;
   font-weight: 500;
@@ -1839,11 +1842,11 @@ position: relative;
   position: relative;
   background-repeat: no-repeat;
   background-position: right bottom;
-  background-size: 80px auto; /* adjust size as you need */
+  background-size: 80px auto; 
   z-index: 1;
 }
 .action-box-1 {
-  background-image: url('images/icon/5.png');  /* your icon */
+  background-image: url('images/icon/5.png'); 
 }
 .action-box-2 {
   background-image: url('images/icon/6.png');
@@ -1879,9 +1882,8 @@ position: relative;
   transition:
   transform 1.35s cubic-bezier(.21,1.37,.76,.94),
   opacity 1s cubic-bezier(.24,.7,.6,1) 0.7s;
-  /* you may add logo effects as well if needed */
 }
-/* Animate splash upwards */
+
 .logo-splash-overlay.animate-up {
    opacity: 0;
   pointer-events: none;
@@ -1890,8 +1892,14 @@ position: relative;
   transform 1.35s cubic-bezier(.21,1.37,.76,.94),
   opacity 1s cubic-bezier(.24,.7,.6,1) 0.7s;
 }
+@media (max-width: 768px) {
+  .logo-splash-overlay img {
+    margin-top: 300px;
+  }
+}
 
-/* Tablets (≤1024px) */
+
+
 @media (max-width: 1024px) {
   .actions-box-list { gap: 18px; }
   .action-box { flex: 1 1 45%; max-width: 45%; }
@@ -3160,11 +3168,22 @@ body.modal-open {
       }
 
       .mobile-search-wrap input {
-        border: none;
-        outline: none;
+        border: none !important;
+        outline: none !important;
         width: 100%;
         font-size: 14px;
         padding: 8px 12px;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+      }
+
+      .mobile-search-wrap input:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        border: none !important;
       }
 
       .mobile-search-btn {
@@ -3204,6 +3223,7 @@ body.modal-open {
 </head>
 
 <body>
+
 <!-- Logo Splash Overlay (insert ABOVE .site-container) -->
 <div class="logo-splash-overlay" id="logoSplash">
   <a href="index.html">
@@ -3543,7 +3563,7 @@ body.modal-open {
 
   <form class="mobile-search-form" onsubmit="return false;">
       <div class="mobile-search-wrap">
-        <input type="text" placeholder='Search "North Bangalore plots"' autocomplete="off"/>
+        <input class="mobile-search-input" type="text" placeholder='Search "North Bangalore plots"' >
         <button type="submit" class="mobile-search-btn">
           <i class="fa fa-search"></i>
         </button>
@@ -3945,59 +3965,59 @@ body.modal-open {
   <div class="services-grid-mob">
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/9.png" alt="Real-estate">
+        <img src="/images/img icons/compressed/9.png" alt="Real-estate">
       </div>
       <h3>Real-estate</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/10.png" alt="Service">
+        <img src="/images/img icons/compressed/10.png" alt="Developers">
       </div>
-      <h3>Real-estate</h3>
+      <h3>Builders / Developers</h3>
     </div>
 
     <!-- repeat until 8 boxes -->
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/11.png" alt="Service">
+        <img src="/images/img icons/compressed/11.png" alt="Architects">
       </div>
-      <h3>Real-estate</h3>
+      <h3>Architects / Architecture</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/12.png" alt="Service">
+        <img src="/images/img icons/compressed/12.png" alt="Interior Decorators">
       </div>
-      <h3>Real-estate</h3>
+        <h3>Interior Decorators</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/13.png" alt="Service">
+        <img src="/images/img icons/compressed/13.png" alt="Solar energy">
       </div>
-      <h3>Real-estate</h3>
+        <h3>Solar energy</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/14.png" alt="Service">
+        <img src="/images/img icons/compressed/14.png" alt="Home Inspection">
       </div>
-      <h3>Real-estate</h3>
+      <h3>Home Inspection</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/15.png" alt="Service">
+        <img src="/images/img icons/compressed/15.png" alt="UPVC">
       </div>
-      <h3>Real-estate</h3>
+       <h3>UPVC</h3>
     </div>
 
     <div class="service-card-mob">
       <div class="icon-circle-mob">
-        <img src="public/images/img icons/compressed/16.png" alt="Service">
+        <img src="/images/img icons/compressed/16.png" alt="Real-estate marketing">
       </div>
-      <h3>Real-estate</h3>
+        <h3>Real-estate marketing</h3>
     </div>
   </div>
 </section>
