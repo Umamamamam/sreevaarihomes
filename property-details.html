@@ -77,17 +77,14 @@
     .hero-profile-btn:hover {
       background: #f7f7f7;
     }
-    /* Main Content Container */
-    .container {
-      width: 95%;
-      max-width: 1150px;
-      margin: -30px auto 0 auto;
-      background: transparent;
-      position: relative;
-      z-index: 2;
-      margin-top: 12px;
-      
-    }
+  
+.container {
+  width: 100%;; 
+  margin-top: -30px; 
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
     @media (max-width: 1024px) {
   .hero {
     min-height: 300px;
@@ -314,76 +311,80 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
     .gallery-next-btn:hover {
       background: #f5f5f5;
     }
-
- .amenities-grid {
+.amenities-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, auto)); 
-  gap: 10px;            
-  justify-content: start;  
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+  gap: 16px;
+  justify-content: center;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 100%;         
-  max-width: 700px;    
+  width: 100%;
+  max-width: 800px;
+}
+
+.amenity-card {
+  background: #fff;
+  padding: 20px 12px;
+  color: #453e3e;
+ box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  font-size: 14px;
+  min-height: 140px;  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.amenity-icon i {
+  font-size: 2rem;   
+  color: #ff6600;      
+  margin-bottom: 12px;
+  display: block;
 }
 
 
-.amenity-card { margin: 0 !important; background: #faf9f9; padding: 13px 12px 12px 12px; text-align: left;  color: #453e3e; box-shadow: 0 1px 8px rgba(0,0,0,0.03); position: relative; min-height: 54px; width: 100px; display: flex; flex-direction: column; gap: 6px; justify-content: center; text-align: center; border-radius: 6px; border: 2px solid #eee; font-size: 13px;  }
+.amenity-text {
+  display: block;   
+  font-weight: 500;
+  font-size: 1.1em;
+  color: #333;
+  line-height: 1.4;
+}
 
-    .amenity-card .fa {
-    display: inline-flex;          /* allow flex alignment */
-    align-items: center;           /* center icon vertically */
-    justify-content: center;       /* center icon horizontally */
-    width: 36px;                   /* circle width */
-    height: 36px;                  /* circle height */
-    margin-bottom: 6px;
-    background: skyblue !important;
-    color: white;                  /* icon color */
-    border-radius: 50%;            /* make circle */
-    font-size: 16px;               /* adjust icon size */
+.amenity-card:hover {
+  transform: translateY(-4px);
+}
 
+.amenity-card img, 
+.amenity-card .fa {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  object-fit: contain;
+}
 
-      
-    }
-    .amenity-card.top {
-      /* first 2 cards */
-    }
-    .card-ribbon {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 14px;
-      height: 18px;
-      background: #e9b81a;
-      border-radius: 4px 0 9px 0;
-      z-index: 2;
-      display: inline-block;
-    }
-    .amenities-actions {
-      margin-top: 14px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .amenities-actions-col {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* aligns to left */
-    gap: 12px;
+.card-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 18px;
+  background: #e9b81a;
+  border-radius: 4px 0 9px 0;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .amenities-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
   }
-    .view-all-link {
-      color: #d72121;
-      font-size: 15px;
-      cursor: pointer;
-      transition: color 0.15s;
-      text-decoration: none;
-      margin-bottom: 0;
-      margin-left: 0;
-    }
-    .view-all-link:hover {
-      color: #aa1717;
-      text-decoration: underline;
-    }
+}
+
     /* Section 4: About/Loans */
     .about-block {
       background: #bf4747;
@@ -492,9 +493,9 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
       padding-right: 0 !important;
     }
 
-    .amenity-card,
-    .gallery-img,
-    
+  
+    .gallery-img
+    ,
     .hero-logo {
       border-radius: 10px !important;
       box-shadow: none !important;
@@ -585,7 +586,7 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
       box-shadow: none !important;
     }
 @media (max-width: 1024px) {
-  .amenities-grid,
+
   .gallery-row,
   .floor-list,
   .alt-floor-list-row {
@@ -601,42 +602,7 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
 
 /* ====== MOBILE (max-width: 768px) ====== */
 @media (max-width: 768px) {
-  .amenities-grid {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin: 0 auto;
-    justify-content: flex-start;  
-  }
- 
-  .amenity-card {
-    flex: 0 0 40% !important;   
-    font-size: 22px !important;
-    padding: 10px;
-    min-height: 70px;
-    border-radius: 8px;
-    text-align: center;
-  }
 
-      .amenity-card {
-      background: transparent !important;
-      border: 1px solid #ccc;
-      box-shadow: none !important;
-
-    }
-.amenity-card.top {
-  font-size: 16px !important;
-}
-
-
-  .amenity-card:nth-child(1), .amenity-card:nth-child(2){
-    margin-top: 20px !important;
-  }
-
-  .amenity-card .fa {     
-    margin-bottom: 6px;
-    background: skyblue !important;
-  }
 
   .gallery-row,
   .floor-list,
@@ -655,27 +621,6 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
 
 /* ====== SMALL MOBILE (max-width: 480px) ====== */
 @media (max-width: 480px) {
-  .amenities-grid {
-    display: flex !important;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 0 auto;
-    justify-content: flex-start;  
-  }
-
-  .amenity-card {
-    flex: 0 0 35%;   
-    font-size: 8px;
-    padding: 6px;
-    min-height: 65px;
-    border-radius: 8px;
-    text-align: center;
-  }
-
-  .amenity-card .fa {
-    font-size: 1.3em;        
-    margin-bottom: 6px;
-  }
 
   .gallery-row,
   .floor-list,
@@ -1678,9 +1623,9 @@ hr {
     <div class="hero-img-bg" id="hero-img-bg">
     </div>
   </div>
-  <div class="container">
+  <div class="container" >
     <!-- Section 1: Banner Lower Area -->
-    <div class="banner-lower" id="banner-lower">
+    <div class="banner-lower" id="banner-lower" >
 
 <div class="banner-lower-left" id="banner-lower-left">
           <div class="project-title" id="project-title" style="font-size: 24px !important;">Assetz Trees and Tandem</div>
@@ -1710,8 +1655,7 @@ hr {
           <!-- Images and arrow will be injected here -->
         </div>
       </div>
-
-      <!-- Section 3: Amenities -->
+<!--
       <div class="section-block" id="amenities-section">
         <div style="font-weight: 500; font-size: 1.1rem;" id="amenities-title"></div>
         <div class="amenities-grid" id="amenities-grid"></div>
@@ -1722,6 +1666,19 @@ hr {
             </button>
       </div>
       </div>
+    -->
+      <!-- Section 3: Amenities -->
+<div class="section-block" id="amenities-section">
+  <div style="font-weight: 500; font-size: 1.1rem;" id="amenities-title"></div>
+  <div class="amenities-grid" id="amenities-grid"></div>
+  <div class="amenities-actions-col">
+    <span class="view-all-link" id="view-all-amenities" tabindex="0"></span>
+    <button id="contactBuilderBtn" class="contact-btn main-btn-red">
+      Contact Builder
+    </button>
+  </div>
+</div>
+
 
       <!-- Section 4: About/Loans -->
       <div class="section-block about-block" id="about-section">
@@ -2284,20 +2241,36 @@ function renderProject(project) {
   arrBtn.onclick = () => alert('Gallery scroll (not implemented)'); 
   galleryRow.appendChild(arrBtn);
 
-  // 4. AMENITIES
-  document.getElementById('amenities-title').innerText = `Amenities ${project.title}`;
-  const amenitiesGrid = document.getElementById('amenities-grid');
-  amenitiesGrid.innerHTML = '';
-  for (let i = 0; i < Math.min(10, project.amenities.length); i++) {
-    const amenity = project.amenities[i];
-    const card = document.createElement('div');
-    card.className = "amenity-card" + ((i == 0 || i == 1) ? " top" : "");
-    if (i == 0 || i == 1) card.innerHTML += '<span class="card-ribbon"></span>';
-    card.innerHTML += (icons[amenity] || "") + `<span>${amenity || 'Need to add icon for this service'}</span>`;
-    amenitiesGrid.appendChild(card);
+// 4. AMENITIES
+document.getElementById('amenities-title').innerText = `Amenities ${project.title}`;
+const amenitiesGrid = document.getElementById('amenities-grid');
+amenitiesGrid.innerHTML = '';
+
+project.amenities.slice(0, 10).forEach((amenity, i) => {
+  const card = document.createElement('div');
+  card.className = "amenity-card";
+
+  if (i === 0 || i === 1) {
+    const ribbon = document.createElement('span');
+    ribbon.className = "card-ribbon";
+    card.appendChild(ribbon);
   }
- 
-  document.getElementById('contactBuilderBtn').onclick = () => alert('Contact Builder (not implemented)');
+
+  
+  const iconWrapper = document.createElement('div');
+  iconWrapper.className = "amenity-icon";
+  iconWrapper.innerHTML = icons[amenity] || "<i class='fa-solid fa-circle-question'></i>";
+  card.appendChild(iconWrapper);
+
+const label = document.createElement('span');
+label.className = "amenity-text";   
+label.innerText = amenity || "Amenity not defined";
+card.appendChild(label);
+
+
+  amenitiesGrid.appendChild(card);
+});
+
 
   // 5. ABOUT AND LOAN OFFERS
   document.getElementById('about-title').innerText = `About ${project.title}`;
