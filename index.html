@@ -1712,12 +1712,11 @@ position: relative;
   /* Container Grid */
 .services-grid-mob {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 per row */
-  gap: 16px; /* space between cards */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 16px; 
   padding: 20px;
 }
 
-/* Each Card */
 .service-card-mob {
   background: #fff;
   border-radius: 12px;
@@ -3270,13 +3269,20 @@ body.modal-open {
     </div>
     <div class="hero-tab-wrapper">
   <button class="hero-tab" type="button" data-tab="construction">Home construction</button>
-  <div class="hero-tab-dropdown">
-    <img src="images/PROJECT IMAGES/construction.png" alt="Home Construction" class="hero-dropdown-img" />
-    <div class="hero-dropdown-title" style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
-      Sree Vaari Home Construction
-    </div>
-    <!-- No list below, just empty as per your request -->
+<div class="hero-tab-dropdown">
+  <img id="construction-img" 
+       src="images/PROJECT-IMAGES/construction.png" 
+       alt="Home Construction" 
+       class="hero-dropdown-img" 
+       style="cursor:pointer;" />
+
+  <div id="construction-title" 
+       class="hero-dropdown-title" 
+       style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;cursor:pointer;">
+    Sree Vaari Home Construction
   </div>
+</div>
+
 </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="upvc">UPVC</button>
@@ -4223,6 +4229,14 @@ document.querySelectorAll(".mobile-toggle").forEach(btn => {
       document.querySelectorAll('.hero-tab').forEach(b => b.classList.remove('active'));
     }
   });
+
+    document.getElementById("construction-img").onclick = function () {
+    window.location.href = "https://sreevaarihomeconstructions-xp21.vercel.app/";
+  };
+
+  document.getElementById("construction-title").onclick = function () {
+    window.location.href = "https://sreevaarihomeconstructions-xp21.vercel.app/";
+  };
 
   document.addEventListener("DOMContentLoaded", function () {
   
