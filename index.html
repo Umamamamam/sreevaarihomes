@@ -3349,12 +3349,19 @@ body.modal-open {
 
   <div class="hero-tab-wrapper">
     <button class="hero-tab mobile-toggle">Home Construction</button>
-    <div class="hero-tab-dropdown">
-      <img src="images/PROJECT IMAGES/construction.png" alt="Home Construction" />
-      <div style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;">
-        Sree Vaari Home Construction
-      </div>
-    </div>s
+   <div class="hero-tab-dropdown">
+  <img id="construction-img-mobile" 
+       src="images/PROJECT-IMAGES/construction.png" 
+       alt="Home Construction" 
+       class="hero-dropdown-img" 
+       style="cursor:pointer;" />
+
+  <div id="construction-title-mobile" 
+       class="hero-dropdown-title" 
+       style="text-align:center;font-weight:bold;font-size:1.1em;margin-top:12px;cursor:pointer;">
+    Sree Vaari Home Construction
+  </div>
+</div>
   </div>
 
   <div class="hero-tab-wrapper">
@@ -4237,7 +4244,14 @@ document.querySelectorAll(".mobile-toggle").forEach(btn => {
   document.getElementById("construction-title").onclick = function () {
     window.location.href = "https://sreevaarihomeconstructions-xp21.vercel.app/";
   };
+ function goToConstruction() {
+    window.location.href = "https://sreevaarihomeconstructions-xp21.vercel.app/";
+  }
 
+
+  // Mobile
+  document.getElementById("construction-img-mobile").onclick = goToConstruction;
+  document.getElementById("construction-title-mobile").onclick = goToConstruction;
   document.addEventListener("DOMContentLoaded", function () {
   
   setTimeout(() => {
