@@ -146,6 +146,24 @@
     line-height: 1.5;
   }
 }
+ .whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px; 
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;  
+}
+.whatsapp-float i {
+  margin-top: 10px;
+  font-size: 40px;
+}
   </style>
 </head>
 <body>
@@ -234,6 +252,14 @@ If you’ve been thinking about where to buy land in North Bangalore, this is yo
     </div>
   </div>
 
+<section class="whatsapp-section">
+  <a href="https://wa.me/9606179178" target="_blank" class="whatsapp-float">
+    <i class="fab fa- phone-icon"></i>
+  </a>
+  <a href="https://wa.me/9606179178" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+  </a>
+</section>
   <script>
     // Slide-up animation
     const slideSection = document.querySelector('.slide-up');
