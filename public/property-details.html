@@ -80,9 +80,9 @@
   
 .container {
   width: 100%;; 
-  margin-top: -30px; 
   background: transparent;
   position: relative;
+  left: 110px;
   z-index: 2;
 }
     @media (max-width: 1024px) {
@@ -827,8 +827,8 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
   position: absolute;
   top: 0px;
   left: 100px;
-  width: 120px;   
-  height: auto;
+  width: 130px !important;   
+  height: 120px !important;
 }
 .hero-tabs-list {
   width: 100%;
@@ -865,6 +865,7 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
   transition: color 0.18s;
   outline: none;
   min-width: 90px;
+  text-decoration: none;
 }
 .hero-tab.active, .hero-tab:focus {
   color: #21104b;
@@ -1224,7 +1225,7 @@ footer {
     width: 40px;
     height: 40px;
     background-color: #fceabb;
-    color: #f7c948;
+    color: black;
     border-radius: 50%;
     transition: all 0.3s;
     text-decoration: none;
@@ -1498,9 +1499,12 @@ hr {
 <body>
      <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-    <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+   <a href="index.html">  <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" /></a>
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
+     <div class="hero-tab-wrapper">
+      <a class="hero-tab" id="aboutBtn" href="about_us.html" >About</a>
+    </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
       <div class="hero-tab-dropdown">
@@ -1643,9 +1647,9 @@ hr {
 </div>
   <!-- HERO Section -->
   <div class="hero" id="hero">
-    <div class="hero-img-bg" id="hero-img-bg">
+    <img class="hero-img-bg" id="hero-img-bg" src="" alt="Sreevaari Homes" />
     </div>
-  </div>
+
   <div class="container" >
     <!-- Section 1: Banner Lower Area -->
     <div class="banner-lower" id="banner-lower" >
@@ -1725,7 +1729,7 @@ hr {
   <div id="floor-cards" class="floor-cards"></div>
 </section>
 
-
+</div>
 
 <div id="contactModal" class="modal-overlay" style="display:none;">
   <div class="modal-content" style="margin: 10px;">
@@ -1779,7 +1783,7 @@ hr {
   </div>
 </div>
    
-</div>
+
 
 <section class="whatsapp-section">
   <a href="https://wa.me/9071193555" target="_blank" class="whatsapp-float">
@@ -1790,7 +1794,7 @@ hr {
   </a>
 </section>
 <footer>
-        <div class="container">
+      
             <div class="footer-container">
                 <div class="footer-col footer-about">
                     <h3>Sreevaari Homes</h3>
@@ -1841,7 +1845,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
 
                   The developer reserves the right to change, delete or add any specifications or plans mentioned herein.</p>
             </div>
-        </div>
+        
     </footer>
  
 
@@ -2003,10 +2007,10 @@ document.addEventListener('click', e => {
  </script>
     <script>
 const data = {
-  slv_golden_towers: {
+   /*slv_golden_towers: {
     title: "SLV Golden Towers",
     location: "Kogilu Cross, Yelahanka.",
-    bannerImg: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=900&q=80",
+    bannerImg: "images/Buyyourdream/2.png",
     gallery: [
       "https://images.unsplash.com/photo-1506744038136-46273834b3fb?fit=crop&w=400&q=80",
       "https://images.unsplash.com/photo-1506784365847-bbad939e9335?fit=crop&w=400&q=80",
@@ -2041,13 +2045,14 @@ const data = {
 ]
 
   },
+  */
   nandhi_gardenia:{
     title: "Nandhi Gardenia",
     location: "Indluvadi Cross, Jagani",
-    bannerImg: "https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=900&q=80",
+    bannerImg: "images/Buyyourdream/3.png",
     gallery: [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=400&q=80"
+      "images/Buyyourdream/layout1.jpg",
+      "images/Buyyourdream/layout2.jpg"
     ],
     amenities: [
       "Gated Community with compound wall",
@@ -2092,10 +2097,10 @@ const data = {
   slv_nandhi_view: {
     title: "SLV Nandhi View",
     location: "Kanajenakhalli, Chikkaballapura",
-    bannerImg: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?fit=crop&w=900&q=80",
+    bannerImg: "images/Buyyourdream/4.png",
     gallery: [
-      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1522204523234-872d98f35661?fit=crop&w=400&q=80"
+      "images/Buyyourdream/slvnandhiview1.jpg",
+      "images/Buyyourdream/slvnandhiview2.jpg"
     ],
     amenities: [
       "Gated Community with compound wall",
@@ -2139,10 +2144,10 @@ const data = {
   vr_emerald: {
     title: "VR Emerald",
     location: "Tamaka, Kolar Dist",
-    bannerImg: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?fit=crop&w=900&q=80",
+    bannerImg: "images/Buyyourdream/5.png",
     gallery: [
-      "https://images.unsplash.com/photo-1465101162946-4377e57745c3?fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1449247613801-ab06418e2861?fit=crop&w=400&q=80"
+      "images/Buyyourdream/vremarld1.jpg",
+      "images/Buyyourdream/vremarld2.jpg"
     ],
     amenities: [
       "Gated Community with compound wall",
@@ -2187,10 +2192,10 @@ const data = {
   vr_innovative_global_city: {
     title: "VR Innovative Global City",
     location: "Mulbagal, Kolar Dist",
-    bannerImg: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=900&q=80",
+    bannerImg: "/images/Buyyourdream/6.png",
     gallery: [
-      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?fit=crop&w=400&q=80",
-      "https://images.unsplash.com/photo-1503676382389-4809596d5290?fit=crop&w=400&q=80"
+      "images/Buyyourdream/vremarld2.jpeg",
+      "images/Buyyourdream/vremarld2.jpg"
     ],
     amenities: [
       "Gated Community with compound wall",
@@ -2251,12 +2256,7 @@ const icons = {
 };
 function renderProject(project) {
   // 1. HERO SECTION
-  document.getElementById('hero-img-bg').style.backgroundImage = "url(" + project.bannerImg + ")";
-  // document.getElementById('hero-logos').innerHTML = `
-  //   <div class="hero-logo">${project.title.split(" ")[0]}</div>
-  //   <div class="hero-logo">${project.title.split(" ")[1] || ""}</div>
-  // `;
-
+     document.getElementById('hero-img-bg').src = project.bannerImg;
   // 2. BANNER LOWER
   document.getElementById('project-title').innerText = project.title;
   // document.getElementById('project-location').innerText = project.location;

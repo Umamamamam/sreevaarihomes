@@ -153,7 +153,7 @@ const PartnerForm = require("./models/partnerForm");
 require("dotenv").config();
 
 const app = express();
-
+app.use(express.static('public'));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // needed for JSON POST requests
@@ -172,34 +172,15 @@ db.once("open", () => {
   console.log("Database connected");
 });
 
-
+// Home route
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/cities_property.html", (req, res) => {
-  res.sendFile(path.join(__dirname, "cities_property.html"));
+// 🚀 Serve all .html pages without showing ".html"
+app.get("/:page", (req, res) => {
+  res.sendFile(path.join(__dirname, `${req.params.page}.html`));
 });
-app.get('/property-details.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'property-details.html'));
-});
-
-app.get('/about_us.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'about_us.html'));
-})
-app.get('/Yelahankaabout.html', (req, res) => {
-  res.sendFile(path.join(__dirname, "Yelahankaabout.html"));
-})
-app.get('/jiganiabout.html', (req, res) => {
-  res.sendFile(path.join(__dirname,"jiganiabout.html"));
-})
-app.get('/kolarabout.html', (req, res) => {
-  res.sendFile(path.join(__dirname,"kolarabout.html"));
-})
-app.get('/chikkaballapurabout.html', (req, res) => {
-  res.sendFile(path.join(__dirname,"chikkaballapurabout.html"));
-})
-
 
 app.post("/form", async (req, res) => {
   const { name, mobile, project } = req.body.form;

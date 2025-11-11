@@ -25,12 +25,16 @@
     .hero-section {
       position: relative;
       width: 100%;
-      height: 180px;
-      background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?fit=crop&w=1300&q=80') center/cover no-repeat;
+      height: 280px;
+    
+      background: url('/images/PROJECT IMAGES/BuyYourDream.png') center/cover no-repeat;
+      background-position: top center;
+      background-size: cover;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      margin-top: -20px;
     }
     .hero-text {
       background: rgba(255,255,255,0.85);
@@ -189,19 +193,23 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
     .contact-btn:hover {
       background: rgb(245, 177, 50);
     }
+
     .contact-widget {
-      position: fixed;
-      right: 90px;
-      bottom: 130px;
-      width: 350px;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
-      text-align: center;
-      padding: 15px;
-      z-index: 9999;
-      transition: transform 0s ease-in-out;
-    }
+  position: absolute;
+  right: 90px;
+  top: 350px;
+  width: 350px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  text-align: center;
+  padding: 15px;
+  z-index: 9999;
+  transition: all 0.5s ease-in-out; /* smooth move */
+  will-change: transform;
+}
+
+
     .contact-widget h3 {
       font-size: 16px;
       margin-bottom: 10px;
@@ -306,6 +314,7 @@ box-shadow:   0px 0.01em 0.01em rgb(128 90 0 / 40%),
     width: min(420px, 92vw);
     transform: translateX(-50%);
     padding: 12px;
+    z-index: -1 !important;
   }
   .contact-widget img { height: 200px; }
    .contact-btn { width: auto;
@@ -573,8 +582,8 @@ hr {
   position: absolute;
   top: 0px;
   left: 100px;
-  width: 120px;   
-  height: auto;
+  width: 130px !important;   
+  height: 120px !important;
 }
 .hero-tabs-list {
   width: 100%;
@@ -611,6 +620,7 @@ hr {
   transition: color 0.18s;
   outline: none;
   min-width: 90px;
+  text-decoration: none;
 }
 .hero-tab.active, .hero-tab:focus {
   color: #21104b;
@@ -700,25 +710,25 @@ hr {
 
 footer {
     background-color: #111;  
-    color: white;
+    color: #F17B4A; 
     padding: 70px 0 30px;
+    
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
+  display: flex;
+  justify-content: space-between; 
   gap: 40px;
   align-items: start;
   text-align: left; 
 }
-
-.footer {
-  margin: 0;            
-  padding: 0;           
-  min-height: 100px;    
+.footer-col {
+    flex: 1;
+    min-width: 300px;
 }
+.footer-col .get-in-touch
 
 
 .footer-col h3 {
@@ -728,7 +738,7 @@ footer {
     letter-spacing: 1px;
 }
 .footer-col .contact-info h3{
- color: #F17B4A;   
+ color: #F17B4A !important;   
 }
 
 .footer-col ul {
@@ -805,7 +815,7 @@ footer {
     width: 40px;
     height: 40px;
     background-color: #fceabb;
-    color: #f7c948;
+    color: black;
     border-radius: 50%;
     transition: all 0.3s;
     text-decoration: none;
@@ -927,8 +937,8 @@ footer {
     position: absolute;
     top: 0px;
     left: 10px;
-    width: 120px;  
-    height: auto;
+    width: 130px !important;  
+    height: 120px !important;
     z-index: 9999;
   }
 
@@ -1070,20 +1080,24 @@ footer {
   text-align: center;
   font-size: 30px;
   box-shadow: 2px 2px 3px #999;
-  z-index: 100;  
+  z-index: 2147483647 !important;  
 }
 .whatsapp-float i {
   margin-top: 10px;
   font-size: 40px;
+ 
 }
   </style>
 </head>
 <body>
      <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-    <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+   <a href="index.html">  <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" /></a>
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
+     <div class="hero-tab-wrapper">
+      <a class="hero-tab" id="aboutBtn" href="about_us.html" >About</a>
+    </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
       <div class="hero-tab-dropdown">
@@ -1229,9 +1243,7 @@ footer {
 
 <div class="main-wrapper">
   <div class="hero-section">
-    <div class="hero-text">
-      Sophisticated Spaces. Structured for You.
-    </div>
+    
   </div>
   
   <div class="section-title">Properties for Sale in Bangalore</div>
@@ -1289,7 +1301,7 @@ footer {
         <div class="footer">
           <div class="developer">
             <div class="developer-badge">PD</div>
-            SLV Developers II
+            Sreevaari Homes
           </div>
           <a href="" class="contact-btn">Contact Now</a>
         </div>
@@ -1297,7 +1309,7 @@ footer {
     </div>
   </div>
 
-  <div class="section-title">Properties for Sale in Chikkaballapura</div>
+  <div class="section-title" id="chikkaballapuraProperties">Properties for Sale in Chikkaballapura</div>
   <div class="city-section">
     <div class="city-title">Chikkaballapura</div>
     <!-- Card 1: SLV Nandhi View -->
@@ -1323,7 +1335,7 @@ footer {
         <div class="footer">
           <div class="developer">
             <div class="developer-badge">PD</div>
-            SLV Developers
+           Sreevaari Homes
           </div>
           <a href="" class="contact-btn">Contact Now</a>
         </div>
@@ -1357,7 +1369,7 @@ footer {
         <div class="footer">
           <div class="developer">
             <div class="developer-badge">PD</div>
-            SLV Developers
+            Sreevaari Homes
           </div>
           <a href="" class="contact-btn">Contact Now</a>
         </div>
@@ -1386,7 +1398,7 @@ footer {
         <div class="footer">
           <div class="developer">
             <div class="developer-badge">PD</div>
-            SLV Developers II
+            Sreevaari Homes
           </div>
           <a href="" class="contact-btn">Contact Now</a>
         </div>
@@ -1471,7 +1483,7 @@ footer {
                     <p>A premium residential project by NS Brothers SLV Developers offering luxurious living spaces with world-class amenities in a prime location.</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Quick Links</h3>
+                    <h3 class="footer-h3">Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Project</a></li>
@@ -1498,7 +1510,7 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h3>Follow Us</h3>
+                    <h3 class="footer-h3">Follow Us</h3>
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
@@ -1519,7 +1531,37 @@ No:2448/4, 17th E-Cross, 5th Main, BSK 2nd stage, Bangalore-560070
     </footer>
 
 <script>
-  // Mapping card text to property ID (slug)
+ 
+
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    const widget = document.querySelector('.contact-widget');
+    const footer = document.querySelector('footer');
+
+    function handleScroll() {
+      if (!widget || !footer) return;
+
+      // Get position of footer relative to the viewport
+      const footerRect = footer.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+
+      // Distance from bottom of viewport to top of footer
+      const distance = footerRect.top - viewportHeight;
+
+      // When footer is within 100px of bottom of viewport
+      if (distance < 100) {
+        const offset = 100 - distance; // move up amount
+        widget.style.transform = `translateY(-${350}px)`;
+      } else {
+        widget.style.transform = 'translateY(0)';
+      }
+    }
+
+    // Run on scroll and once on load
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  });
+
   const propertyIdMap = {
     'SLV Golden Towers': 'slv_golden_towers',
     'Nandhi Gardenia': 'nandhi_gardenia',
@@ -1690,10 +1732,7 @@ document.querySelectorAll(".mobile-toggle").forEach(btn => {
 
 
 
-</script>
 
-<!-- nav bar script -->
- <script> 
   // Hero Tabs Dropdown Logic
 document.querySelectorAll('.hero-tab-wrapper').forEach(tabw => {
   const btn = tabw.querySelector('.hero-tab');
@@ -1731,21 +1770,14 @@ document.addEventListener('click', e => {
 
 window.addEventListener("scroll", function() {
   const widget = document.querySelector(".contact-widget");
-  const footer = document.querySelector("footer");
+  const triggerPoint = 500; // px after which widget moves up
 
-  const footerRect = footer.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-
-  if (footerRect.top < windowHeight) {
-    // Footer is visible → push widget up
-    const overlap = windowHeight - footerRect.top;
-    widget.style.transform = `translateY(-${overlap + -100}px)`; 
+  if (window.scrollY > triggerPoint) {
+    widget.classList.add("move-top");
   } else {
-    // Normal position
-    widget.style.transform = "translateY(0)";
+    widget.classList.remove("move-top");
   }
 });
-
 
 
  </script>

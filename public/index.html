@@ -70,6 +70,8 @@
       display: flex;
       transition: transform 0.6s cubic-bezier(.83,.06,.33,1.01);
       height: 120vh;
+      position: relative !important;
+      top: 60px !important;
     }
     .carousel-mobile {
       display: none;
@@ -79,7 +81,7 @@
       width: 100vw;
       min-width: 100vw;
       object-fit: cover;
-      height: 85vh;
+      height: 100vh;
     }
     .carousel-control {
       position: absolute;
@@ -286,11 +288,10 @@
     width: 100%;
     height: 0;
     border-bottom: 1px solid #e0e0e0; /* match your design color */
-    margin: 0 0 11px 0;   /* vertical spacing (bottom same as you want between line and form) */
+    margin: 0 0 11px 0;   
 }
 
 .search-input-wrap {
-
     display: flex;
     align-items: center;
     background: #fff;
@@ -301,7 +302,7 @@
 .search-icon {
     color: #222 !important; /* dark in ref image */
     font-size: 1.1em;
-    pointer-events: all; /* clickable as part of form */
+    pointer-events: all; 
     cursor: pointer;
     padding-left: 15px;
 }
@@ -789,7 +790,7 @@
   max-width: 100vw;
   position: relative;
   top: 10px;
-  height: 420px;
+  height: 480px;
   display: flex;
   align-items: stretch;
   padding-left: 50px;
@@ -797,10 +798,16 @@
 }
 .property-type-track {
   display: flex;
+  width: max-content;
+  animation: scroll 18s linear infinite;
   transition: transform 0.65s cubic-bezier(.83,.06,.33,1.01);
   will-change: transform;
   height: 100%;
   box-shadow: 0 12px 25px rgba(56, 55, 55, 0.09);
+}
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .property-type-track .card {
   min-width: 20vw;
@@ -2107,6 +2114,7 @@ position: relative;
   transition: color 0.18s;
   outline: none;
   min-width: 90px;
+  text-decoration: none;
 }
 .hero-tab.active, .hero-tab:focus {
   color: #21104b;
@@ -2344,7 +2352,7 @@ footer {
     width: 40px;
     height: 40px;
     background-color: #fceabb;
-    color: #f7c948;
+    color: black;
     border-radius: 50%;
     transition: all 0.3s;
     text-decoration: none;
@@ -2826,8 +2834,6 @@ input, select, textarea, button {
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: #0ea5e9;
-  box-shadow: 0 0 0 2px rgba(14,165,233,.25);
 }
 
 /* Fieldset & Legend */
@@ -3239,7 +3245,7 @@ body.modal-open {
   <!-- SECTION 2: HERO CAROUSEL -->
    <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-    <img style="width: 130px; height: 120px; overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+    <a href="index.html"> <img style="width: 130px; height: 120px; overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" /></a>
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
      <div class="hero-tab-wrapper">
@@ -3304,13 +3310,13 @@ body.modal-open {
       </div>
     </div>
     <div class="hero-tab-wrapper">
-      <button class="hero-tab" type="button" data-tab="interior">Interior</button>
-      <div class="hero-tab-dropdown">
+      <a href="https://homeconstructions.sreevaarihomes.com/projects" class="hero-tab"  data-tab="interior">Interior</a>
+      <!-- <div class="hero-tab-dropdown">
         <img src="images/img icons/compressed/12.png" alt="Interior" class="hero-dropdown-img" />
        <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
           <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
         </ol>
-      </div>
+      </div> -->
     </div>
   </div>
 </nav>
@@ -3589,11 +3595,11 @@ body.modal-open {
 <div class="carousel-main-title">Apartments, Plots and more</div>
 <div class="carousel-subtitle">At Sree Vaari Homes</div>
 <div class="carousel-strip-wrapper">
-  <button class="carousel-arrow left" aria-label="Scroll Left" id="cardPrevBtn">
+  <!-- <button class="carousel-arrow left" aria-label="Scroll Left" id="cardPrevBtn">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
       <path d="M15.5 19L8.5 12L15.5 5" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-  </button>
+  </button> -->
   <div class="property-type-carousel" id="cardCarousel">
     <div class="property-type-track" id="cardTrack">
 
@@ -3640,11 +3646,11 @@ body.modal-open {
       <div class="card" style="background-image: url('images/img cards/9.png');"> </div>
     </div>
   </div>
-  <button class="carousel-arrow right" aria-label="Scroll Right" id="cardNextBtn">
+  <!-- <button class="carousel-arrow right" aria-label="Scroll Right" id="cardNextBtn">
     <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
       <path d="M8.5 5L15.5 12L8.5 19" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-  </button>
+  </button> -->
 </div>
 </div>
 
@@ -3653,19 +3659,19 @@ body.modal-open {
     <div class="section-title" style="font-size: 24px;">Find Your Property in Your Preferred City</div>
     <div class="city-list">
       <div class="city-item">
-        <img src="images/city  4/1.png" alt="North Bengaluru" class="city-img">
+       <a href="cities_property.html"> <img src="images/city  4/1.png" alt="North Bengaluru" class="city-img"></a>
         <span class="city-name">North Bengaluru</span>
       </div>
       <div class="city-item">
-        <img src="images/city  4/2.png" alt="South Bengaluru" class="city-img">
+       <a href="cities_property.html"> <img src="images/city  4/2.png" alt="South Bengaluru" class="city-img"></a>
         <span class="city-name">South Bengaluru</span>
       </div>
       <div class="city-item">
-        <img src="images/city  4/3.png" alt="Kolar" class="city-img">
+        <a href="cities_property.html"> <img src="images/city  4/3.png" alt="Kolar" class="city-img"></a>
         <span class="city-name">Kolar</span>
       </div>
       <div class="city-item">
-        <img src="images/city  4/4.png" alt="Chikkaballapur" class="city-img">
+        <a href="cities_property.html"> <img src="images/city  4/4.png" alt="Chikkaballapur" class="city-img"></a>
         <span class="city-name">Chikkaballapur</span>
       </div>
     </div>
@@ -4719,102 +4725,16 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach(sec => observer.observe(sec));
 });
 
-// === PROPERTY TYPES/CARDS INFINITE CAROUSEL + ARROWS + AUTOPLAY ===
-(function() {
-  const cardTrack = document.getElementById('cardTrack');
-  const cardCarousel = document.getElementById('cardCarousel');
-  const cardPrevBtn = document.getElementById('cardPrevBtn');
-  const cardNextBtn = document.getElementById('cardNextBtn');
-  let originalCards = Array.from(cardTrack.querySelectorAll('.card'));
-  const cardCount = originalCards.length;
-  function getCardsPerScreen() {
-    return window.innerWidth < 700 ? 1 : (window.innerWidth < 1100 ? 2 : 3);
+
+const tracks = document.querySelectorAll('.property-type-track');
+tracks.forEach( track => {
+  const cards = [...track.children];
+  for(const card of cards) {
+    track.appendChild(card.cloneNode(true));
   }
-  let clonesPerSide = getCardsPerScreen();
-  let currentCardIndex = clonesPerSide;
-  let autoCardInterval = null;
+})
 
-  function cloneCardsAndInit() {
-    cardTrack.querySelectorAll('.clone').forEach(c => c.remove());
-    clonesPerSide = getCardsPerScreen();
-    // Clone last N and prepend
-    const lastN = originalCards.slice(-clonesPerSide).map(c => {
-      let cl = c.cloneNode(true);
-      cl.classList.add('clone');
-      return cl;
-    });
-    lastN.forEach(clone => cardTrack.insertBefore(clone, cardTrack.firstChild));
-    // Clone first N and append
-    const firstN = originalCards.slice(0, clonesPerSide).map(c => {
-      let cl = c.cloneNode(true);
-      cl.classList.add('clone');
-      return cl;
-    });
-    firstN.forEach(clone => cardTrack.appendChild(clone));
-    // Snap to first real window after clones
-    currentCardIndex = clonesPerSide;
-    slideToCard(currentCardIndex, false);
-  }
-  function getCardWidth() {
-    const cardDom = cardTrack.querySelector('.card, .clone');
-    if (!cardDom) return 0;
-    return cardDom.offsetWidth + parseInt(getComputedStyle(cardDom).marginRight);
-  }
-  function slideToCard(idx, animate = true) {
-    const totalCards = cardCount + 2 * clonesPerSide;
-    if (idx < 0) idx = 0;
-    if (idx > totalCards - clonesPerSide) idx = totalCards - clonesPerSide;
-    cardTrack.style.transition = animate ? 'transform 0.65s cubic-bezier(.83,.06,.33,1.01)' : 'none';
-    cardTrack.style.transform = `translateX(-${idx * getCardWidth()}px)`;
-    currentCardIndex = idx;
-  }
-  cardTrack.addEventListener('transitionend', function () {
-    if (currentCardIndex >= cardCount + clonesPerSide) {
-      slideToCard(clonesPerSide, false);
-    }
-    else if (currentCardIndex < clonesPerSide) {
-      slideToCard(cardCount + clonesPerSide - 1, false);
-    }
-  });
-  cardPrevBtn.onclick = () => slideToCard(currentCardIndex - 1);
-  cardNextBtn.onclick = () => slideToCard(currentCardIndex + 1);
-  function startAutoScroll() {
-    if (autoCardInterval) clearInterval(autoCardInterval);
-    autoCardInterval = setInterval(() => {
-      slideToCard(currentCardIndex + 1);
-    }, 4000);
-  }
-  window.addEventListener('resize', ()=>{ cloneCardsAndInit(); });
-  cloneCardsAndInit();
-  startAutoScroll();
-})();
 
-document.addEventListener("DOMContentLoaded", () => {
-  const citySection = document.querySelector(".city-section");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-        citySection.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 }); // 20% visible
-
-  observer.observe(citySection);
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".city-section, .latest-props-section");
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting && entry.intersectionRatio >= 0.2) {
-        entry.target.classList.add("visible");
-      }
-    });
-  }, { threshold: 0.2 }); 
-
-  sections.forEach(sec => observer.observe(sec));
-});
 /* --- Autocomplete in Search Bar --- */
 const locations = [
   "North Bangalore",

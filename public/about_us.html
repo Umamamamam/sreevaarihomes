@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-dyZb6+X... (trimmed)" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <title>About Sreevaari Homes</title>
   <style>
     html, body {
@@ -191,8 +193,7 @@
 }
       .ourProjects {
             color: white;
-            background-color: orange;
-            
+            background-color: #7c653d;
             width: 100%;
             height: auto;
             padding: 50px;
@@ -815,7 +816,7 @@ footer {
     width: 40px;
     height: 40px;
     background-color: #fceabb;
-    color: #f7c948;
+    color: black;
     border-radius: 50%;
     transition: all 0.3s;
     text-decoration: none;
@@ -909,25 +910,29 @@ footer {
   border-radius: 50%;
   text-align: center;
   font-size: 30px;
-  box-shadow: 2px 2px 3px #999;
-  z-index: 100;  
+  box-shadow: 2px 2px 3px #999; 
 }
 .whatsapp-float i {
   margin-top: 10px;
   font-size: 40px;
+  z-index: 1001 !important;
 }
   </style>
 </head>
 <body onload="moveCarousel()">
   <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
-     <img style="overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" />
+   <a href="index.html"> <img style="width: 130px; height: 120px; overflow: visible;" class="navbarLogo"src="images/PROJECT IMAGES/logo.png" alt="Sree Vaari Homes Logo" /></a>
     <span class="toggleMenu"><img src="images\img cards\drop-down-menu.png" class="toggleMenuImg"></span>
   <div class="hero-tabs-list">
+     <!-- <div class="hero-tab-wrapper">
+      <a class="hero-tab" id="aboutBtn" href="about_us.html" >About</a>
+    </div> -->
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="apartments">Apartment’s</button>
+      
       <div class="hero-tab-dropdown">
-        <img src="images/PROJECT IMAGES/3.png" alt="Golden Towers" class="hero-dropdown-img" />
+        <img src="/images/PROJECT IMAGES/goldentowers.png" alt="Golden Towers" class="hero-dropdown-img" />
       <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
           <li><a href="property-details.html?propertyId=slv_golden_towers"><b>Golden Towers</b></a></li>
         </ol>
@@ -936,20 +941,20 @@ footer {
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="plots">Plots</button>
       <div class="hero-tab-dropdown">
-        <img src="images/PROJECT IMAGES/2.png" alt="Plots" class="hero-dropdown-img" />
+        <img src="images/PROJECT IMAGES/6.png" alt="Plots" class="hero-dropdown-img" />
         <ol>
           <li><a href="property-details.html?propertyId=slv_nandhi_view"><b>SLV Nandhi View</b></a></li>
-          <li><a href="property-details.html?propertyId=nandhi_gardenia">Nandhi Gardenia</a></li>
-          <li><a href="property-details.html?propertyId=vr_emerald">VR Emerald</a></li>
-          <li><a href="property-details.html?propertyId=vr_innovative_global_city">VR Innovative Global City</a></li>
+          <li><a href="property-details.html?propertyId=nandhi_gardenia"><b>Nandhi Gardenia</b></a></li>
+          <li><a href="property-details.html?propertyId=vr_emerald"><b>VR Emerald</b></a></li>
+          <li><a href="property-details.html?propertyId=vr_innovative_global_city"><b>VR Innovative Global City</b></a></li>
         </ol>
       </div>
     </div>
     <div class="hero-tab-wrapper">
   <button class="hero-tab" type="button" data-tab="construction">Home construction</button>
- <div class="hero-tab-dropdown">
+<div class="hero-tab-dropdown">
   <img id="construction-img" 
-       src="images/PROJECT-IMAGES/construction.png" 
+       src="images/PROJECT IMAGES/construction.png" 
        alt="Home Construction" 
        class="hero-dropdown-img" 
        style="cursor:pointer;" />
@@ -960,6 +965,7 @@ footer {
     Sree Vaari Home Construction
   </div>
 </div>
+
 </div>
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="upvc">UPVC</button>
@@ -974,10 +980,10 @@ footer {
     <div class="hero-tab-wrapper">
       <button class="hero-tab" type="button" data-tab="solar">Solar</button>
       <div class="hero-tab-dropdown">
-        <img src="images/img cards/9.png" alt="Solar" class="hero-dropdown-img" />
-        <!-- <ol>
-          <li><a href="service-details.html?serviceId=solar"><b>Solar Panel Details</b></a></li>
-        </ol> -->
+        <img src="images/PROJECT IMAGES/yrsolar.png" alt="Solar" class="hero-dropdown-img" />
+      <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
+  <li><a href="service-details.html?serviceId=upvc"><b>YR Solar</b></a></li>
+</ol>
       </div>
     </div>
     <div class="hero-tab-wrapper">
