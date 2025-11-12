@@ -242,28 +242,7 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700&display=swap');
 
 
-/* Container box styling */
-/* .search-overlay {
-  position: absolute;
-  left: 25%;
-  bottom: 33px;
-  transform: translateX(-50%);
-  font-family: 'Poppins', Arial, sans-serif !important;
-  border: 2.5px solid #adadaf;
-  box-shadow: 0 8px 32px rgba(120,88,241,0.12), 0 2px 10px rgba(0,0,0,0.03);
-  background: #fff;
-  border-radius: 16px;
-  padding: 28px 36px 14px 36px;
-  min-width: 320px;
-      max-width: 1020px;
-      width: 92vw;
-  margin: 0 auto;
-  position: relative;
-  z-index: 3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-} */
+
 
 .search-overlay {
       position: absolute;
@@ -464,20 +443,7 @@
 }
 
 .search-form input::placeholder { color: #b9b1c6; font-style: italic; }
-/* .search-form button {
-  background: #358cff;
-  color: #fff;
-  border: none;
-  padding: 0 22px;
-  height: 41px;
-  font-weight: 600;
-  font-size: 1em;
-  border-radius: 0 7px 7px 0;
-  margin-left: 0;
-  transition: background 0.19s;
-  cursor: pointer;
-  white-space: nowrap;
-} */
+
 .search-form button:hover, .search-form button:focus {
   background: #9b6eff;
   color: #fff;
@@ -720,66 +686,6 @@
     margin-bottom: 6px;
   }
 }
-
-/*
-
-@media (max-width: 1200px) {
-  .carousel-strip-wrapper, .image-carousel { padding-left:3vw; padding-right:3vw; }
-  .service-list { gap: 15px; }
-}
-@media (max-width: 950px) {
-  .image-carousel { gap: 9px; }
-  .card { min-width: 181px; height: 215px;}
-  .carousel-main-title { font-size: 1.15rem; }
-}
-@media (max-width: 800px) {
-  .service-card { min-width: 170px; max-width: 95vw; }
-  .card { min-width: 159px; }
-  .prop-card { min-width: 160px; max-width: 95vw;}
-}
-
-
-@media (max-width:700px) {
-  .tabs { font-size: 0.95em; gap: 3px; margin-bottom: 11px;}
-  .tab { padding: 8px 4px 8px 4px; margin-right: 12px;}
-  .search-form { flex-direction: column; align-items: stretch; margin-top: 10px; }
-  .search-form select, .search-form .search-icon, .search-form input[type="text"], .search-form button {
-    border-radius: 8px;
-    height: 38px;
-    font-size: 0.98em;
-    width: 100%;
-    min-width: 0;
-    margin: 0 0 8px 0;
-    padding: 10px;
-    border-right: none;
-  }
-  .search-form .search-icon {padding: 0 0 0 5px; font-size: 19px;}
-  .search-form input[type="text"] { padding: 0 9px;}
-  .search-form button { height: 38px;}
-}
-@media (max-width:675px){
-  .actions-box-list, .prop-card-list, .service-list, .city-list { flex-direction: column; gap: 14px; align-items: center;}
-  .card, .prop-card, .service-card { max-width: 95vw; min-width: 90vw;}
-  .image-carousel { padding: 0 8px;}
-  .city-list{ gap: 21px;}
-  .carousel-main-title, .carousel-subtitle, .city-title, .latest-title, .services-title { margin-left: 2vw;}
-  .city-title, .latest-title, .services-title { font-size:1.03em;}
-  .search-overlay { min-width: 95vw; width: 97vw;}
-  .carousel-control.left,.carousel-control.right {left: 6px; right: 6px;}
-}
-@media (max-width:500px) {
-  .carousel-main-title, .carousel-subtitle,.logo-header {margin-left: 0 !important;}
-  .search-overlay {
-    min-width:98vw;
-    padding:9px 3vw 13px 3vw;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .logo-header img {max-height: 46px;}
-  .carousel-control{width:35px;height:35px;}
-  .carousel-main-title{font-size:1em;}
-} */
-
 
     /*------------------------
       SECTION 3: Property Types Carousel
@@ -1808,42 +1714,6 @@ position: relative;
 }
 
 }
-
-    /*-------------------------
-      RESPONSIVE STYLING
-    --------------------------*/
-    /* @media (max-width: 1200px) {
-      .carousel-strip-wrapper, .image-carousel { padding-left:3vw; padding-right:3vw; }
-      .service-list { gap: 15px; }
-    }
-    @media (max-width: 950px) {
-      .image-carousel { gap: 9px; }
-      .card { min-width: 181px; height: 215px;}
-      .carousel-main-title { font-size: 1.15rem; }
-    }
-    @media (max-width: 800px) {
-      .service-card { min-width: 170px; max-width: 95vw; }
-      .card { min-width: 159px; }
-      .prop-card { min-width: 160px; max-width: 95vw;}
-    }
-    @media (max-width:675px){
-      .actions-box-list, .prop-card-list, .service-list, .city-list { flex-direction: column; gap: 14px; align-items: center;}
-      .card, .prop-card, .service-card { max-width: 95vw; min-width: 90vw;}
-      .image-carousel { padding: 0 8px;}
-      .city-list{ gap: 21px;}
-      .carousel-main-title, .carousel-subtitle, .city-title, .latest-title, .services-title { margin-left: 2vw;}
-      .city-title, .latest-title, .services-title { font-size:1.03em;}
-      .search-overlay { min-width: 95vw; width: 97vw;}
-      .carousel-control.left,.carousel-control.right {left: 6px; right: 6px;}
-    }
-    @media (max-width:500px) {
-      .carousel-main-title, .carousel-subtitle,.logo-header {margin-left: 0 !important;}
-      .search-overlay {min-width:98vw;padding:9px 3vw 13px 3vw;}
-      .logo-header img {max-height: 46px;}
-      .carousel-control{width:35px;height:35px;}
-      .carousel-main-title{font-size:1em;}
-    } */
-   
     .action-box {
   position: relative;
   background-repeat: no-repeat;
@@ -3237,11 +3107,6 @@ body.modal-open {
 
 <div class="site-container">
 
-  <!-- SECTION 1: HEADER LOGO -->
-  <!-- <div class="logo-header section">
-    <img src="images/SREE VAARI LOGO.png" alt="Sree Vaari Homes Logo" />
-  </div> -->
-
   <!-- SECTION 2: HERO CAROUSEL -->
    <!-- HERO NAVBAR: Only Above Carousel Section -->
 <nav class="hero-tabs-nav" id="heroTabsNav">
@@ -3311,19 +3176,14 @@ body.modal-open {
     </div>
     <div class="hero-tab-wrapper">
       <a href="https://homeconstructions.sreevaarihomes.com/projects" class="hero-tab"  data-tab="interior">Interior</a>
-      <!-- <div class="hero-tab-dropdown">
-        <img src="images/img icons/compressed/12.png" alt="Interior" class="hero-dropdown-img" />
-       <ol style="list-style-type: none; display: flex; justify-content: center; text-align: center; padding: 0; margin: 0;">
-          <li><a href="service-details.html?serviceId=interior"><b>Home Interiors</b></a></li>
-        </ol>
-      </div> -->
+   
     </div>
   </div>
 </nav>
 <div class="overlay" id="overlay"></div>
 <!-- Mobile Sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
-  <span class="closeSidebar" id="closeSidebar" style="font-size: 12px;">&times;</span>
+  <span class="closeSidebar" id="closeSidebar" style="font-size: 22px;">&times;</span>
 
   <!-- Mobile Tabs -->
   <div class="hero-tab-wrapper">
@@ -3471,80 +3331,29 @@ body.modal-open {
         <!-- Apartments Dropdown Example -->
         <div class="tab-wrapper">
           <button class="tab" type="button">Apartment’s</button>
-          <!-- <div class="tab-dropdown">
-            <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-            <img class="dropdown-img" src="images/PROJECT IMAGES/1.png" alt="Golden Towers" />
-            </a>
-            <div class="dropdown-title">SLV Golden Towers</div>
-            <ol class="dropdown-list">
-              <li onclick="location.href='property-details.html?propertyId=slv_golden_towers'">SLV Golden Towers</li>
-              <li onclick="location.href='property-details.html?propertyId=project2'">Golden Residency</li>
-            </ol>
-          </div> -->
+         
         </div>
         <div class="tab-wrapper">
           <button class="tab" type="button">Plots</button>
-          <!-- <div class="tab-dropdown">
-            <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-            <img class="dropdown-img" src="images/PROJECT IMAGES/2.png" alt="Plots" />
-            </a>
-            <ol class="dropdown-list">
-              <li onclick="location.href='property-details.html?propertyId=slv_nandhi_view'">SLV Nandhi View</li>
-              <li onclick="location.href='property-details.html?propertyId=nandhi_gardenia'">Nandhi Gardenia</li>
-              <li onclick="location.href='property-details.html?propertyId=vr_emerald'">VR Emerald</li>
-              <li onclick="location.href='property-details.html?propertyId=vr_innovative_global_city'">VR Innovative Global City</li>
-            </ol>
-          </div> -->
+         
         </div>
         <div class="tab-wrapper">
           <button class="tab" type="button">Home construction</button>
-          <!-- <div class="tab-dropdown">
-            <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-            <img class="dropdown-img" src="images/PROJECT IMAGES/3.png" alt="Home Construction" />
-            </a>
-            <div class="dropdown-title">Sree Vaari Home Construction</div>
-            <ol class="dropdown-list">
-              <li onclick="location.href='service-details.html?serviceId=home_construction'">View Details</li>
-            </ol>
-          </div> -->
+        
         </div>
 
         <div class="tab-wrapper">
     <button class="tab" type="button">UPVC</button>
-    <!-- <div class="tab-dropdown">
-      <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-          <img class="dropdown-img" src="images/PROJECT IMAGES/4.png" alt="Solar" />
-      </a>
-      <div class="dropdown-title">UPVC Solutions</div>
-       <ol class="dropdown-list">
-        <li onclick="location.href='service-details.html?serviceId=upvc'">View UPVC Services</li>
-      </ol>
-    </div> -->
+    
   </div>
 
         <div class="tab-wrapper">
           <button class="tab" type="button">Solar</button>
-          <!-- <div class="tab-dropdown">
-            <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-            <img class="dropdown-img" src="images/PROJECT IMAGES/yrsolar.png" alt="Solar" />
-            </a>
-            <div class="dropdown-title">YR Solar</div>
-            <ol class="dropdown-list">
-            <li onclick="location.href='service-details.html?serviceId=solar'">Solar Panel Details</li>
-            </ol> 
-          </div> -->
+       
         </div>
         <div class="tab-wrapper">
           <button class="tab" type="button">Interior</button>
-          <!-- <div class="tab-dropdown">
-            <a href="property-details.html?propertyId=slv_golden_towers" tabindex="0">
-            <img class="dropdown-img" src="images/PROJECT IMAGES/5.png" alt="Interior" />
-            </a>
-            <div class="dropdown-title">Decor Design</div>
-            <ol class="dropdown-list">
-            <li onclick="location.href='service-details.html?serviceId=interior'">View Interior Services</li>
-            </ol> 
-          </div> -->
+      
         </div>
       </div>
       <div class="tab-underline-divider"></div>
@@ -3595,62 +3404,34 @@ body.modal-open {
 <div class="carousel-main-title">Apartments, Plots and more</div>
 <div class="carousel-subtitle">At Sree Vaari Homes</div>
 <div class="carousel-strip-wrapper">
-  <!-- <button class="carousel-arrow left" aria-label="Scroll Left" id="cardPrevBtn">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-      <path d="M15.5 19L8.5 12L15.5 5" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button> -->
+
   <div class="property-type-carousel" id="cardCarousel">
     <div class="property-type-track" id="cardTrack">
 
       <div class="card" style="background-image: url('images/img cards/1.png');">
-        <!-- <div class="card-overlay">
-          <div class="card-title">Residential Apartment</div>
-          <div class="card-details">4,800+ Properties</div>
-        </div> -->
+   
       </div>
       <div class="card" style="background-image: url('images/img cards/2.png');">
-        <!-- <div class="card-overlay">
-          <div class="card-title">Residential Land</div>
-          <div class="card-details">2,900+ Properties</div>
-        </div> -->
+
       </div>
          <div class="card" style="background-image: url('images/img cards/5.png');"> </div>
       <div class="card" style="background-image: url('images/img cards/3.png');">
-        <!-- <div class="card-overlay">
-          <div class="card-title">Independent House/ Villa</div>
-          <div class="card-details">1,300+ Properties</div>
-        </div> -->
+
       </div>
       <div class="card" style="background-image: url('images/img cards/4.png');">
-        <!-- <div class="card-overlay">
-          <div class="card-title">Independent/ Builder Floor</div>
-          <div class="card-details">240+ Properties</div>
-        </div> -->
+       
       </div>
         <div class="card" style="background-image: url('images/img cards/8.png');"> </div>
-      <!-- <div class="card" style="background-image: url('images/img cards/5.png');"> </div> -->
-        <!-- <div class="card-overlay">
-          <div class="card-title">1 RK/ Studio Apartment</div>
-          <div class="card-details">20+ Properties</div>
-        </div>
-      </div> -->
+    
       <div class="card" style="background-image: url('images/img cards/6.png');">
-        <!-- <div class="card-overlay">
-          <div class="card-title">Farm House</div>
-          <div class="card-details">5 Properties</div>
-        </div> -->
+    
       </div>
       <div class="card" style="background-image: url('images/img cards/7.png');"> </div>
     
       <div class="card" style="background-image: url('images/img cards/9.png');"> </div>
     </div>
   </div>
-  <!-- <button class="carousel-arrow right" aria-label="Scroll Right" id="cardNextBtn">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-      <path d="M8.5 5L15.5 12L8.5 19" stroke="#384656" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </button> -->
+
 </div>
 </div>
 
@@ -4832,9 +4613,7 @@ searchInput.addEventListener('focus', function() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           section.classList.add("show");
-     
-          // observer.unobserve(sectionsub);
-           //observer.unobserve(sectiontitle);
+
           observer.unobserve(section);
         }
       });
@@ -4843,33 +4622,6 @@ searchInput.addEventListener('focus', function() {
     observer.observe(section);
 
   });
-
-
-
-/* -------- SECTION 3: PROPERTY TYPES CAROUSEL -------- */
-// const propCarousel = document.getElementById('imageCarousel');
-// const propLeftArrow = document.querySelector('.carousel-arrow.left');
-// const propRightArrow = document.querySelector('.carousel-arrow.right');
-// function scrollCarousel(direction) {
-//   const card = propCarousel.querySelector('.card');
-//   const scrollAmount = card.offsetWidth + 18;
-//   propCarousel.scrollBy({left: direction * scrollAmount * 1.8, behavior: 'smooth'});
-// }
-// propLeftArrow.addEventListener('click', () => scrollCarousel(-1));
-// propRightArrow.addEventListener('click', () => scrollCarousel(1));
-// function updateArrows() {
-//   propLeftArrow.style.visibility = propCarousel.scrollLeft > 8 ? 'visible' : 'hidden';
-//   propRightArrow.style.visibility =
-//     propCarousel.scrollLeft + propCarousel.offsetWidth < propCarousel.scrollWidth - 8 ? 'visible' : 'hidden';
-// }
-// propCarousel.addEventListener('scroll', updateArrows);
-// window.addEventListener('resize', updateArrows);
-// window.setTimeout(updateArrows, 420);
-// propCarousel.tabIndex = 0;
-// propCarousel.addEventListener('keydown', (e) => {
-//   if (e.key === 'ArrowLeft') scrollCarousel(-1);
-//   if (e.key === 'ArrowRight') scrollCarousel(1);
-// });
 // SECTION 3: Auto-sliding Card Carousel (3 at a time)
 
 const cardTrack = document.getElementById('cardTrack');
