@@ -137,7 +137,7 @@
   .container {
     width: 96%;
     margin-top: 10px;
-    margin-left: 20px;
+    left: auto;
   }
 }
 
@@ -2264,7 +2264,7 @@ function renderProject(project) {
   
   document.getElementById('downloadBrochureBtn').onclick = () => alert('Download Brochure (action not implemented)');
 
-  // 3. GALLERY
+   /*// 3. GALLERY
   document.getElementById('gallery-title').innerText = `Photos of ${project.title}`;
   const galleryRow = document.getElementById('gallery-row');
   galleryRow.innerHTML = '';
@@ -2279,7 +2279,7 @@ function renderProject(project) {
   arrBtn.innerHTML = '<i class="fa fa-arrow-right"></i>';
   arrBtn.onclick = () => alert('Gallery scroll (not implemented)'); 
   galleryRow.appendChild(arrBtn);
-
+*/
 // 4. AMENITIES
 document.getElementById('amenities-title').innerText = `Amenities ${project.title}`;
 const amenitiesGrid = document.getElementById('amenities-grid');
@@ -2472,8 +2472,6 @@ function renderFloorPlans(project) {
       <div class="floor-card">
         <img src="${f.img}" alt="${f.label}">
         <h3>${f.label}</h3>
-        <p>Carpet Area: ${f.carpetArea || "N/A"}</p>
-        <a href="#" class="request-link">Request Price →</a>
       </div>
     `;
   });
